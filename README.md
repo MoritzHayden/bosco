@@ -3,7 +3,7 @@
 <div align="center">
 
   <a href="https://github.com/MoritzHayden/bosco" target="_self">
-    <img src="./img/avatar-alt.png" width="30%" style="min-width: 100px; max-width: 250px" alt="Bosco Bot Logo" />
+    <img src="./img/avatar-alt.png" width="30%" alt="Bosco Bot Logo" />
   </a>
 
   &nbsp;
