@@ -1,4 +1,4 @@
-# Bosco Bot
+# Bosco
 
 ## Table of Contents
 
@@ -22,7 +22,7 @@ TODO
 
 ## Contributing
 
-Contributions are welcome! Please open a [pull request](https://github.com/MoritzHayden/bosco-bot/pulls) with your changes.
+Contributions are welcome! Please open a [pull request](https://github.com/MoritzHayden/bosco/pulls) with your changes.
 
 ## Legal
 
