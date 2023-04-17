@@ -2,9 +2,7 @@
 
 <div align="center">
 
-  <img src="./img/avatar-alt.png" width="30%" alt="Bosco Bot Logo" />
-
-  <br />
+  <img src="./img/avatar-alt.png" width="30%" style="padding-bottom: 15px; min-width: 100px; max-width: 250px" alt="Bosco Bot Logo" />
 
   [![Platform](https://img.shields.io/badge/platform-discord-blue.svg)](https://discord.com)
   [![Language](https://img.shields.io/badge/language-python-yellow.svg)](https://www.python.org)
