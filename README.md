@@ -4,6 +4,8 @@
 
   <img src="./img/avatar-alt.png" width="30%" alt="Bosco Bot Logo" />
 
+  <br />
+
   [![Platform](https://img.shields.io/badge/platform-discord-blue.svg)](https://discord.com)
   [![Language](https://img.shields.io/badge/language-python-yellow.svg)](https://www.python.org)
   [![GitHub License](https://img.shields.io/github/license/MoritzHayden/bosco?color=darkred)](https://github.com/MoritzHayden/bosco/blob/main/LICENSE)
