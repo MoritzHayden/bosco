@@ -2,7 +2,7 @@
 
 A brief summary of the changes included in this PR.
 
-## Type of change
+## Type of Change
 
 Please select all that apply:
 
@@ -10,6 +10,6 @@ Please select all that apply:
 - [ ] New Feature
 - [ ] Documentation Update
 
-## Changes
+## Included Changes
 
 - ...
