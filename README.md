@@ -3,12 +3,17 @@
 ## Table of Contents
 
 - [About](#about)
+- [Usage](#usage)
 - [Local Development](#local-development)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [Legal](#legal)
 
 ## About
+
+TODO
+
+## Usage
 
 TODO
 
