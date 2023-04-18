@@ -12,7 +12,6 @@
   [![Language](https://img.shields.io/badge/language-python-yellow.svg)](https://www.python.org)
   [![License](https://img.shields.io/github/license/MoritzHayden/bosco?color=darkred)](https://github.com/MoritzHayden/bosco/blob/main/LICENSE)
 
-  [![Deployment](https://github.com/MoritzHayden/bosco/actions/workflows/deploy.yml/badge.svg)](https://github.com/MoritzHayden/bosco/actions/workflows/deploy.yml)
   [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco/issues)
   [![Stars](https://img.shields.io/github/stars/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco)
 
@@ -127,7 +126,7 @@ python3 src/bot.py
 
 ## Deployment
 
-The bot is automatically deployed to a [DigitalOcean droplet](https://www.digitalocean.com/products/droplets) whenever a push is made to the [main branch](https://github.com/MoritzHayden/bosco/tree/main). This process is automated in the [Deployment](./.github/workflows/deploy.yml) GitHub Actions workflow.
+The bot is automatically deployed to the [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform) whenever a push is made to the [main branch](https://github.com/MoritzHayden/bosco/tree/main).
 
 ## Contributing
 
