@@ -51,4 +51,12 @@ Contributions are welcome! Please open a [pull request](https://github.com/Morit
 
 ## Legal
 
-[MIT License](LICENSE) - Copyright &copy; 2023 Hayden Moritz
+- [Terms of Service](./docs/TERMS-OF-SERVICE.md)
+- [Privacy Policy](./docs/PRIVACY-POLICY.md)
+- [MIT License](LICENSE)
+
+<div align="center">
+
+  Copyright &copy; 2023 Hayden Moritz
+
+</div>
