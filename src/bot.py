@@ -41,7 +41,7 @@ async def first_command(ctx):
     await ctx.response.send_message(f'Coming soon!')
 
 # Fun Fact command
-@tree.command(name = "fun-fact",
+@tree.command(name = "fun-facts",
               description = "Returns one or more fun facts")
 async def first_command(ctx, count=1):
     await ctx.response.send_message(f'Coming soon!')
