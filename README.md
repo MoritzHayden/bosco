@@ -117,7 +117,7 @@ python3 src/bot.py
 
 ## Deployment
 
-The bot is automatically deployed to a [DigitalOcean droplet](https://www.digitalocean.com/products/droplets) whenever a push is made to the [main branch](https://github.com/MoritzHayden/bosco/tree/main). This process is automated in the [Deploy to DigitalOcean Droplet](./.github/workflows/deploy.yml) GitHub Actions workflow.
+The bot is automatically deployed to a [DigitalOcean droplet](https://www.digitalocean.com/products/droplets) whenever a push is made to the [main branch](https://github.com/MoritzHayden/bosco/tree/main). This process is automated in the [Deployment](./.github/workflows/deploy.yml) GitHub Actions workflow.
 
 ## Contributing
 
