@@ -15,6 +15,7 @@
   [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco/issues)
   [![Stars](https://img.shields.io/github/stars/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco)
 
+  [![Install](./img/install.svg)](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot)
 </div>
 
 ---
@@ -34,6 +35,8 @@
   - [Execution](#execution)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
+- [Special Thanks](#special-thanks)
+- [Disclaimer](#disclaimer)
 - [Legal](#legal)
 
 ## About
@@ -42,7 +45,7 @@ Bosco is a free, open-source Discord bot and companion for Deep Rock Galactic pl
 
 ## Usage
 
-Bosco supports the following [slash commands](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ):
+Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot) to your server, it supports the following [slash commands](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ):
 
 ### `/ping`
 
