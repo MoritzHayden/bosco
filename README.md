@@ -132,6 +132,16 @@ The bot is automatically deployed to the [DigitalOcean App Platform](https://www
 
 Contributions are welcome! If you found a bug or have a feature request, please open an [issue](https://github.com/MoritzHayden/bosco/issues). If you would like to contribute changes, please [fork](https://github.com/MoritzHayden/bosco/fork) this repository, open a [pull request](https://github.com/MoritzHayden/bosco/pulls) with your changes, and link the PR with an [issue](https://github.com/MoritzHayden/bosco/issues). All contributions must adhere to the [Code of Conduct](./docs/CODE-OF-CONDUCT.md).
 
+## Special Thanks
+
+- The folks who maintain the [Deep Rock Galactic Wiki](https://deeprockgalactic.gamepedia.com/Deep_Rock_Galactic_Wiki) for supplying game images and data
+- [@thamara](https://github.com/thamara) for their work on [drg-deep-dive-bot](https://github.com/thamara/https://github.com/thamara/drg-deep-dive-bot) which inspired this project
+- The Deep Rock Galactic developers for being awesome. Rock and Stone!
+
+## Disclaimer
+
+Neither this bot nor its contributors are associated with Deep Rock Galactic or Ghost Ship Games in any way whatsoever.
+
 ## Legal
 
 - [Terms of Service](./docs/TERMS-OF-SERVICE.md)
