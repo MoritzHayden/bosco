@@ -25,6 +25,7 @@
 - [About](#about)
 - [Usage](#usage)
   - [/ping](#ping)
+  - [/deep-dives](#deep-dives)
   - [/fun-fact](#fun-fact)
 - [Local Development](#local-development)
   - [Registration](#registration)
@@ -48,28 +49,29 @@ Bosco supports the following [slash commands](https://support.discord.com/hc/en-
 - Description: A health check which pings Bosco and returns the latency.
 - Arguments:
   - None
-- Request:
+- Syntax:
   ```text
   /ping
   ```
-- Response:
+
+### `/deep-dives`
+
+- Description: Returns details about the weekly deep dives.
+- Arguments:
+  - None
+- Syntax:
   ```text
-  Pong! Latency: 56ms
+  /deep-dives
   ```
 
 ### `/fun-fact`
 
-- Description: A health check which pings Bosco and returns the latency.
+- Description: Returns one or more fun facts.
 - Arguments:
-  - `count`: An integer describing how many fun facts should be returned (valid range: 1-10).
-- Request:
+  - `count`: An optional integer describing how many fun facts should be returned (valid range: 1-10, default: 1).
+- Syntax:
   ```text
   /fun-fact count=1
-  ```
-- Response:
-  ```text
-  Fun Fact:
-  Only female mosquitoes bite humans. Male mosquitoes live on natural liquids from plants and other resources.
   ```
 
 ## Local Development
