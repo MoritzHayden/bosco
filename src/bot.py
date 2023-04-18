@@ -43,13 +43,13 @@ async def first_command(ctx):
 # Loadout command
 @tree.command(name = "loadout",
               description = "Returns a randomized loadout for the specified Dwarf")
-async def first_command(ctx, dwarf):
+async def first_command(ctx, dwarf: str):
     await ctx.response.send_message(f'Coming soon!')
 
 # Fun Fact command
 @tree.command(name = "fun-facts",
               description = "Returns one or more fun facts")
-async def first_command(ctx, count=1):
+async def first_command(ctx, count: int = 1):
     await ctx.response.send_message(f'Coming soon!')
 
 # Run client
