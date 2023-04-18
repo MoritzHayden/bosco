@@ -31,7 +31,6 @@
   - [Configuration](#configuration)
   - [Installation](#installation)
   - [Execution](#execution)
-
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [Legal](#legal)
