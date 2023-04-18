@@ -24,7 +24,14 @@
 
 - [About](#about)
 - [Usage](#usage)
+  - [/ping](#ping)
+  - [/fun-fact](#fun-fact)
 - [Local Development](#local-development)
+  - [Registration](#registration)
+  - [Configuration](#configuration)
+  - [Installation](#installation)
+  - [Execution](#execution)
+
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [Legal](#legal)
@@ -35,19 +42,84 @@ Bosco is a free, open-source Discord bot and companion for Deep Rock Galactic pl
 
 ## Usage
 
-TODO
+Bosco supports the following [slash commands](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ):
+
+### `/ping`
+
+- Description: A health check which pings Bosco and returns the latency.
+- Arguments:
+  - None
+- Request:
+  ```text
+  /ping
+  ```
+- Response:
+  ```text
+  Pong! Latency: 56ms
+  ```
+
+### `/fun-fact`
+
+- Description: A health check which pings Bosco and returns the latency.
+- Arguments:
+  - `count`: An integer describing how many fun facts should be returned (valid range: 1-10).
+- Request:
+  ```text
+  /fun-fact count=1
+  ```
+- Response:
+  ```text
+  Fun Fact:
+  Only female mosquitoes bite humans. Male mosquitoes live on natural liquids from plants and other resources.
+  ```
 
 ## Local Development
 
-TODO
+In order to run Bosco locally, you will need to configure your environment variables.
+
+### Registration
+
+In order for Bosco to interact with the services (Discord, Reddit, API Ninjas) it depends on, you will need to register for each of these services and obtain your tokens/secrets:
+
+1. Discord
+    - Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application. Copy your bot token for the next step.
+2. Reddit
+    - Register for access to the [Reddit API](https://www.reddit.com/wiki/api/). Copy your client id and secret for the next step.
+3. API Ninjas
+    - Register for access to [API Ninjas](https://api-ninjas.com/). Copy your api token for the next step.
+
+### Configuration
+
+Create a file called `.env` in the `src/` directory to hold your environment variables, and add the following keys (replacing `<VALUE>` with the real value):
+```text
+DISCORD_TOKEN=<VALUE>
+REDDIT_CLIENT_ID=<VALUE>
+REDDIT_SECRET=<VALUE>
+API_NINJAS_TOKEN=<VALUE>
+```
+
+### Installation
+
+Install dependencies by running the following command from the root of this repository:
+
+```bash
+pip install -U -r src/requirements.txt
+```
+
+### Execution
+
+Start Bosco by running the following command from the root of this repository:
+```bash
+python3 src/bot.py
+```
 
 ## Deployment
 
-TODO
+The bot is automatically deployed to a [DigitalOcean droplet](https://www.digitalocean.com/products/droplets) whenever a push is made to the [main branch](https://github.com/MoritzHayden/bosco/tree/main). This process is automated in the [Deploy to DigitalOcean Droplet](./.github/workflows/deploy.yml) GitHub Actions workflow.
 
 ## Contributing
 
-Contributions are welcome! Please open a [pull request](https://github.com/MoritzHayden/bosco/pulls) with your changes.
+Contributions are welcome! If you found a bug or have a feature request, please open an [issue](https://github.com/MoritzHayden/bosco/issues). If you would like to contribute changes, please open a [pull request](https://github.com/MoritzHayden/bosco/pulls) with your changes and associate it with an [issue](https://github.com/MoritzHayden/bosco/issues).
 
 ## Legal
 
