@@ -92,18 +92,18 @@ In order to run Bosco locally, you will need to configure your environment varia
 
 ### Registration
 
-In order for Bosco to interact with the services (Discord, Reddit, API Ninjas) it depends on, you will need to register for each of these services and obtain your tokens/secrets:
+In order for Bosco to interact with the services it depends on (Discord, Reddit, API Ninjas), you will need to register for each of these services and obtain your tokens/secrets:
 
 1. Discord
-    - Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application. Copy your bot token for the next step.
+    - Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application. Copy your bot token.
 2. Reddit
-    - Register for access to the [Reddit API](https://www.reddit.com/wiki/api/). Copy your client id and secret for the next step.
+    - Register for access to the [Reddit API](https://www.reddit.com/wiki/api/). Copy your client id and secret.
 3. API Ninjas
-    - Register for access to [API Ninjas](https://api-ninjas.com/). Copy your api token for the next step.
+    - Register for access to [API Ninjas](https://api-ninjas.com/). Copy your api token.
 
 ### Configuration
 
-Create a file called `.env` in the `src/` directory to hold your environment variables, and add the following keys (replacing `<VALUE>` with the real value):
+Create a file called `.env` within the `src/` directory to hold your environment variables, and add the following keys (replacing `<VALUE>` with the real value):
 ```text
 DISCORD_TOKEN=<VALUE>
 REDDIT_CLIENT_ID=<VALUE>
