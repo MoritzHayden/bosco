@@ -132,7 +132,7 @@ The bot is automatically deployed to a [DigitalOcean droplet](https://www.digita
 
 ## Contributing
 
-Contributions are welcome! If you found a bug or have a feature request, please open an [issue](https://github.com/MoritzHayden/bosco/issues). If you would like to contribute changes, please open a [pull request](https://github.com/MoritzHayden/bosco/pulls) with your changes and associate it with an [issue](https://github.com/MoritzHayden/bosco/issues).
+Contributions are welcome! If you found a bug or have a feature request, please open an [issue](https://github.com/MoritzHayden/bosco/issues). If you would like to contribute changes, please open a [pull request](https://github.com/MoritzHayden/bosco/pulls) with your changes and associate it with an [issue](https://github.com/MoritzHayden/bosco/issues). All contributions must adhere to the [Code of Conduct](./docs/CODE-OF-CONDUCT.md).
 
 ## Legal
 
