@@ -65,14 +65,14 @@ Bosco supports the following [slash commands](https://support.discord.com/hc/en-
   /deep-dives
   ```
 
-### `/fun-fact`
+### `/fun-facts`
 
 - Description: Returns one or more fun facts.
 - Arguments:
   - `count`: An optional integer describing how many fun facts should be returned (valid range: 1-10, default: 1).
 - Syntax:
   ```text
-  /fun-fact count=1
+  /fun-facts count=1
   ```
 
 ## Local Development
