@@ -20,7 +20,6 @@ async def on_ready():
 # Sync command
 @tree.command(name = "sync", description = "Syncs the command tree (admin only)")
 async def first_command(ctx):
-    print(utils.get_admins())
     if ctx.user.id in utils.get_admins():
         await tree.sync()
         await ctx.response.send_message("Synced command tree!")
@@ -30,7 +29,6 @@ async def first_command(ctx):
 # Ping command
 @tree.command(name = "ping", description = "Pings the bot and returns latency")
 async def first_command(ctx):
-    print('Pong! Latency: {0}'.format(round(client.latency, 1)))
-    await ctx.response.send_message('Pong! Latency: {0}'.format(round(client.latency, 1)))
+    await ctx.response.send_message(f'Pong! Latency: {client.latency}')
 
 client.run(TOKEN)
