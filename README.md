@@ -27,6 +27,7 @@
 - [Usage](#usage)
   - [/ping](#ping)
   - [/deep-dives](#deep-dives)
+  - [/loadout](#loadout)
   - [/fun-fact](#fun-fact)
 - [Local Development](#local-development)
   - [Registration](#registration)
@@ -63,6 +64,16 @@ Bosco supports the following [slash commands](https://support.discord.com/hc/en-
 - Syntax:
   ```text
   /deep-dives
+  ```
+
+### `/loadout`
+
+- Description: Returns a randomized loadout for the specified Dwarf.
+- Arguments:
+  - `dwarf`: A required string describing which dwarf the loadout should be generated for (valid values: driller, engineer, gunner, scout).
+- Syntax:
+  ```text
+  /loadout dwarf=engineer
   ```
 
 ### `/fun-facts`
