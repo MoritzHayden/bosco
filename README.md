@@ -12,6 +12,7 @@
   [![Language](https://img.shields.io/badge/language-python-yellow.svg)](https://www.python.org)
   [![GitHub License](https://img.shields.io/github/license/MoritzHayden/bosco?color=darkred)](https://github.com/MoritzHayden/bosco/blob/main/LICENSE)
 
+  [![Deployment](https://github.com/MoritzHayden/bosco/actions/workflows/deploy.yml/badge.svg)](https://github.com/MoritzHayden/bosco/actions/workflows/deploy.yml)
   [![GitHub Release](https://img.shields.io/github/v/release/MoritzHayden/bosco?color=darkgreen)](https://github.com/MoritzHayden/bosco/releases)
   [![GitHub Issues](https://img.shields.io/github/issues/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco/issues)
   [![GitHub Stars](https://img.shields.io/github/stars/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco)
