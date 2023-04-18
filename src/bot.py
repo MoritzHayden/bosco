@@ -29,6 +29,6 @@ async def first_command(ctx):
 # Ping command
 @tree.command(name = "ping", description = "Pings the bot and returns latency")
 async def first_command(ctx):
-    await ctx.response.send_message(f'Pong! Latency: {client.latency}')
+    await ctx.response.send_message(f'Pong! Latency: {round(client.latency*1000)}ms')
 
 client.run(TOKEN)
