@@ -32,9 +32,18 @@ async def on_ready():
     print('INFO: Bot ready')
 
 
+# Help command
+@tree.command(name="help",
+              description="Get help with Bosco")
+async def help(ctx):
+    print('INFO: Recieved /help command')
+    await ctx.response.send_message('Coming soon!')
+    print('SUCCESS: Processed /help command')
+
+
 # Ping command
 @tree.command(name="ping",
-              description="Pings the bot and returns latency")
+              description="Ping Bosco")
 async def ping(ctx):
     print('INFO: Recieved /ping command')
     latency = round(client.latency*1000)
@@ -44,8 +53,8 @@ async def ping(ctx):
 
 # Deep Dive command
 @tree.command(name="deep-dive",
-              description="Returns details about the weekly deep dives")
-@app_commands.describe(type = "Which Deep Dive(s) to fetch details for")
+              description="Get details about the weekly deep dives")
+@app_commands.describe(type="Which Deep Dive(s) to get details for")
 async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     print(f'INFO: Recieved /deep-dive command with type={type.name}')
     await ctx.response.send_message('Coming soon!')
@@ -54,8 +63,8 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
 
 # Loadout command
 @tree.command(name="loadout",
-              description="Returns a randomized loadout for the specified Dwarf")
-@app_commands.describe(dwarf = "Which Dwarf to generate a loadout for")
+              description="Get a randomized loadout for the specified Dwarf")
+@app_commands.describe(dwarf="Which Dwarf to generate a loadout for")
 async def loadout(ctx, dwarf: Dwarf):
     print(f'INFO: Recieved /loadout command with dwarf={dwarf.name}')
     await ctx.response.send_message('Coming soon!')
@@ -64,7 +73,7 @@ async def loadout(ctx, dwarf: Dwarf):
 
 # Rock and Stone command
 @tree.command(name="rock-and-stone",
-              description="Returns a random salute")
+              description="Rock and Stone!")
 async def rock_and_stone(ctx):
     print(f'INFO: Recieved /rock-and-stone command')
     await ctx.response.send_message(get_random_salute())
@@ -73,8 +82,8 @@ async def rock_and_stone(ctx):
 
 # Fun Fact command
 @tree.command(name="fun-facts",
-              description="Returns one or more fun facts")
-@app_commands.describe(count = "Number of fun facts to return (1-10)")
+              description="Get one or more fun facts")
+@app_commands.describe(count="Number of fun facts to return (1-10)")
 async def fun_facts(ctx, count: int = 1):
     print(f'INFO: Recieved /fun-facts command with count={count}')
     if 1 <= count <= 10:
