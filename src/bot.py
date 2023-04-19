@@ -9,7 +9,7 @@ import utils
 
 # Initialize environment variables
 load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
 
 # Initialize discord
@@ -65,4 +65,4 @@ async def fun_facts(ctx, count: int = 1):
 
 
 # Run client
-client.run(TOKEN)
+client.run(DISCORD_TOKEN)
