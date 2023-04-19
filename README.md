@@ -54,8 +54,6 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 ### `/help`
 
-**UNDER DEVELOPMENT**
-
 - Description: Get help with bosco
 - Options: None
 - Syntax:
@@ -105,14 +103,14 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   /rock-and-stone
   ```
 
-### `/fun-facts`
+### `/fun-fact`
 
 - Description: Get one or more fun facts.
 - Options:
   - `count`: An optional integer indicating how many fun facts should be returned (valid range: `1-10`, default: `1`).
 - Syntax:
   ```text
-  /fun-facts count=1
+  /fun-fact count=1
   ```
 
 ## Local Development
