@@ -30,21 +30,15 @@ async def on_ready():
 # Sync command
 @bot.command(name='sync',
              description="Admin: Syncs the command tree")
-async def hello(ctx):
-    if ctx.user.id in utils.get_admins():
-        await tree.sync()
-        await ctx.send("Successfully synced the command tree.")
-
-
-# Sync command
-@tree.command(name="sync",
-              description="Admin: Syncs the command tree")
 async def sync(ctx):
     if ctx.user.id in utils.get_admins():
+        print("Sync 1")
         await tree.sync()
+        print("Sync 2")
+        await ctx.send("Successfully synced the command tree.")
+        print("Sync 3")
         await ctx.response.send_message("Successfully synced the command tree.")
-    else:
-        await ctx.response.send_message("Sorry, only admins can run this command.")
+        print("Sync 4")
 
 
 # Ping command
