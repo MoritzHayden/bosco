@@ -15,6 +15,7 @@ DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
 # Initialize discord
 intents = discord.Intents.default()
+intents.message_content = True
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 
