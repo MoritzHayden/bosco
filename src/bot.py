@@ -33,7 +33,7 @@ async def on_message(message):
     print(f'message: {message}')
     print(f'message.author.id: {message.author.id}')
     print(f'utils.get_admins(): {utils.get_admins()}')
-    if message.content.startswith("!sync") and message.author.id in utils.get_admins():
+    if message.content.startswith("!sync") and str(message.author.id) in utils.get_admins():
         print(f'{message.author.id} in {utils.get_admins()}')
         await tree.sync()
         print(f'post-sync')

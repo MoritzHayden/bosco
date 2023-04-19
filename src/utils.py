@@ -7,5 +7,6 @@ def get_admins():
     with open("admins.json") as f:
         data = json.load(f)
         for admin in data['admins']:
-            admins.append(admin["id"])
+            admins.append(str(admin["id"]))
     return admins
+
