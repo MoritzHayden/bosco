@@ -3,7 +3,7 @@ import discord
 from discord import app_commands
 from dotenv import load_dotenv
 from dwarf import Dwarf
-from deep_dive import DeepDive
+from deep_dive_type import DeepDiveType
 
 
 # Initialize environment variables
@@ -36,7 +36,7 @@ async def ping(ctx):
 # Deep Dive command
 @tree.command(name="deep-dive",
               description="Returns details about the weekly deep dives")
-async def deep_dive(ctx, deep_dive: DeepDive = DeepDive.ALL):
+async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     await ctx.response.send_message(f'Coming soon!')
 
 
