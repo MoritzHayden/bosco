@@ -61,7 +61,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 - Description: Returns details about the weekly deep dives.
 - Arguments:
-  - `deep_dive`: An optional enum describing which Deep Dive to fetch details for (enum values: ALL, DEEP_DIVE, ELITE_DEEP_DIVE, default: ALL).
+  - `deep_dive`: An optional enum describing which Deep Dive to fetch details for (enum values: `ALL`, `DEEP_DIVE`, `ELITE_DEEP_DIVE`, default: `ALL`).
 - Syntax:
   ```text
   /deep-dive deep_dive=ELITE_DEEP_DIVE
@@ -71,7 +71,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 - Description: Returns a randomized loadout for the specified Dwarf.
 - Arguments:
-  - `dwarf`: A required enum describing which Dwarf the loadout should be generated for (enum values: DRILLER, ENGINEER, GUNNER, SCOUT).
+  - `dwarf`: A required enum describing which Dwarf the loadout should be generated for (enum values: `DRILLER`, `ENGINEER`, `GUNNER`, `SCOUT`).
 - Syntax:
   ```text
   /loadout dwarf=ENGINEER
@@ -81,7 +81,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 - Description: Returns one or more fun facts.
 - Arguments:
-  - `count`: An optional integer describing how many fun facts should be returned (valid range: 1-10, default: 1).
+  - `count`: An optional integer describing how many fun facts should be returned (valid range: `1-10`, default: `1`).
 - Syntax:
   ```text
   /fun-facts count=1
