@@ -57,14 +57,14 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   /ping
   ```
 
-### `/deep-dives`
+### `/deep-dive`
 
 - Description: Returns details about the weekly deep dives.
 - Arguments:
-  - None
+  - `deep_dive`: An optional enum describing which Deep Dive to fetch details for (enum values: ALL, DEEP_DIVE, ELITE_DEEP_DIVE, default: ALL).
 - Syntax:
   ```text
-  /deep-dives
+  /deep-dive deep_dive=ELITE_DEEP_DIVE
   ```
 
 ### `/loadout`
