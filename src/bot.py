@@ -36,7 +36,7 @@ async def ping(ctx):
         await ctx.response.send_message(f'Pong! Latency: {round(client.latency*1000)}ms.')
 
 
-# Deep Dives command
+# Deep Dive command
 @tree.command(name="deep-dive",
               description="Returns details about the weekly deep dives")
 async def deep_dive(ctx, deep_dive: DeepDive = DeepDive.ALL):
