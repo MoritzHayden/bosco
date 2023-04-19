@@ -4,7 +4,6 @@ from discord import app_commands
 from dotenv import load_dotenv
 from dwarf import Dwarf
 from deep_dive import DeepDive
-import utils
 
 
 # Initialize environment variables
