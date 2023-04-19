@@ -71,10 +71,10 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 - Description: Returns a randomized loadout for the specified Dwarf.
 - Arguments:
-  - `dwarf`: A required string describing which dwarf the loadout should be generated for (valid values: driller, engineer, gunner, scout).
+  - `dwarf`: A required enum describing which Dwarf the loadout should be generated for (enum values: DRILLER, ENGINEER, GUNNER, SCOUT).
 - Syntax:
   ```text
-  /loadout dwarf=engineer
+  /loadout dwarf=ENGINEER
   ```
 
 ### `/fun-facts`
