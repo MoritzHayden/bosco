@@ -30,6 +30,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     # Sync command (ADMIN)
+    print(f'message.content: {message.content}')
     if message.content.startswith("!sync") and utils.is_admin(str(message.author.id)):
         print('Authorized')
         await tree.sync()
