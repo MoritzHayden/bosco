@@ -61,10 +61,10 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 - Description: Returns details about the weekly deep dives.
 - Arguments:
-  - `deep_dive`: An optional enum describing which Deep Dive to fetch details for (enum values: `ALL`, `DEEP_DIVE`, `ELITE_DEEP_DIVE`, default: `ALL`).
+  - `type`: An optional enum describing which Deep Dive to fetch details for (enum values: `ALL`, `DEEP_DIVE`, `ELITE_DEEP_DIVE`, default: `ALL`).
 - Syntax:
   ```text
-  /deep-dive deep_dive=ELITE_DEEP_DIVE
+  /deep-dive type=ELITE_DEEP_DIVE
   ```
 
 ### `/loadout`
