@@ -15,7 +15,7 @@
   [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco/issues)
   [![Stars](https://img.shields.io/github/stars/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco)
 
-  [![Install](./img/discord-invite-button.svg)](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot)
+  [![Invite](./img/discord-invite-button.svg)](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot)
 
 </div>
 
@@ -25,6 +25,7 @@
 
 - [About](#about)
 - [Usage](#usage)
+  - [/help](#help)
   - [/ping](#ping)
   - [/deep-dives](#deep-dives)
   - [/loadout](#loadout)
@@ -50,11 +51,22 @@ Bosco is a free, open-source Discord bot and companion for Deep Rock Galactic pl
 
 Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot) to your server, it supports the following [slash commands](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ):
 
+
+### `/help`
+
+**UNDER DEVELOPMENT**
+
+- Description: Get help with bosco
+- Options: None
+- Syntax:
+  ```text
+  /help
+  ```
+
 ### `/ping`
 
 - Description: A health check which pings Bosco and returns the latency.
-- Arguments:
-  - None
+- Options: None
 - Syntax:
   ```text
   /ping
@@ -64,9 +76,9 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 **UNDER DEVELOPMENT**
 
-- Description: Returns details about the weekly deep dives.
-- Arguments:
-  - `type`: An optional enum describing which Deep Dive to fetch details for (enum values: `ALL`, `DEEP_DIVE`, `ELITE_DEEP_DIVE`, default: `ALL`).
+- Description: Get details about the weekly deep dives.
+- Options:
+  - `type`: An optional enum indicating which Deep Dive to fetch details for (enum values: `ALL`, `DEEP_DIVE`, `ELITE_DEEP_DIVE`, default: `ALL`).
 - Syntax:
   ```text
   /deep-dive type=ELITE_DEEP_DIVE
@@ -76,9 +88,9 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 **UNDER DEVELOPMENT**
 
-- Description: Returns a randomized loadout for the specified Dwarf.
-- Arguments:
-  - `dwarf`: A required enum describing which Dwarf the loadout should be generated for (enum values: `DRILLER`, `ENGINEER`, `GUNNER`, `SCOUT`).
+- Description: Get a randomized loadout for the specified Dwarf.
+- Options:
+  - `dwarf`: A required enum indicating which Dwarf the loadout should be generated for (enum values: `DRILLER`, `ENGINEER`, `GUNNER`, `SCOUT`).
 - Syntax:
   ```text
   /loadout dwarf=ENGINEER
@@ -86,9 +98,8 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 ### `/rock-and-stone`
 
-- Description: Returns a random salute.
-- Arguments:
-  - None
+- Description: Rock and Stone!
+- Options: None
 - Syntax:
   ```text
   /rock-and-stone
@@ -96,9 +107,9 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 ### `/fun-facts`
 
-- Description: Returns one or more fun facts.
-- Arguments:
-  - `count`: An optional integer describing how many fun facts should be returned (valid range: `1-10`, default: `1`).
+- Description: Get one or more fun facts.
+- Options:
+  - `count`: An optional integer indicating how many fun facts should be returned (valid range: `1-10`, default: `1`).
 - Syntax:
   ```text
   /fun-facts count=1
@@ -161,8 +172,8 @@ Contributions are welcome! If you found a bug or have a feature request, please 
 ## Special Thanks
 
 - The folks who maintain the [Deep Rock Galactic Wiki](https://deeprockgalactic.gamepedia.com/Deep_Rock_Galactic_Wiki) for supplying game images and data
-- [@thamara](https://github.com/thamara) for their work on [drg-deep-dive-bot](https://github.com/thamara/drg-deep-dive-bot) which inspired this project
-- The Deep Rock Galactic developers for being awesome. Rock and Stone!
+- The [r/DeepRockGalactic](https://www.reddit.com/r/DeepRockGalactic/) subreddit for supplying deep dive information
+- The [Deep Rock Galactic developers](https://ghostship.dk/about/#team) for being awesome and incredibly engaged with the community
 
 ## Disclaimer
 
