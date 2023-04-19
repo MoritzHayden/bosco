@@ -11,7 +11,4 @@ def get_admin_ids():
     return admins
 
 def is_admin(id: str):
-    for admin_id in get_admin_ids():
-        if id == admin_id:
-            return True
-    return False
+    return id in get_admin_ids()
