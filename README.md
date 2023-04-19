@@ -28,6 +28,7 @@
   - [/ping](#ping)
   - [/deep-dives](#deep-dives)
   - [/loadout](#loadout)
+  - [/rock-and-stone](#rock-and-stone)
   - [/fun-fact](#fun-fact)
 - [Local Development](#local-development)
   - [Registration](#registration)
@@ -81,6 +82,16 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 - Syntax:
   ```text
   /loadout dwarf=ENGINEER
+  ```
+
+### `/rock-and-stone`
+
+- Description: Returns a random salute.
+- Arguments:
+  - None
+- Syntax:
+  ```text
+  /rock-and-stone
   ```
 
 ### `/fun-facts`
