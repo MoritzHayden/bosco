@@ -38,7 +38,7 @@ async def ping(ctx):
     print('INFO: Recieved /ping command')
     latency = round(client.latency*1000)
     await ctx.response.send_message(f'Pong! Latency: {latency}ms')
-    print(f'SUCCESS: Processed /ping command with latency={latency}')
+    print(f'SUCCESS: Processed /ping command with latency={latency}ms')
 
 
 # Deep Dive command
@@ -68,9 +68,9 @@ async def fun_facts(ctx, count: int = 1):
         facts_message = ""
         for i, fact in enumerate(facts):
             if len(facts) == 1:
-                facts_message += f'Fun Fact: {fact}'
+                facts_message += f'**Fun Fact:** {fact}'
             else:
-                facts_message += f'Fun Fact #{i + 1}: {fact}\n'
+                facts_message += f'**Fun Fact #{i + 1}:** {fact}\n\n'
         await ctx.response.send_message(facts_message)
         print('SUCCESS: Processed /fun-facts command')
     else:
