@@ -37,7 +37,14 @@ async def on_ready():
               description="Get help with Bosco")
 async def help(ctx):
     print('INFO: Recieved /help command')
-    await ctx.response.send_message('Coming soon!')
+    embed_message = discord.Embed(title="Bosco Help", url="https://boscobot.dev/", color=0xFDA50F)
+    embed_message.add_field(name="/help", value="Get help with Bosco", inline=False)
+    embed_message.add_field(name="/ping", value="Ping Bosco", inline=False)
+    embed_message.add_field(name="/deep-dive", value="Get details about the weekly deep dives", inline=False)
+    embed_message.add_field(name="/loadout", value="Get a randomized loadout for the specified Dwarf", inline=False)
+    embed_message.add_field(name="/rock-and-stone", value="Rock and Stone!", inline=False)
+    embed_message.add_field(name="/fun-fact", value="Get one or more fun facts", inline=False)
+    await ctx.response.send_message(embed=embed_message)
     print('SUCCESS: Processed /help command')
 
 
@@ -81,11 +88,11 @@ async def rock_and_stone(ctx):
 
 
 # Fun Fact command
-@tree.command(name="fun-facts",
+@tree.command(name="fun-fact",
               description="Get one or more fun facts")
 @app_commands.describe(count="Number of fun facts to return (1-10)")
 async def fun_facts(ctx, count: int = 1):
-    print(f'INFO: Recieved /fun-facts command with count={count}')
+    print(f'INFO: Recieved /fun-fact command with count={count}')
     if 1 <= count <= 10:
         facts = get_fun_facts(API_NINJAS_TOKEN, count)
         if len(facts) == count:
@@ -96,12 +103,12 @@ async def fun_facts(ctx, count: int = 1):
                 else:
                     facts_message += f'**Fun Fact #{i + 1}:** {fact}\n\n'
             await ctx.response.send_message(facts_message)
-            print('SUCCESS: Processed /fun-facts command')
+            print('SUCCESS: Processed /fun-fact command')
         else:
             await ctx.response.send_message('Oops, something went wrong! Please try again later.')
-            print('FAILURE: Failed to process /fun-facts command')
+            print('FAILURE: Failed to process /fun-fact command')
     else:
-        print('FAILURE: Failed to process /fun-facts command')
+        print('FAILURE: Failed to process /fun-fact command')
         await ctx.response.send_message('Oops, please try again with a `count` in range of 1-10.')
 
 # Run client
