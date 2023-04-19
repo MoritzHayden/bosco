@@ -21,6 +21,8 @@ tree = app_commands.CommandTree(client)
 # Ready event
 @client.event
 async def on_ready():
+    await tree.sync()
+    print("Synced Command Tree!")
     await client.change_presence(status=discord.Status.online, activity=discord.Game(name='Deep Rock Galactic'))
     print("Bot Ready!")
 
@@ -28,13 +30,8 @@ async def on_ready():
 # Ping command
 @tree.command(name="ping",
               description="Pings the bot and returns latency")
-async def ping(ctx, author_id: int):
-    print(author_id)
-    if utils.is_admin(str(author_id)):
-        await tree.sync()
-        await ctx.response.send_message(f'Pong! Synced the command tree. Latency: {round(client.latency*1000)}ms.')
-    else:
-        await ctx.response.send_message(f'Pong! Latency: {round(client.latency*1000)}ms.')
+async def ping(ctx):
+    await ctx.response.send_message(f'Pong! Latency: {round(client.latency*1000)}ms')
 
 
 # Deep Dive command
