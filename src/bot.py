@@ -17,7 +17,6 @@ DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
-bot = commands.Bot(command_prefix='!', intents=intents)
 
 
 # Ready event
@@ -27,18 +26,17 @@ async def on_ready():
     print("Bot Ready!")
 
 
-# Sync command
-@bot.command(name='sync',
-             description="Admin: Syncs the command tree")
-async def sync(ctx):
-    if ctx.user.id in utils.get_admins():
-        print("Sync 1")
-        await tree.sync()
-        print("Sync 2")
-        await ctx.send("Successfully synced the command tree.")
-        print("Sync 3")
-        await ctx.response.send_message("Successfully synced the command tree.")
-        print("Sync 4")
+# Message event
+@client.event
+async def on_message(message):
+    # Sync command (ADMIN)
+    if message.content.startswith("!sync"):
+        if message.author.id in utils.get_admins():
+            print("Pre-sync")
+            await tree.sync()
+            print("Post-sync")
+            await message.channel.send("Successfully synced the command tree.")
+            print("Successfully synced the command tree.")
 
 
 # Ping command
