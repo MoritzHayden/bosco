@@ -29,7 +29,7 @@ async def on_ready():
 @tree.command(name="ping",
               description="Pings the bot and returns latency")
 async def ping(ctx):
-    if utils.is_admin(str(ctx.author.id)):
+    if utils.is_admin(str(ctx.message.author.id)):
         await tree.sync()
         await ctx.response.send_message(f'Pong! Synced the command tree. Latency: {round(client.latency*1000)}ms.')
     else:
