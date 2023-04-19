@@ -1,6 +1,7 @@
 import os
 import discord
 from discord import app_commands
+from discord.ext import commands
 from dotenv import load_dotenv
 from dwarf import Dwarf
 from deep_dive import DeepDive
@@ -16,6 +17,7 @@ DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
+bot = commands.Bot(command_prefix='!')
 
 
 # Ready event
@@ -25,13 +27,21 @@ async def on_ready():
     print("Bot Ready!")
 
 
+@bot.command(name='sync',
+             description="Admin: Syncs the command tree")
+async def hello(ctx):
+    if ctx.user.id in utils.get_admins():
+        await tree.sync()
+        await ctx.send("Successfully synced the command tree.")
+
+
 # Sync command
 @tree.command(name="sync",
               description="Admin: Syncs the command tree")
 async def sync(ctx):
     if ctx.user.id in utils.get_admins():
         await tree.sync()
-        await ctx.response.send_message("Successfully synced command tree.")
+        await ctx.response.send_message("Successfully synced the command tree.")
     else:
         await ctx.response.send_message("Sorry, only admins can run this command.")
 
