@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from dwarf import Dwarf
 from deep_dive_type import DeepDiveType
 from api_ninjas import get_fun_facts
+from utils import get_random_salute
 
 
 # Initialize environment variables
@@ -57,6 +58,16 @@ async def loadout(ctx, dwarf: Dwarf):
     print(f'INFO: Recieved /loadout command with dwarf={dwarf.name}')
     await ctx.response.send_message('Coming soon!')
     print('SUCCESS: Processed /loadout command')
+
+
+# Rock and Stone command
+@tree.command(name="rock-and-stone",
+              description="Returns a random salute")
+async def loadout(ctx):
+    print(f'INFO: Recieved /rock-and-stone command')
+    await ctx.response.send_message(get_random_salute())
+    print('SUCCESS: Processed /rock-and-stone command')
+
 
 # Fun Fact command
 @tree.command(name="fun-facts",
