@@ -21,7 +21,7 @@ tree = app_commands.CommandTree(client)
 # Ready event
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.game('Deep Rock Galactic'))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game(name='Deep Rock Galactic'))
     print("Bot Ready!")
 
 
