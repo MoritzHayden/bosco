@@ -1,7 +1,6 @@
 import os
 import discord
 from discord import app_commands
-from discord.ext import commands
 from dotenv import load_dotenv
 from dwarf import Dwarf
 from deep_dive import DeepDive
@@ -15,7 +14,6 @@ DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
 # Initialize discord
 intents = discord.Intents.default()
-intents.message_content = True
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 
@@ -27,28 +25,15 @@ async def on_ready():
     print("Bot Ready!")
 
 
-# Message event
-@client.event
-async def on_message(message):
-    # Sync command (ADMIN)
-    print(f'message.content: {message.content}')
-    if message.content.startswith("!sync") and utils.is_admin(str(message.author.id)):
-        print('Authorized')
-        await tree.sync()
-        print(f'post-sync')
-        await message.reply("Successfully synced the command tree.")
-        print(f'post-reply')
-    else:
-        print (f'Check 1: {message.content.startswith("!sync")}')
-        print (f'Check 2: {utils.is_admin(str(message.author.id))}')
-        print('Unauthorized')
-
-
 # Ping command
 @tree.command(name="ping",
               description="Pings the bot and returns latency")
 async def ping(ctx):
-    await ctx.response.send_message(f'Pong! Latency: {round(client.latency*1000)}ms')
+    if utils.is_admin(str(ctx.author.id)):
+        await tree.sync()
+        await ctx.response.send_message(f'Pong! Synced the command tree. Latency: {round(client.latency*1000)}ms.')
+    else:
+        await ctx.response.send_message(f'Pong! Latency: {round(client.latency*1000)}ms.')
 
 
 # Deep Dives command
