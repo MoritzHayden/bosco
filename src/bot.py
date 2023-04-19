@@ -2,6 +2,7 @@ import os
 import discord
 from discord import app_commands
 from dotenv import load_dotenv
+import dwarf
 import utils
 
 # Initialize environment variables
@@ -43,7 +44,7 @@ async def first_command(ctx):
 # Loadout command
 @tree.command(name = "loadout",
               description = "Returns a randomized loadout for the specified Dwarf")
-async def first_command(ctx, dwarf: str):
+async def first_command(ctx, dwarf: dwarf):
     await ctx.response.send_message(f'Coming soon!')
 
 # Fun Fact command
