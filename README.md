@@ -16,6 +16,7 @@
   [![Stars](https://img.shields.io/github/stars/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco)
 
   [![Install](./img/discord-invite-button.svg)](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot)
+
 </div>
 
 ---
@@ -60,6 +61,8 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 ### `/deep-dive`
 
+**UNDER DEVELOPMENT**
+
 - Description: Returns details about the weekly deep dives.
 - Arguments:
   - `type`: An optional enum describing which Deep Dive to fetch details for (enum values: `ALL`, `DEEP_DIVE`, `ELITE_DEEP_DIVE`, default: `ALL`).
@@ -69,6 +72,8 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   ```
 
 ### `/loadout`
+
+**UNDER DEVELOPMENT**
 
 - Description: Returns a randomized loadout for the specified Dwarf.
 - Arguments:
@@ -97,20 +102,21 @@ In order to run Bosco locally, you will need to configure your environment varia
 In order for Bosco to interact with the services it depends on (Discord, Reddit, API Ninjas), you will need to register for each of these services and obtain your tokens/secrets:
 
 1. Discord
-    - Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application. Copy your bot token.
+   - Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application. Copy your bot token.
 2. Reddit
-    - Register for access to the [Reddit API](https://www.reddit.com/wiki/api/). Copy your client id and secret.
+   - Register for access to the [Reddit API](https://www.reddit.com/wiki/api/). Copy your client id and secret.
 3. API Ninjas
-    - Register for access to [API Ninjas](https://api-ninjas.com/). Copy your api token.
+   - Register for access to [API Ninjas](https://api-ninjas.com/). Copy your api token.
 
 ### Configuration
 
 Create a file called `.env` within the `src/` directory to hold your environment variables, and add the following keys (replacing `<VALUE>` with the real value):
+
 ```text
 DISCORD_TOKEN=<VALUE>
+API_NINJAS_TOKEN=<VALUE>
 REDDIT_CLIENT_ID=<VALUE>
 REDDIT_SECRET=<VALUE>
-API_NINJAS_TOKEN=<VALUE>
 ```
 
 ### Installation
@@ -124,6 +130,7 @@ pip install -U -r src/requirements.txt
 ### Execution
 
 Start Bosco by running the following command from the root of this repository:
+
 ```bash
 python3 src/bot.py
 ```
@@ -159,6 +166,6 @@ Neither this bot nor its contributors are associated with Deep Rock Galactic or 
 
 <div align="center">
 
-  Copyright &copy; 2023 Hayden Moritz
+  <p>Copyright &copy; 2023 Hayden Moritz</p>
 
 </div>
