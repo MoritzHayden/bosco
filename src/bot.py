@@ -63,20 +63,23 @@ async def loadout(ctx, dwarf: Dwarf):
               description="Returns one or more fun facts")
 async def fun_facts(ctx, count: int = 1):
     print(f'INFO: Recieved /fun-facts command with count={count}')
-    facts = get_fun_facts(API_NINJAS_TOKEN, count)
-    if len(facts) == count:
-        facts_message = ""
-        for i, fact in enumerate(facts):
-            if len(facts) == 1:
-                facts_message += f'**Fun Fact:** {fact}'
-            else:
-                facts_message += f'**Fun Fact #{i + 1}:** {fact}\n\n'
-        await ctx.response.send_message(facts_message)
-        print('SUCCESS: Processed /fun-facts command')
+    if 1 <= count <= 10:
+        facts = get_fun_facts(API_NINJAS_TOKEN, count)
+        if len(facts) == count:
+            facts_message = ""
+            for i, fact in enumerate(facts):
+                if len(facts) == 1:
+                    facts_message += f'**Fun Fact:** {fact}'
+                else:
+                    facts_message += f'**Fun Fact #{i + 1}:** {fact}\n\n'
+            await ctx.response.send_message(facts_message)
+            print('SUCCESS: Processed /fun-facts command')
+        else:
+            await ctx.response.send_message('Oops, something went wrong! Please try again later.')
+            print('FAILURE: Failed to process /fun-facts command')
     else:
-        await ctx.response.send_message('Oops, something went wrong! Please try again later.')
         print('FAILURE: Failed to process /fun-facts command')
-
+        await ctx.response.send_message('Oops, please try again with a `count` in range of 1-10.')
 
 # Run client
 client.run(DISCORD_TOKEN)
