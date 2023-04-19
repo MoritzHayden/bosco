@@ -138,7 +138,7 @@ Contributions are welcome! If you found a bug or have a feature request, please 
 ## Special Thanks
 
 - The folks who maintain the [Deep Rock Galactic Wiki](https://deeprockgalactic.gamepedia.com/Deep_Rock_Galactic_Wiki) for supplying game images and data
-- [@thamara](https://github.com/thamara) for their work on [drg-deep-dive-bot](https://github.com/thamara/https://github.com/thamara/drg-deep-dive-bot) which inspired this project
+- [@thamara](https://github.com/thamara) for their work on [drg-deep-dive-bot](https://github.com/thamara/drg-deep-dive-bot) which inspired this project
 - The Deep Rock Galactic developers for being awesome. Rock and Stone!
 
 ## Disclaimer
