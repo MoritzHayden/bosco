@@ -9,7 +9,7 @@ def get_fun_facts(api_key: str, limit: int = 1):
     if response.ok:
         for fact in response.json():
             facts.append(fact["fact"])
-        print(f'SUCCESS: Fun fact API request succeeded with status code {response.status_code}')
+        print(f'SUCCESS: Fun fact API request succeeded with status_code={response.status_code}')
     else:
-        print(f'FAILURE: Fun fact API request failed with status code {response.status_code}')
+        print(f'FAILURE: Fun fact API request failed with status_code={response.status_code}')
     return facts
