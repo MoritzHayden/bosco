@@ -5,59 +5,62 @@ from dotenv import load_dotenv
 from dwarf import Dwarf
 import utils
 
+
 # Initialize environment variables
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+
 
 # Initialize discord
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 
-# Setup event
-@client.event
-async def setup_hook():
-    await tree.sync()
-    print("Synced Command Tree!")
 
 # Ready event
 @client.event
 async def on_ready():
     print("Bot Ready!")
 
+
 # Sync command
-@tree.command(name = "sync",
-              description = "Admin: Syncs the command tree")
-async def first_command(ctx):
+@tree.command(name="sync",
+              description="Admin: Syncs the command tree")
+async def sync(ctx):
     if ctx.user.id in utils.get_admins():
         await tree.sync()
         await ctx.response.send_message("Successfully synced command tree.")
     else:
         await ctx.response.send_message("Sorry, only admins can run this command.")
 
+
 # Ping command
-@tree.command(name = "ping",
-              description = "Pings the bot and returns latency")
-async def first_command(ctx):
+@tree.command(name="ping",
+              description="Pings the bot and returns latency")
+async def ping(ctx):
     await ctx.response.send_message(f'Pong! Latency: {round(client.latency*1000)}ms')
 
+
 # Deep Dives command
-@tree.command(name = "deep-dives",
-              description = "Returns details about the weekly deep dives")
-async def first_command(ctx):
+@tree.command(name="deep-dive",
+              description="Returns details about the weekly deep dives")
+async def deep_dive(ctx):
     await ctx.response.send_message(f'Coming soon!')
+
 
 # Loadout command
-@tree.command(name = "loadout",
-              description = "Returns a randomized loadout for the specified Dwarf")
-async def first_command(ctx, dwarf: Dwarf):
+@tree.command(name="loadout",
+              description="Returns a randomized loadout for the specified Dwarf")
+async def loadout(ctx, dwarf: Dwarf):
     await ctx.response.send_message(f'Coming soon!')
 
+
 # Fun Fact command
-@tree.command(name = "fun-facts",
-              description = "Returns one or more fun facts")
-async def first_command(ctx, count: int = 1):
+@tree.command(name="fun-facts",
+              description="Returns one or more fun facts")
+async def fun_facts(ctx, count: int = 1):
     await ctx.response.send_message(f'Coming soon!')
+
 
 # Run client
 client.run(TOKEN)
