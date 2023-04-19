@@ -30,17 +30,16 @@ async def on_ready():
 @client.event
 async def on_message(message):
     # Sync command (ADMIN)
-    print(f'message: {message}')
-    print(f'message.author.id: {message.author.id}')
-    print(f'utils.get_admins(): {utils.get_admins()}')
-    if message.content.startswith("!sync") and str(message.author.id) in utils.get_admins():
-        print(f'{message.author.id} in {utils.get_admins()}')
+    if message.content.startswith("!sync") and utils.is_admin(str(message.author.id)):
+        print('Authorized')
         await tree.sync()
         print(f'post-sync')
         await message.reply("Successfully synced the command tree.")
         print(f'post-reply')
     else:
-        print(f'{message.author.id} not in {utils.get_admins()}')
+        print (f'Check 1: {message.content.startswith("!sync")}')
+        print (f'Check 2: {utils.is_admin(str(message.author.id))}')
+        print('Unauthorized')
 
 
 # Ping command
