@@ -17,7 +17,7 @@ DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 
 # Ready event
@@ -27,6 +27,7 @@ async def on_ready():
     print("Bot Ready!")
 
 
+# Sync command
 @bot.command(name='sync',
              description="Admin: Syncs the command tree")
 async def hello(ctx):
