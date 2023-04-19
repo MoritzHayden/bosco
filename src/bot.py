@@ -30,13 +30,17 @@ async def on_ready():
 @client.event
 async def on_message(message):
     # Sync command (ADMIN)
-    if message.content.startswith("!sync"):
-        if message.author.id in utils.get_admins():
-            print("Pre-sync")
-            await tree.sync()
-            print("Post-sync")
-            await message.channel.send("Successfully synced the command tree.")
-            print("Successfully synced the command tree.")
+    print(f'message: {message}')
+    print(f'message.author.id: {message.author.id}')
+    print(f'utils.get_admins(): {utils.get_admins()}')
+    if message.content.startswith("!sync") and message.author.id in utils.get_admins():
+        print(f'{message.author.id} in {utils.get_admins()}')
+        await tree.sync()
+        print(f'post-sync')
+        await message.reply("Successfully synced the command tree.")
+        print(f'post-reply')
+    else:
+        print(f'{message.author.id} not in {utils.get_admins()}')
 
 
 # Ping command
