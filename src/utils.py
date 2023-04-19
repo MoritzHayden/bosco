@@ -1,5 +1,6 @@
 import json
 
+
 # Get a list of authorized users (admins)
 def get_admins():
     admins = []
@@ -7,5 +8,4 @@ def get_admins():
         data = json.load(f)
         for admin in data['admins']:
             admins.append(admin["id"])
-    print(admins)
     return admins
