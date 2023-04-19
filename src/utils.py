@@ -9,4 +9,3 @@ def get_admins():
         for admin in data['admins']:
             admins.append(str(admin["id"]))
     return admins
-
