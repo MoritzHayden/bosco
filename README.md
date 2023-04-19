@@ -33,6 +33,7 @@
   - [Configuration](#configuration)
   - [Installation](#installation)
   - [Execution](#execution)
+- [Dependencies](#dependencies)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [Special Thanks](#special-thanks)
@@ -127,6 +128,10 @@ Start Bosco by running the following command from the root of this repository:
 python3 src/bot.py
 ```
 
+## Dependencies
+
+Dependencies are automatically scanned and updated with [Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates) on a daily basis, as configured in [dependabot.yml](./.github/dependabot.yml). For questions about security, please reference the [Security Policy](./docs/SECURITY.md).
+
 ## Deployment
 
 The bot is automatically deployed to the [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform) whenever a push is made to the [main branch](https://github.com/MoritzHayden/bosco/tree/main).
@@ -149,6 +154,7 @@ Neither this bot nor its contributors are associated with Deep Rock Galactic or 
 
 - [Terms of Service](./docs/TERMS-OF-SERVICE.md)
 - [Privacy Policy](./docs/PRIVACY-POLICY.md)
+- [Security Policy](./docs/SECURITY.md)
 - [MIT License](LICENSE)
 
 <div align="center">
