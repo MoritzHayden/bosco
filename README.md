@@ -26,8 +26,9 @@
 - [About](#about)
 - [Usage](#usage)
   - [/help](#help)
+  - [/invite](#invite)
   - [/ping](#ping)
-  - [/deep-dive (UNDER DEVELOPMENT)](#deep-dive---under-development)
+  - [/deep-dive](#deep-dive)
   - [/loadout (UNDER DEVELOPMENT)](#loadout---under-development)
   - [/rock-and-stone](#rock-and-stone)
   - [/fun-fact](#fun-fact)
@@ -71,16 +72,16 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 ### /ping
 
-- Description: A health check which pings Bosco and returns the latency.
+- Description: Ping Bosco and get latency.
 - Options: None
 - Syntax:
   ```text
   /ping
   ```
 
-### /deep-dive - UNDER DEVELOPMENT
+### /deep-dive
 
-- Description: Get details about the weekly deep dives.
+- Description: Get weekly Deep Dive details.
 - Options:
   - `type`: An optional enum indicating which Deep Dive to fetch details for (enum values: `ALL`, `DEEP_DIVE`, `ELITE_DEEP_DIVE`, default: `ALL`).
 - Syntax:
