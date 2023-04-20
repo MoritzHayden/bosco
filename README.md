@@ -136,7 +136,7 @@ Create a file called `.env` within the `src/` directory to hold your environment
 DISCORD_TOKEN=<VALUE>
 API_NINJAS_TOKEN=<VALUE>
 REDDIT_CLIENT_ID=<VALUE>
-REDDIT_SECRET=<VALUE>
+REDDIT_CLIENT_SECRET=<VALUE>
 ```
 
 ### Installation
