@@ -32,7 +32,7 @@ def create_deep_dive_embed(deep_dive_details: list[DeepDive], type: DeepDiveType
             dd_stage_info = ""
             dd_stage_info += f'\U0001F3AF {stage[1]}\n'
             dd_stage_info += f'\U0001F3AF {stage[2]}\n'
-            dd_stage_info += f'\U00026A0 {stage[3]}\n'
+            dd_stage_info += f'\U000026A0 {stage[3]}\n'
             dd_stage_info += f'\U0001F6A8 {stage[4]}'
             embed_message.add_field(name=f'Stage {stage[0]}', value=dd_stage_info, inline=True)
 
@@ -50,7 +50,7 @@ def create_deep_dive_embed(deep_dive_details: list[DeepDive], type: DeepDiveType
             edd_stage_info = ""
             edd_stage_info += f'\U0001F3AF {stage[1]}\n'
             edd_stage_info += f'\U0001F3AF {stage[2]}\n'
-            edd_stage_info += f'\U00026A0 {stage[3]}\n'
+            edd_stage_info += f'\U000026A0 {stage[3]}\n'
             edd_stage_info += f'\U0001F6A8 {stage[4]}'
             embed_message.add_field(name=f'Stage {stage[0]}', value=edd_stage_info, inline=True)
     
