@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from dwarf import Dwarf
 from deep_dive_type import DeepDiveType
 from api_ninjas import get_fun_facts
+from reddit import get_deep_dive_details
 from utils import get_random_salute
 
 
@@ -12,6 +13,8 @@ from utils import get_random_salute
 load_dotenv()
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 API_NINJAS_TOKEN = os.getenv('API_NINJAS_TOKEN')
+REDDIT_CLIENT_ID = os.getenv('REDDIT_CLIENT_ID')
+REDDIT_CLIENT_SECRET = os.getenv('REDDIT_CLIENT_SECRET')
 
 
 # Initialize discord
@@ -64,8 +67,53 @@ async def ping(ctx):
 @app_commands.describe(type="Which Deep Dive(s) to get details for")
 async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     print(f'INFO: Recieved /deep-dive command with type={type.name}')
-    await ctx.response.send_message('Coming soon!')
-    print('SUCCESS: Processed /deep-dive command')
+    deep_dive_details = get_deep_dive_details(REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, type)
+    if deep_dive_details is not None:
+        dd = deep_dive_details[0]
+        edd = deep_dive_details[1]
+        embed_message = discord.Embed(title=f'Weekly Deep Dives ({dd.date})', url=dd.url, color=0xFDA50F)
+
+        # TODO: Add dd to embed_message
+        # TODO: Prettify the output and use modifier images
+        if type in (DeepDiveType.ALL, DeepDiveType.DEEP_DIVE):
+            # Overview
+            dd_overview = ""
+            dd_overview += f'- Name: {dd.name}'
+            dd_overview += f'- Biome: {dd.biome}'
+            embed_message.add_field(name=dd.type, value=dd_overview, inline=False)
+
+            # Stages
+            for stage in dd.stages:
+                dd_stage_info = ""
+                dd_stage_info += f'- Primary: {stage.primary}'
+                dd_stage_info += f'- Secondary: {stage.secondary}'
+                dd_stage_info += f'- Anomaly: {stage.anomaly}'
+                dd_stage_info += f'- Warning: {stage.warning}'
+                embed_message.add_field(name=f'Stage {stage.stage}', value=dd_stage_info, inline=False)
+
+        # TODO: Add edd to embed_message
+        # TODO: Prettify the output and use modifier images
+        if type in (DeepDiveType.ALL, DeepDiveType.ELITE_DEEP_DIVE):
+            # Overview
+            edd_overview = ""
+            edd_overview += f'- Name: {edd.name}'
+            edd_overview += f'- Biome: {edd.biome}'
+            embed_message.add_field(name=edd.type, value=edd_overview, inline=False)
+
+            # Stages
+            for stage in edd.stages:
+                edd_stage_info = ""
+                edd_stage_info += f'- Primary: {stage.primary}'
+                edd_stage_info += f'- Secondary: {stage.secondary}'
+                edd_stage_info += f'- Anomaly: {stage.anomaly}'
+                edd_stage_info += f'- Warning: {stage.warning}'
+                embed_message.add_field(name=f'Stage {stage.stage}', value=edd_stage_info, inline=False)
+
+        await ctx.response.send_message(embed=embed_message)
+        print('SUCCESS: Processed /deep-dive command')
+    else:
+        await ctx.response.send_message('Oops, something went wrong! Please try again later.')
+        print('Failure: Failed to process /deep-dive command')
 
 
 # Loadout command
