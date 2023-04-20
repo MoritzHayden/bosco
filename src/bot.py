@@ -85,11 +85,11 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
             # Stages
             for stage in dd.stages:
                 dd_stage_info = ""
-                dd_stage_info += f'- Primary: {stage.primary}'
-                dd_stage_info += f'- Secondary: {stage.secondary}'
-                dd_stage_info += f'- Anomaly: {stage.anomaly}'
-                dd_stage_info += f'- Warning: {stage.warning}'
-                embed_message.add_field(name=f'Stage {stage.stage}', value=dd_stage_info, inline=False)
+                dd_stage_info += f'- Primary: {stage[1]}'
+                dd_stage_info += f'- Secondary: {stage[2]}'
+                dd_stage_info += f'- Anomaly: {stage[3]}'
+                dd_stage_info += f'- Warning: {stage[4]}'
+                embed_message.add_field(name=f'Stage {stage[0]}', value=dd_stage_info, inline=False)
 
         # TODO: Add edd to embed_message
         # TODO: Prettify the output and use modifier images
@@ -103,11 +103,11 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
             # Stages
             for stage in edd.stages:
                 edd_stage_info = ""
-                edd_stage_info += f'- Primary: {stage.primary}'
-                edd_stage_info += f'- Secondary: {stage.secondary}'
-                edd_stage_info += f'- Anomaly: {stage.anomaly}'
-                edd_stage_info += f'- Warning: {stage.warning}'
-                embed_message.add_field(name=f'Stage {stage.stage}', value=edd_stage_info, inline=False)
+                edd_stage_info += f'- Primary: {stage[1]}'
+                edd_stage_info += f'- Secondary: {stage[2]}'
+                edd_stage_info += f'- Anomaly: {stage[3]}'
+                edd_stage_info += f'- Warning: {stage[4]}'
+                embed_message.add_field(name=f'Stage {stage[0]}', value=edd_stage_info, inline=False)
 
         await ctx.response.send_message(embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
