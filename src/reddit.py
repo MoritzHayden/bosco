@@ -12,10 +12,7 @@ def get_deep_dive_details(reddit_client_id: str, reddit_client_secret: str, deep
             user_agent="discord:dev.boscobot",
             check_for_async=False
         )
-        submissions = reddit.subreddit("DeepRockGalactic").search(query="Weekly Deep Dives Thread", sort="hot", time_filter="week")
-        submission = None
-        for s in submissions:
-            submission = s
+        submission = next(reddit.subreddit("DeepRockGalactic").search(query="Weekly Deep Dives Thread", sort="hot", time_filter="week"))
         date = parse_date(str(submission.title))
         url = str(submission.url)
         text = str(submission.selftext)
