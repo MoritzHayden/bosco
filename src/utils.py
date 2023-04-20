@@ -23,8 +23,7 @@ def create_deep_dive_embed(thumbnail: discord.File, deep_dive_details: list[Deep
     embed_message = discord.Embed(title=f'Weekly Deep Dives ({dd.date})', url=dd.url, color=0xFDA50F)
     embed_message.set_thumbnail(url=f'attachment://{thumbnail.filename}')
 
-    # TODO: Add dd to embed_message
-    # TODO: Prettify the output and use modifier images
+    # Deep Dive
     if type in (DeepDiveType.ALL, DeepDiveType.DEEP_DIVE):
         # Header
         embed_message.add_field(name=f'Deep Dive | {dd.name} | {dd.biome}', value='', inline=False)
@@ -38,11 +37,11 @@ def create_deep_dive_embed(thumbnail: discord.File, deep_dive_details: list[Deep
             dd_stage_info += emoji.emojize(f':police_car_light:  {stage[4]}')
             embed_message.add_field(name=f'Stage {stage[0]}', value=dd_stage_info, inline=True)
 
-        # Blank space
+    # Divider Space
+    if type == DeepDiveType.ALL:
         embed_message.add_field(name='\u200b', value='\u200b', inline=False)
 
-    # TODO: Add edd to embed_message
-    # TODO: Prettify the output and use modifier images
+    # Elite Deep Dive
     if type in (DeepDiveType.ALL, DeepDiveType.ELITE_DEEP_DIVE):
         # Header
         embed_message.add_field(name=f'Elite Deep Dive | {edd.name} | {edd.biome}', value='', inline=False)
