@@ -38,19 +38,28 @@ async def on_ready():
 
 # Help command
 @tree.command(name="help",
-              description="Get help with Bosco")
+              description="View the command list and helpful links")
 async def help(ctx):
     print('INFO: Recieved /help command')
     embed_message = discord.Embed(title="Bosco Help", url="https://boscobot.dev/", color=0xFDA50F)
-    embed_message.add_field(name="/help", value="Get help with Bosco", inline=False)
+    embed_message.add_field(name="/help", value="View the command list and helpful links", inline=False)
+    embed_message.add_field(name="/invite", value="Invite Bosco to your server", inline=False)
     embed_message.add_field(name="/ping", value="Ping Bosco", inline=False)
-    embed_message.add_field(name="/deep-dive", value="Get details about the weekly deep dives", inline=False)
-    embed_message.add_field(name="/loadout", value="Get a randomized loadout for the specified Dwarf", inline=False)
-    embed_message.add_field(name="/rock-and-stone", value="Rock and Stone!", inline=False)
+    embed_message.add_field(name="/deep-dive", value="Get weekly Deep Dive details", inline=False)
+    embed_message.add_field(name="/loadout", value="Get a randomized Dwarf loadout", inline=False)
+    embed_message.add_field(name="/rock-and-stone", value="You already know what this does", inline=False)
     embed_message.add_field(name="/fun-fact", value="Get one or more fun facts", inline=False)
-    button_view = ButtonView()
-    await ctx.response.send_message(embed=embed_message, view=button_view)
+    await ctx.response.send_message(embed=embed_message, view=ButtonView())
     print('SUCCESS: Processed /help command')
+
+
+# Invite command
+@tree.command(name="invite",
+              description="Invite Bosco to your server")
+async def invite(ctx):
+    print('INFO: Recieved /invite command')
+    await ctx.response.send_message(view=ButtonView())
+    print('SUCCESS: Processed /invite command')
 
 
 # Ping command
