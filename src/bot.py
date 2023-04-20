@@ -113,7 +113,7 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
         await ctx.followup.send(embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
     else:
-        await ctx.response.send_message('Oops, something went wrong! Please try again later.')
+        await ctx.followup.send('Oops, something went wrong! Please try again later.')
         print('Failure: Failed to process /deep-dive command')
 
 
