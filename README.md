@@ -51,14 +51,22 @@ Bosco is a free, open-source Discord bot and companion for Deep Rock Galactic pl
 
 Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot) to your server, it supports the following [slash commands](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ):
 
-
 ### /help
 
-- Description: Get help with bosco
+- Description: View the command list and helpful links.
 - Options: None
 - Syntax:
   ```text
   /help
+  ```
+
+### /invite
+
+- Description: Invite Bosco to your server.
+- Options: None
+- Syntax:
+  ```text
+  /invite
   ```
 
 ### /ping
@@ -92,7 +100,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 ### /rock-and-stone
 
-- Description: Rock and Stone!
+- Description: You already know what this does.
 - Options: None
 - Syntax:
   ```text
