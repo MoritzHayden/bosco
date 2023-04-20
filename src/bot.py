@@ -6,7 +6,7 @@ from dwarf import Dwarf
 from deep_dive_type import DeepDiveType
 from api_ninjas import get_fun_facts
 from reddit import get_deep_dive_details
-from utils import get_random_salute
+from utils import get_random_salute, create_deep_dive_embed
 
 
 # Initialize environment variables
@@ -70,46 +70,7 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     await ctx.response.defer()
     deep_dive_details = get_deep_dive_details(REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, type)
     if deep_dive_details is not None:
-        dd = deep_dive_details[0]
-        edd = deep_dive_details[1]
-        embed_message = discord.Embed(title=f'Weekly Deep Dives ({dd.date})', url=dd.url, color=0xFDA50F)
-
-        # TODO: Add dd to embed_message
-        # TODO: Prettify the output and use modifier images
-        if type in (DeepDiveType.ALL, DeepDiveType.DEEP_DIVE):
-            # Overview
-            dd_overview = ""
-            dd_overview += f'- Name: {dd.name}\n'
-            dd_overview += f'- Biome: {dd.biome}'
-            embed_message.add_field(name="Deep Dive", value=dd_overview, inline=False)
-
-            # Stages
-            for stage in dd.stages:
-                dd_stage_info = ""
-                dd_stage_info += f'- Primary: {stage[1]}\n'
-                dd_stage_info += f'- Secondary: {stage[2]}\n'
-                dd_stage_info += f'- Anomaly: {stage[3]}\n'
-                dd_stage_info += f'- Warning: {stage[4]}'
-                embed_message.add_field(name=f'Stage {stage[0]}', value=dd_stage_info, inline=False)
-
-        # TODO: Add edd to embed_message
-        # TODO: Prettify the output and use modifier images
-        if type in (DeepDiveType.ALL, DeepDiveType.ELITE_DEEP_DIVE):
-            # Overview
-            edd_overview = ""
-            edd_overview += f'- Name: {edd.name}\n'
-            edd_overview += f'- Biome: {edd.biome}'
-            embed_message.add_field(name="Elite Deep Dive", value=edd_overview, inline=False)
-
-            # Stages
-            for stage in edd.stages:
-                edd_stage_info = ""
-                edd_stage_info += f'- Primary: {stage[1]}\n'
-                edd_stage_info += f'- Secondary: {stage[2]}\n'
-                edd_stage_info += f'- Anomaly: {stage[3]}\n'
-                edd_stage_info += f'- Warning: {stage[4]}'
-                embed_message.add_field(name=f'Stage {stage[0]}', value=edd_stage_info, inline=False)
-
+        embed_message = create_deep_dive_embed(deep_dive_details, type)
         await ctx.followup.send(embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
     else:
