@@ -44,7 +44,7 @@ async def help(ctx):
     embed_message = discord.Embed(title="Bosco Help", url="https://boscobot.dev/", color=0xFDA50F)
     embed_message.add_field(name="/help", value="View the command list and helpful links", inline=False)
     embed_message.add_field(name="/invite", value="Invite Bosco to your server", inline=False)
-    embed_message.add_field(name="/ping", value="Ping Bosco", inline=False)
+    embed_message.add_field(name="/ping", value="Ping Bosco and get latency", inline=False)
     embed_message.add_field(name="/deep-dive", value="Get weekly Deep Dive details", inline=False)
     embed_message.add_field(name="/loadout", value="Get a randomized Dwarf loadout", inline=False)
     embed_message.add_field(name="/rock-and-stone", value="You already know what this does", inline=False)
@@ -64,7 +64,7 @@ async def invite(ctx):
 
 # Ping command
 @tree.command(name="ping",
-              description="Ping Bosco")
+              description="Ping Bosco and get latency")
 async def ping(ctx):
     print('INFO: Recieved /ping command')
     latency = round(client.latency*1000)
@@ -74,7 +74,7 @@ async def ping(ctx):
 
 # Deep Dive command
 @tree.command(name="deep-dive",
-              description="Get details about the weekly deep dives")
+              description="Get weekly Deep Dive details")
 @app_commands.describe(type="Which Deep Dive(s) to get details for")
 async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     print(f'INFO: Recieved /deep-dive command with type={type.name}')
