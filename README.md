@@ -3,7 +3,7 @@
 <div align="center">
 
   <a href="https://github.com/MoritzHayden/bosco" target="_self">
-    <img src="./img/avatar-alt.png" width="30%" alt="Bosco Bot Logo" />
+    <img src="./src/img/avatar.png" width="30%" alt="Bosco Bot Logo" />
   </a>
 
   &nbsp;
@@ -15,7 +15,7 @@
   [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco/issues)
   [![Stars](https://img.shields.io/github/stars/MoritzHayden/bosco)](https://github.com/MoritzHayden/bosco)
 
-  [![Invite](./img/discord-invite-button.svg)](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot)
+  [![Invite](./src/img/invite-button.svg)](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot)
 
 </div>
 
