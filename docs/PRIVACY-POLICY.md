@@ -4,7 +4,7 @@ The use of this application ("Bot") in a server requires the collection of some 
 
 ## Access to Data
 
-Access to Data is only permitted to Bot's developers, and only in the scope required for the development, testing, and implementation of features for Bot. Data is not sold, provided to, or shared with any third party, except where required by law or a Terms of Service agreement. You can view the data upon request by emailing [bosco@hmoritz.dev](mailto:bosco@hmoritz.dev).
+Access to Data is only permitted to Bot's developers, and only in the scope required for the development, testing, and implementation of features for Bot. Data is not sold, provided to, or shared with any third party, except where required by law or a Terms of Service agreement. You can view the data upon request by emailing [help@boscobot.dev](mailto:help@boscobot.dev).
 
 ## Storage of Data
 
@@ -12,7 +12,7 @@ Data is stored in a MongoDB database. The database is secured to prevent externa
 
 ## User Rights
 
-At any time, you have the right to request to view the Data pertaining to your Discord account. You may submit a request by emailing [bosco@hmoritz.dev](mailto:bosco@hmoritz.dev). You have the right to request the removal of relevant Data.
+At any time, you have the right to request to view the Data pertaining to your Discord account. You may submit a request by emailing [help@boscobot.dev](mailto:help@boscobot.dev). You have the right to request the removal of relevant Data.
 
 ## Underage Users
 
@@ -20,4 +20,4 @@ The use of the Bot is not permitted for minors under the age of 13, or under the
 
 ## Questions
 
-If you have any questions or concerns about this privacy policy, please contact the Bosco developers at [bosco@hmoritz.dev](mailto:bosco@hmoritz.dev). For more information, reference the [Discord Terms Of Service](https://discord.com/terms).
+If you have any questions or concerns about this privacy policy, please contact the Bosco developers at [help@boscobot.dev](mailto:help@boscobot.dev). For more information, reference the [Discord Terms Of Service](https://discord.com/terms).
