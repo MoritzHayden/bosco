@@ -67,6 +67,7 @@ async def ping(ctx):
 @app_commands.describe(type="Which Deep Dive(s) to get details for")
 async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     print(f'INFO: Recieved /deep-dive command with type={type.name}')
+    await ctx.response.defer()
     deep_dive_details = get_deep_dive_details(REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, type)
     if deep_dive_details is not None:
         dd = deep_dive_details[0]
@@ -109,7 +110,7 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
                 edd_stage_info += f'- Warning: {stage[4]}'
                 embed_message.add_field(name=f'Stage {stage[0]}', value=edd_stage_info, inline=False)
 
-        await ctx.response.send_message(embed=embed_message)
+        await ctx.followup.send(embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
     else:
         await ctx.response.send_message('Oops, something went wrong! Please try again later.')
