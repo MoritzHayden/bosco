@@ -20,7 +20,7 @@ def create_deep_dive_embed(thumbnail: discord.File, deep_dive_details: list[Deep
     dd = deep_dive_details[0]
     edd = deep_dive_details[1]
     embed_message = discord.Embed(title=f'Weekly Deep Dives ({dd.date})', url=dd.url, color=0xFDA50F)
-    embed_message.set_thumbnail(f'attachment://{thumbnail.filename}')
+    embed_message.set_thumbnail(url=f'attachment://{thumbnail.filename}')
 
     # TODO: Add dd to embed_message
     # TODO: Prettify the output and use modifier images
