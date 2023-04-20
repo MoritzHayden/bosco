@@ -10,4 +10,4 @@ By using this application ("Bot", "Bosco"), you agree to the following terms and
 6. Bosco developers reserve the right to modify these terms of service at any time without notice.
 7. By using Bosco, you agree to be bound by these terms of service. If you do not agree to these terms, do not use Bosco.
 
-If you have any questions or concerns about these terms, please contact the Bosco developers at [bosco@hmoritz.dev](mailto:bosco@hmoritz.dev).
+If you have any questions or concerns about these terms, please contact the Bosco developers at [help@boscobot.dev](mailto:help@boscobot.dev).
