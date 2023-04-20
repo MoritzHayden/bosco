@@ -7,6 +7,7 @@ from deep_dive_type import DeepDiveType
 from api_ninjas import get_fun_facts
 from reddit import get_deep_dive_details
 from utils import get_random_salute, create_deep_dive_embed
+from views import ButtonView
 
 
 # Initialize environment variables
@@ -47,7 +48,8 @@ async def help(ctx):
     embed_message.add_field(name="/loadout", value="Get a randomized loadout for the specified Dwarf", inline=False)
     embed_message.add_field(name="/rock-and-stone", value="Rock and Stone!", inline=False)
     embed_message.add_field(name="/fun-fact", value="Get one or more fun facts", inline=False)
-    await ctx.response.send_message(embed=embed_message)
+    button_view = ButtonView()
+    await ctx.response.send_message(embed=embed_message, view=button_view)
     print('SUCCESS: Processed /help command')
 
 
