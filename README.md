@@ -27,8 +27,8 @@
 - [Usage](#usage)
   - [/help](#help)
   - [/ping](#ping)
-  - [/deep-dives](#deep-dives)
-  - [/loadout](#loadout)
+  - [/deep-dive (UNDER DEVELOPMENT)](#deep-dive---under-development)
+  - [/loadout (UNDER DEVELOPMENT)](#loadout---under-development)
   - [/rock-and-stone](#rock-and-stone)
   - [/fun-fact](#fun-fact)
 - [Local Development](#local-development)
@@ -52,7 +52,7 @@ Bosco is a free, open-source Discord bot and companion for Deep Rock Galactic pl
 Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot) to your server, it supports the following [slash commands](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ):
 
 
-### `/help`
+### /help
 
 - Description: Get help with bosco
 - Options: None
@@ -61,7 +61,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   /help
   ```
 
-### `/ping`
+### /ping
 
 - Description: A health check which pings Bosco and returns the latency.
 - Options: None
@@ -70,9 +70,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   /ping
   ```
 
-### `/deep-dive`
-
-**UNDER DEVELOPMENT**
+### /deep-dive - UNDER DEVELOPMENT
 
 - Description: Get details about the weekly deep dives.
 - Options:
@@ -82,9 +80,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   /deep-dive type=ELITE_DEEP_DIVE
   ```
 
-### `/loadout`
-
-**UNDER DEVELOPMENT**
+### /loadout - UNDER DEVELOPMENT
 
 - Description: Get a randomized loadout for the specified Dwarf.
 - Options:
@@ -94,7 +90,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   /loadout dwarf=ENGINEER
   ```
 
-### `/rock-and-stone`
+### /rock-and-stone
 
 - Description: Rock and Stone!
 - Options: None
@@ -103,7 +99,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   /rock-and-stone
   ```
 
-### `/fun-fact`
+### /fun-fact
 
 - Description: Get one or more fun facts.
 - Options:
@@ -124,7 +120,7 @@ In order for Bosco to interact with the services it depends on (Discord, Reddit,
 1. Discord
    - Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application. Copy your bot token.
 2. Reddit
-   - Register for access to the [Reddit API](https://www.reddit.com/wiki/api/). Copy your client id and secret.
+   - Create a new [Reddit application](https://www.reddit.com/prefs/apps) and register it for access to the [Reddit API](https://www.reddit.com/wiki/api/). Copy your application client id and secret.
 3. API Ninjas
    - Register for access to [API Ninjas](https://api-ninjas.com/). Copy your api token.
 
@@ -141,7 +137,7 @@ REDDIT_CLIENT_SECRET=<VALUE>
 
 ### Installation
 
-Install dependencies by running the following command from the root of this repository:
+First, make sure you have [Python 3](https://www.python.org/downloads/) installed on your system. Then, install the project dependencies by running the following command from the root of this repository:
 
 ```bash
 pip3 install -r src/requirements.txt
@@ -175,7 +171,7 @@ Contributions are welcome! If you found a bug or have a feature request, please 
 
 ## Disclaimer
 
-Neither this bot nor its contributors are associated with Deep Rock Galactic or Ghost Ship Games in any way whatsoever.
+Neither this project nor its contributors are associated with Deep Rock Galactic or Ghost Ship Games in any way whatsoever.
 
 ## Legal
 
