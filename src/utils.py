@@ -16,11 +16,11 @@ def get_random_salute():
 
 
 # Construct the embed message for the deep-dive command
-def create_deep_dive_embed(deep_dive_details: list[DeepDive], type: DeepDiveType):
+def create_deep_dive_embed(thumbnail: discord.File, deep_dive_details: list[DeepDive], type: DeepDiveType):
     dd = deep_dive_details[0]
     edd = deep_dive_details[1]
     embed_message = discord.Embed(title=f'Weekly Deep Dives ({dd.date})', url=dd.url, color=0xFDA50F)
-    embed_message.set_thumbnail(os.path.join(os.path.dirname(__file__), 'img/deep-dive.png'))
+    embed_message.set_thumbnail(f'attachment://{thumbnail.filename}')
 
     # TODO: Add dd to embed_message
     # TODO: Prettify the output and use modifier images

@@ -69,9 +69,10 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     print(f'INFO: Recieved /deep-dive command with type={type.name}')
     await ctx.response.defer()
     try:
+        thumbnail = discord.File(os.path.join(os.path.dirname(__file__), 'img/deep-dive.png'), filename='deep-dive.png')
         deep_dive_details = get_deep_dive_details(REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, type)
-        embed_message = create_deep_dive_embed(deep_dive_details, type)
-        await ctx.followup.send(embed=embed_message)
+        embed_message = create_deep_dive_embed(thumbnail, deep_dive_details, type)
+        await ctx.followup.send(file=thumbnail, embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
     except Exception as e:
         await ctx.followup.send('Oops, something went wrong! Please try again later.')
