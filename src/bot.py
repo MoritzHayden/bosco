@@ -68,14 +68,14 @@ async def ping(ctx):
 async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     print(f'INFO: Recieved /deep-dive command with type={type.name}')
     await ctx.response.defer()
-    deep_dive_details = get_deep_dive_details(REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, type)
-    if deep_dive_details is not None:
+    try:
+        deep_dive_details = get_deep_dive_details(REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, type)
         embed_message = create_deep_dive_embed(deep_dive_details, type)
         await ctx.followup.send(embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
-    else:
+    except Exception as e:
         await ctx.followup.send('Oops, something went wrong! Please try again later.')
-        print('Failure: Failed to process /deep-dive command')
+        print(f'Failure: Failed to process /deep-dive command exception={str(e)}')
 
 
 # Loadout command
