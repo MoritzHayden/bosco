@@ -25,7 +25,7 @@ def create_deep_dive_embed(deep_dive_details: list[DeepDive], type: DeepDiveType
     # TODO: Prettify the output and use modifier images
     if type in (DeepDiveType.ALL, DeepDiveType.DEEP_DIVE):
         # Header
-        embed_message.add_field(name=f'Deep Dive | {dd.name} | {dd.biome}', value=' ', inline=False)
+        embed_message.add_field(name=f'Deep Dive | {dd.name} | {dd.biome}', value='', inline=False)
 
         # Stages
         for stage in dd.stages:
@@ -37,13 +37,13 @@ def create_deep_dive_embed(deep_dive_details: list[DeepDive], type: DeepDiveType
             embed_message.add_field(name=f'Stage {stage[0]}', value=dd_stage_info, inline=False)
 
         # Blank space
-        embed_message.add_field(name='', value='', inline=False)
+        embed_message.add_field(name='embed_message', value='embed_message', inline=False)
 
     # TODO: Add edd to embed_message
     # TODO: Prettify the output and use modifier images
     if type in (DeepDiveType.ALL, DeepDiveType.ELITE_DEEP_DIVE):
         # Header
-        embed_message.add_field(name=f'Elite Deep Dive | {edd.name} | {edd.biome}', value=' ', inline=False)
+        embed_message.add_field(name=f'Elite Deep Dive | {edd.name} | {edd.biome}', value='', inline=False)
 
         # Stages
         for stage in edd.stages:
@@ -53,3 +53,5 @@ def create_deep_dive_embed(deep_dive_details: list[DeepDive], type: DeepDiveType
             edd_stage_info += f'  - Anomaly: {stage[3]}\n'
             edd_stage_info += f'  - Warning: {stage[4]}'
             embed_message.add_field(name=f'Stage {stage[0]}', value=edd_stage_info, inline=False)
+    
+    return embed_message
