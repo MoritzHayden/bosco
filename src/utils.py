@@ -30,10 +30,10 @@ def create_deep_dive_embed(deep_dive_details: list[DeepDive], type: DeepDiveType
         # Stages
         for stage in dd.stages:
             dd_stage_info = ""
-            dd_stage_info += f'\U0001F3AF {stage[1]}\n'
-            dd_stage_info += f'\U0001F3AF {stage[2]}\n'
-            dd_stage_info += f'\U000026A0 {stage[3]}\n'
-            dd_stage_info += f'\U0001F6A8 {stage[4]}'
+            dd_stage_info += f'\U0001F3AF {stage[1]}\t\n'
+            dd_stage_info += f'\U0001F3AF {stage[2]}\t\n'
+            dd_stage_info += f'\U000026A0 {stage[3]}\t\n'
+            dd_stage_info += f'\U0001F6A8 {stage[4]}\t'
             embed_message.add_field(name=f'Stage {stage[0]}', value=dd_stage_info, inline=True)
 
         # Blank space
@@ -48,10 +48,10 @@ def create_deep_dive_embed(deep_dive_details: list[DeepDive], type: DeepDiveType
         # Stages
         for stage in edd.stages:
             edd_stage_info = ""
-            edd_stage_info += f'\U0001F3AF {stage[1]}\n'
-            edd_stage_info += f'\U0001F3AF {stage[2]}\n'
-            edd_stage_info += f'\U000026A0 {stage[3]}\n'
-            edd_stage_info += f'\U0001F6A8 {stage[4]}'
+            edd_stage_info += f'\U0001F3AF {stage[1]}\t\n'
+            edd_stage_info += f'\U0001F3AF {stage[2]}\t\n'
+            edd_stage_info += f'\U000026A0 {stage[3]}\t\n'
+            edd_stage_info += f'\U0001F6A8 {stage[4]}\t'
             embed_message.add_field(name=f'Stage {stage[0]}', value=edd_stage_info, inline=True)
     
     return embed_message
