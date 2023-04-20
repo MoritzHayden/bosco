@@ -78,16 +78,16 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
         if type in (DeepDiveType.ALL, DeepDiveType.DEEP_DIVE):
             # Overview
             dd_overview = ""
-            dd_overview += f'- Name: {dd.name}'
+            dd_overview += f'- Name: {dd.name}\n'
             dd_overview += f'- Biome: {dd.biome}'
-            embed_message.add_field(name=dd.type, value=dd_overview, inline=False)
+            embed_message.add_field(name="Deep Dive", value=dd_overview, inline=False)
 
             # Stages
             for stage in dd.stages:
                 dd_stage_info = ""
-                dd_stage_info += f'- Primary: {stage[1]}'
-                dd_stage_info += f'- Secondary: {stage[2]}'
-                dd_stage_info += f'- Anomaly: {stage[3]}'
+                dd_stage_info += f'- Primary: {stage[1]}\n'
+                dd_stage_info += f'- Secondary: {stage[2]}\n'
+                dd_stage_info += f'- Anomaly: {stage[3]}\n'
                 dd_stage_info += f'- Warning: {stage[4]}'
                 embed_message.add_field(name=f'Stage {stage[0]}', value=dd_stage_info, inline=False)
 
@@ -96,16 +96,16 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
         if type in (DeepDiveType.ALL, DeepDiveType.ELITE_DEEP_DIVE):
             # Overview
             edd_overview = ""
-            edd_overview += f'- Name: {edd.name}'
+            edd_overview += f'- Name: {edd.name}\n'
             edd_overview += f'- Biome: {edd.biome}'
-            embed_message.add_field(name=edd.type, value=edd_overview, inline=False)
+            embed_message.add_field(name="Elite Deep Dive", value=edd_overview, inline=False)
 
             # Stages
             for stage in edd.stages:
                 edd_stage_info = ""
-                edd_stage_info += f'- Primary: {stage[1]}'
-                edd_stage_info += f'- Secondary: {stage[2]}'
-                edd_stage_info += f'- Anomaly: {stage[3]}'
+                edd_stage_info += f'- Primary: {stage[1]}\n'
+                edd_stage_info += f'- Secondary: {stage[2]}\n'
+                edd_stage_info += f'- Anomaly: {stage[3]}\n'
                 edd_stage_info += f'- Warning: {stage[4]}'
                 embed_message.add_field(name=f'Stage {stage[0]}', value=edd_stage_info, inline=False)
 
