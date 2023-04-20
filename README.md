@@ -144,7 +144,7 @@ REDDIT_CLIENT_SECRET=<VALUE>
 Install dependencies by running the following command from the root of this repository:
 
 ```bash
-pip install -U -r src/requirements.txt
+pip3 install -r src/requirements.txt
 ```
 
 ### Execution
