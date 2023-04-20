@@ -1,5 +1,6 @@
 import os
 import json
+import emoji
 import random
 import discord
 from deep_dive import DeepDive
@@ -31,10 +32,10 @@ def create_deep_dive_embed(thumbnail: discord.File, deep_dive_details: list[Deep
         # Stages
         for stage in dd.stages:
             dd_stage_info = ""
-            dd_stage_info += f'\U0001F3AF {stage[1]}\t\n'
-            dd_stage_info += f'\U0001F3AF {stage[2]}\t\n'
-            dd_stage_info += f'\U000026A0 {stage[3]}\t\n'
-            dd_stage_info += f'\U0001F6A8 {stage[4]}\t'
+            dd_stage_info += emoji.emojize(f':bullseye:  {stage[1]}\n')
+            dd_stage_info += emoji.emojize(f':bullseye:  {stage[2]}\n')
+            dd_stage_info += emoji.emojize(f':warning:  {stage[3]}\n')
+            dd_stage_info += emoji.emojize(f':police_car_light:  {stage[4]}')
             embed_message.add_field(name=f'Stage {stage[0]}', value=dd_stage_info, inline=True)
 
         # Blank space
@@ -49,10 +50,10 @@ def create_deep_dive_embed(thumbnail: discord.File, deep_dive_details: list[Deep
         # Stages
         for stage in edd.stages:
             edd_stage_info = ""
-            edd_stage_info += f'\U0001F3AF {stage[1]}\t\n'
-            edd_stage_info += f'\U0001F3AF {stage[2]}\t\n'
-            edd_stage_info += f'\U000026A0 {stage[3]}\t\n'
-            edd_stage_info += f'\U0001F6A8 {stage[4]}\t'
+            edd_stage_info += emoji.emojize(f':bullseye:  {stage[1]}\n')
+            edd_stage_info += emoji.emojize(f':bullseye:  {stage[2]}\n')
+            edd_stage_info += emoji.emojize(f':warning:  {stage[3]}\n')
+            edd_stage_info += emoji.emojize(f':police_car_light:  {stage[4]}')
             embed_message.add_field(name=f'Stage {stage[0]}', value=edd_stage_info, inline=True)
     
     return embed_message
