@@ -35,16 +35,8 @@ class RedditService:
         deep_dives: list[DeepDive] = []
         date = self.__parse_date(title)
         lines = text.split('\n')
-
-        deep_dives.append(self.__parse_deep_dive_details(type=DeepDiveType.DEEP_DIVE,
-                                                         lines=lines,
-                                                         date=date,
-                                                         url=url))
-        deep_dives.append(self.__parse_deep_dive_details(type=DeepDiveType.ELITE_DEEP_DIVE,
-                                                         lines=lines,
-                                                         date=date,
-                                                         url=url))
-
+        deep_dives.append(self.__parse_deep_dive_details(DeepDiveType.DEEP_DIVE, lines, date, url))
+        deep_dives.append(self.__parse_deep_dive_details(DeepDiveType.ELITE_DEEP_DIVE, lines, date, url))
         return deep_dives
     
     def __parse_date(self, title: str) -> str:
@@ -61,12 +53,11 @@ class RedditService:
         stages: list[DeepDiveStage] = []
 
         for raw_stage in raw_stages:
-            stage = DeepDiveStage(stage=int(raw_stage[1]),
-                                  primary=raw_stage[2],
-                                  secondary=raw_stage[3],
-                                  anomaly=Anomaly[to_screaming_snake_case(raw_stage[4])],
-                                  warning=Warning[to_screaming_snake_case(raw_stage[5])])
-            stages.append(stage)
+            stages.append(DeepDiveStage(stage=int(raw_stage[1]),
+                                        primary=raw_stage[2],
+                                        secondary=raw_stage[3],
+                                        anomaly=Anomaly[to_screaming_snake_case(raw_stage[4])],
+                                        warning=Warning[to_screaming_snake_case(raw_stage[5])]))
 
         return DeepDive(type=type,
                         name=to_title_case(about[1]),

@@ -2,18 +2,18 @@ import os
 import discord
 from discord import app_commands
 from dotenv import load_dotenv
-from model.drg import Dwarf, DeepDiveType
-from service.apininjas import APINinjasService
+from config import BOSCO_USER_AGENT, ERROR_RESPONSE_TEXT
+from model.drg import DeepDiveType
+from model.ui import ButtonView
 from service.reddit import RedditService
 from service.salute import SaluteService
-from util.embed import create_help_embed, create_deep_dive_embed, create_fun_fact_embed
-from view.button import ButtonView
+from service.trivia import TriviaService
+from util.embed import embed_deep_dive, embed_trivia, embed_help
 
 
 # Initialize environment variables
 load_dotenv()
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
-API_NINJAS_TOKEN = os.getenv('API_NINJAS_TOKEN')
 REDDIT_CLIENT_ID = os.getenv('REDDIT_CLIENT_ID')
 REDDIT_CLIENT_SECRET = os.getenv('REDDIT_CLIENT_SECRET')
 
@@ -25,43 +25,47 @@ tree = app_commands.CommandTree(client)
 
 
 # Initialize services
-apiNinjasService = APINinjasService(API_NINJAS_TOKEN)
 redditService = RedditService(client_id=REDDIT_CLIENT_ID,
                               client_secret=REDDIT_CLIENT_SECRET,
-                              user_agent='discord:dev.boscobot',
+                              user_agent=BOSCO_USER_AGENT,
                               check_for_async=False)
 saluteService = SaluteService()
+triviaService = TriviaService()
 
 
 # Ready event
 @client.event
 async def on_ready():
-    print('INFO: Syncing command tree')
+    print('INFO: Readying bot')
     await tree.sync()
-    print('SUCCESS: Synced command tree')
-    print('INFO: Updating bot presence')
     await client.change_presence(status=discord.Status.online, activity=discord.Game(name='Deep Rock Galactic'))
-    print('SUCCESS: Updated bot presence')
-    print('INFO: Bot ready')
+    print('SUCCESS: Bot ready')
 
 
 # Help command
 @tree.command(name="help",
               description="View the command list and helpful links")
 async def help(ctx):
-    print('INFO: Recieved /help command')
-    embed_message = create_help_embed()
-    await ctx.response.send_message(embed=embed_message, view=ButtonView())
-    print('SUCCESS: Processed /help command')
+    try:
+        print('INFO: Recieved /help command')
+        await ctx.response.send_message(embed=embed_help(), view=ButtonView())
+        print('SUCCESS: Processed /help command')
+    except Exception as e:
+        await ctx.response.send_message(ERROR_RESPONSE_TEXT)
+        print(f'FAILURE: Failed to process /help command exception={str(e)}')
 
 
 # Invite command
 @tree.command(name="invite",
               description="Invite Bosco to your server")
 async def invite(ctx):
-    print('INFO: Recieved /invite command')
-    await ctx.response.send_message(view=ButtonView())
-    print('SUCCESS: Processed /invite command')
+    try:
+        print('INFO: Recieved /invite command')
+        await ctx.response.send_message(view=ButtonView())
+        print('SUCCESS: Processed /invite command')
+    except Exception as e:
+        await ctx.response.send_message(ERROR_RESPONSE_TEXT)
+        print(f'FAILURE: Failed to process /invite command exception={str(e)}')
 
 
 # Ping command
@@ -69,9 +73,13 @@ async def invite(ctx):
               description="Ping Bosco and get latency")
 async def ping(ctx):
     print('INFO: Recieved /ping command')
-    latency = round(client.latency*1000)
-    await ctx.response.send_message(f'Pong! Latency: {latency}ms')
-    print(f'SUCCESS: Processed /ping command with latency={latency}ms')
+    try:
+        latency: int = round(client.latency*1000)
+        await ctx.response.send_message(f'Pong! Latency: {latency}ms')
+        print(f'SUCCESS: Processed /ping command with latency={latency}ms')
+    except Exception as e:
+        await ctx.response.send_message(ERROR_RESPONSE_TEXT)
+        print(f'FAILURE: Failed to process /ping command exception={str(e)}')
 
 
 # Deep Dive command
@@ -84,22 +92,12 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     try:
         thumbnail = discord.File(os.path.join(os.path.dirname(__file__), 'img/deep-dive.png'), filename='deep-dive.png')
         deep_dives = redditService.get_weekly_deep_dives()
-        embed_message = create_deep_dive_embed(thumbnail, deep_dives, type)
+        embed_message = embed_deep_dive(thumbnail, deep_dives, type)
         await ctx.followup.send(file=thumbnail, embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
     except Exception as e:
-        await ctx.followup.send('Oops, something went wrong! Please try again later.')
-        print(f'Failure: Failed to process /deep-dive command exception={str(e)}')
-
-
-# Loadout command
-@tree.command(name="loadout",
-              description="Get a randomized loadout for the specified Dwarf")
-@app_commands.describe(dwarf="Which Dwarf to generate a loadout for")
-async def loadout(ctx, dwarf: Dwarf):
-    print(f'INFO: Recieved /loadout command with dwarf={dwarf.name}')
-    await ctx.response.send_message('Coming soon!')
-    print('SUCCESS: Processed /loadout command')
+        await ctx.followup.send(ERROR_RESPONSE_TEXT)
+        print(f'FAILURE: Failed to process /deep-dive command exception={str(e)}')
 
 
 # Rock and Stone command
@@ -108,29 +106,27 @@ async def loadout(ctx, dwarf: Dwarf):
 async def rock_and_stone(ctx):
     print(f'INFO: Recieved /rock-and-stone command')
     try:
-        salute = saluteService.get_random_salute()
+        salute: str = saluteService.get_random_salute()
         await ctx.response.send_message(salute)
         print('SUCCESS: Processed /rock-and-stone command')
     except Exception as e:
-        await ctx.response.send_message('Oops, something went wrong! Please try again later.')
+        await ctx.response.send_message(ERROR_RESPONSE_TEXT)
         print(f'FAILURE: Failed to process /rock-and-stone command with exception={str(e)}')
 
 
-# Fun Fact command
-@tree.command(name="fun-fact",
-              description="Get one or more fun facts")
-@app_commands.describe(count="Number of fun facts to return (1-5)")
-async def fun_facts(ctx, count: app_commands.Range[int, 1, 5] = 1):
-    print(f'INFO: Recieved /fun-fact command with count={count}')
-    await ctx.response.defer()
+# Trivia command
+@tree.command(name="trivia",
+              description="Get a random piece of DRG trivia.")
+async def trivia(ctx):
+    print(f'INFO: Recieved /trivia command')
     try:
-        facts = apiNinjasService.get_facts(count)
-        embed_message = create_fun_fact_embed(facts)
-        await ctx.followup.send(embed=embed_message)
-        print('SUCCESS: Processed /fun-fact command')
+        trivia: str = triviaService.get_random_trivia()
+        embed_message = embed_trivia(trivia)
+        await ctx.response.send_message(embed=embed_message)
+        print('SUCCESS: Processed /trivia command')
     except Exception as e:
-        await ctx.followup.send('Oops, something went wrong! Please try again later.')
-        print(f'FAILURE: Failed to process /fun-fact command with exception={str(e)}')
+        await ctx.response.send_message(ERROR_RESPONSE_TEXT)
+        print(f'FAILURE: Failed to process /trivia command with exception={str(e)}')
 
 
 # Run client
