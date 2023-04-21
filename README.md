@@ -25,13 +25,12 @@
 
 - [About](#about)
 - [Usage](#usage)
-  - [/help](#help)
-  - [/invite](#invite)
   - [/ping](#ping)
   - [/deep-dive](#deep-dive)
-  - [/loadout (UNDER DEVELOPMENT)](#loadout---under-development)
   - [/rock-and-stone](#rock-and-stone)
-  - [/fun-fact](#fun-fact)
+  - [/trivia](#trivia)
+  - [/invite](#invite)
+  - [/help](#help)
 - [Local Development](#local-development)
   - [Registration](#registration)
   - [Configuration](#configuration)
@@ -46,29 +45,11 @@
 
 ## About
 
-Bosco is a free, open-source Discord bot and companion for Deep Rock Galactic players. It can fetch weekly Deep Dives, suggest new Dwarf loadouts, provide fun facts, and more!
+Bosco is a free, open-source Discord bot and companion for Deep Rock Galactic players. It can fetch weekly Deep Dives, provide random DRG trivia, and more!
 
 ## Usage
 
 Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot) to your server, it supports the following [slash commands](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ):
-
-### /help
-
-- Description: View the command list and helpful links.
-- Options: None
-- Syntax:
-  ```text
-  /help
-  ```
-
-### /invite
-
-- Description: Invite Bosco to your server.
-- Options: None
-- Syntax:
-  ```text
-  /invite
-  ```
 
 ### /ping
 
@@ -89,16 +70,6 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   /deep-dive type=ELITE_DEEP_DIVE
   ```
 
-### /loadout - UNDER DEVELOPMENT
-
-- Description: Get a randomized loadout for the specified Dwarf.
-- Options:
-  - `dwarf`: A required enum indicating which Dwarf the loadout should be generated for (enum values: `DRILLER`, `ENGINEER`, `GUNNER`, `SCOUT`).
-- Syntax:
-  ```text
-  /loadout dwarf=ENGINEER
-  ```
-
 ### /rock-and-stone
 
 - Description: You already know what this does.
@@ -108,14 +79,31 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   /rock-and-stone
   ```
 
-### /fun-fact
+### /trivia
 
-- Description: Get one or more fun facts.
-- Options:
-  - `count`: An optional integer indicating how many fun facts should be returned (valid range: `1-5`, default: `1`).
+- Description: Get a random piece of DRG trivia.
+- Options: None
 - Syntax:
   ```text
-  /fun-fact count=1
+  /trivia
+  ```
+
+### /invite
+
+- Description: Invite Bosco to your server.
+- Options: None
+- Syntax:
+  ```text
+  /invite
+  ```
+
+### /help
+
+- Description: View the command list and helpful links.
+- Options: None
+- Syntax:
+  ```text
+  /help
   ```
 
 ## Local Development
@@ -124,14 +112,12 @@ In order to run Bosco locally, you will need to configure your environment varia
 
 ### Registration
 
-In order for Bosco to interact with the services it depends on (Discord, Reddit, API Ninjas), you will need to register for each of these services and obtain your tokens/secrets:
+In order for Bosco to interact with the services it depends on (Discord and Reddit), you will need to register for each of these services and obtain your tokens/secrets:
 
 1. Discord
    - Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application. Copy your bot token.
 2. Reddit
    - Create a new [Reddit application](https://www.reddit.com/prefs/apps) and register it for access to the [Reddit API](https://www.reddit.com/wiki/api/). Copy your application client id and secret.
-3. API Ninjas
-   - Register for access to [API Ninjas](https://api-ninjas.com/). Copy your api token.
 
 ### Configuration
 
@@ -139,7 +125,6 @@ Create a file called `.env` within the `src/` directory to hold your environment
 
 ```text
 DISCORD_TOKEN=<VALUE>
-API_NINJAS_TOKEN=<VALUE>
 REDDIT_CLIENT_ID=<VALUE>
 REDDIT_CLIENT_SECRET=<VALUE>
 ```
