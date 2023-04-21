@@ -1,3 +1,4 @@
+import emoji
 from enum import Enum, auto
 from util.string import to_title_case
 
@@ -44,6 +45,7 @@ class Anomaly(Enum):
     GOLD_RUSH = auto()
     LOW_GRAVITY = auto()
     MINERAL_MANIA = auto()
+    NONE = auto()
     RICH_ATMOSPHERE = auto()
     VOLATILE_GUTS = auto()
 
@@ -60,6 +62,7 @@ class Warning(Enum):
     LITHOPHAGE_OUTBREAK = auto()
     LOW_OXYGEN = auto()
     MACTERA_PLAGUE = auto()
+    NONE = auto()
     PARASITES = auto()
     REGENERATIVE_BUGS = auto()
     RIVAL_PRESENCE = auto()
@@ -84,7 +87,11 @@ class DeepDiveStage:
         self.warning: Warning = warning
 
     def __str__(self):
-        return ""
+        content = emoji.emojize(f':bullseye: {self.primary}\n')
+        content += emoji.emojize(f':bullseye: {self.secondary}\n')
+        content += emoji.emojize(f':warning: {self.anomaly}\n')
+        content += emoji.emojize(f':police_car_light: {self.warning}')
+        return content
 
 
 class DeepDive:

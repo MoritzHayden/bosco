@@ -1,5 +1,6 @@
 import praw
-from model.drg import DeepDive, DeepDiveType
+from model.drg import Anomaly, Biome, DeepDive, DeepDiveStage, DeepDiveType, Warning
+from util.string import to_screaming_snake_case, to_title_case
 
 
 class RedditService:
@@ -9,7 +10,7 @@ class RedditService:
         self.user_agent: str = user_agent
         self.check_for_async: bool = check_for_async
 
-    def get_weekly_deep_dives(self):
+    def get_weekly_deep_dives(self) -> list[DeepDive]:
         try:
             print('INFO: Getting deep dive details')
             reddit = praw.Reddit(
@@ -30,29 +31,46 @@ class RedditService:
             print(f'FAILURE: Failed to get weekly deep dives exception={str(e)}')
             return None
 
-    # TODO: Update this
-    def __parse_details(url: str, title: str, text: str) -> list[DeepDive]:
+    def __parse_details(self, url: str, title: str, text: str) -> list[DeepDive]:
         deep_dives: list[DeepDive] = []
+        date = self.__parse_date(title)
         lines = text.split('\n')
-        
-        # Date (ex: September 26th, 2019)
-        date_arr = title.split(" - ")[1].split(" ")
-        date = f'{date_arr[1]} {date_arr[0]}, {date_arr[2]}'
 
-        # Deep Dive
-        dd_about = lines[4].replace("*", "").split(" | ")
-        dd = DeepDive(DeepDiveType.DEEP_DIVE, dd_about[1], dd_about[2], date, url)
-        dd_stages = [lines[8].split("|"), lines[9].split("|"), lines[10].split("|")]
-        for dd_stage in dd_stages:
-            dd.add_stage(dd_stage[1], dd_stage[2], dd_stage[3], dd_stage[4], dd_stage[5])
-        deep_dives.append(dd)
-
-        # Elite Deep Dive
-        edd_about = lines[12].replace("*", "").split(" | ")
-        edd = DeepDive(DeepDiveType.ELITE_DEEP_DIVE, edd_about[1], edd_about[2], date, url)
-        edd_stages = [lines[16].split("|"), lines[17].split("|"), lines[18].split("|")]
-        for edd_stage in edd_stages:
-            edd.add_stage(edd_stage[1], edd_stage[2], edd_stage[3], edd_stage[4], edd_stage[5])
-        deep_dives.append(edd)
+        deep_dives.append(self.__parse_deep_dive_details(type=DeepDiveType.DEEP_DIVE,
+                                                         lines=lines,
+                                                         date=date,
+                                                         url=url))
+        deep_dives.append(self.__parse_deep_dive_details(type=DeepDiveType.ELITE_DEEP_DIVE,
+                                                         lines=lines,
+                                                         date=date,
+                                                         url=url))
 
         return deep_dives
+    
+    def __parse_date(self, title: str) -> str:
+        date_arr = title.split(" - ")[1].split(" ")
+        date = f'{date_arr[1]} {date_arr[0]}, {date_arr[2]}'
+        return date
+
+    def __parse_deep_dive_details(self, type: DeepDiveType, lines: list[str], date: str, url: str) -> DeepDive:
+        index = 4 if type == DeepDiveType.DEEP_DIVE else 12
+        about = lines[index].replace("*", "").split(" | ")
+        raw_stages = [lines[index+4].split("|"),
+                      lines[index+5].split("|"),
+                      lines[index+6].split("|")]
+        stages: list[DeepDiveStage] = []
+
+        for raw_stage in raw_stages:
+            stage = DeepDiveStage(stage=int(raw_stage[1]),
+                                  primary=raw_stage[2],
+                                  secondary=raw_stage[3],
+                                  anomaly=Anomaly[to_screaming_snake_case(raw_stage[4])],
+                                  warning=Warning[to_screaming_snake_case(raw_stage[5])])
+            stages.append(stage)
+
+        return DeepDive(type=type,
+                        name=to_title_case(about[1]),
+                        biome=Biome[to_screaming_snake_case(about[2])],
+                        date=date,
+                        url=url,
+                        stages=stages)

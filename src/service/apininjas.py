@@ -12,7 +12,10 @@ class APINinjasService:
                                 headers=headers)
         if response.ok:
             print(f'SUCCESS: Got facts with status_code={response.status_code}')
-            return response.json()
+            facts: list[str] = []
+            for entry in response.json():
+                facts.append(entry["fact"])
+            return facts
         else:
             print(f'FAILURE: Failed to get facts with status_code={response.status_code}')
             return None

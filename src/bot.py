@@ -32,6 +32,7 @@ redditService = RedditService(client_id=REDDIT_CLIENT_ID,
                               check_for_async=False)
 saluteService = SaluteService()
 
+
 # Ready event
 @client.event
 async def on_ready():
@@ -82,8 +83,8 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     await ctx.response.defer()
     try:
         thumbnail = discord.File(os.path.join(os.path.dirname(__file__), 'img/deep-dive.png'), filename='deep-dive.png')
-        deep_dive_details = redditService.get_weekly_deep_dives(REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, type)
-        embed_message = create_deep_dive_embed(thumbnail, deep_dive_details, type)
+        deep_dives = redditService.get_weekly_deep_dives(type)
+        embed_message = create_deep_dive_embed(thumbnail, deep_dives, type)
         await ctx.followup.send(file=thumbnail, embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
     except Exception as e:
@@ -123,7 +124,7 @@ async def fun_facts(ctx, count: app_commands.Range[int, 1, 5] = 1):
     print(f'INFO: Recieved /fun-fact command with count={count}')
     await ctx.response.defer()
     try:
-        facts = apiNinjasService.get_facts(API_NINJAS_TOKEN, count)
+        facts = apiNinjasService.get_facts(count)
         embed_message = create_fun_fact_embed(facts)
         await ctx.followup.send(embed=embed_message)
         print('SUCCESS: Processed /fun-fact command')
