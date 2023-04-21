@@ -2,12 +2,12 @@ import os
 import discord
 from discord import app_commands
 from dotenv import load_dotenv
-from dwarf import Dwarf
-from deep_dive_type import DeepDiveType
-from api_ninjas import get_fun_facts
-from reddit import get_deep_dive_details
-from utils import get_random_salute, create_deep_dive_embed
-from views import ButtonView
+from model.drg import Dwarf, DeepDiveType
+from service.apininjas import APINinjasService
+from service.reddit import RedditService
+from service.salute import SaluteService
+from util.embed import create_help_embed, create_deep_dive_embed, create_fun_fact_embed
+from view.button import ButtonView
 
 
 # Initialize environment variables
@@ -23,6 +23,14 @@ intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 
+
+# Initialize services
+apiNinjasService = APINinjasService(API_NINJAS_TOKEN)
+redditService = RedditService(client_id=REDDIT_CLIENT_ID,
+                              client_secret=REDDIT_CLIENT_SECRET,
+                              user_agent='discord:dev.boscobot',
+                              check_for_async=False)
+saluteService = SaluteService()
 
 # Ready event
 @client.event
@@ -41,14 +49,7 @@ async def on_ready():
               description="View the command list and helpful links")
 async def help(ctx):
     print('INFO: Recieved /help command')
-    embed_message = discord.Embed(title="Bosco Help", url="https://boscobot.dev/", color=0xFDA50F)
-    embed_message.add_field(name="/help", value="View the command list and helpful links", inline=False)
-    embed_message.add_field(name="/invite", value="Invite Bosco to your server", inline=False)
-    embed_message.add_field(name="/ping", value="Ping Bosco and get latency", inline=False)
-    embed_message.add_field(name="/deep-dive", value="Get weekly Deep Dive details", inline=False)
-    embed_message.add_field(name="/loadout", value="Get a randomized Dwarf loadout", inline=False)
-    embed_message.add_field(name="/rock-and-stone", value="You already know what this does", inline=False)
-    embed_message.add_field(name="/fun-fact", value="Get one or more fun facts", inline=False)
+    embed_message = create_help_embed()
     await ctx.response.send_message(embed=embed_message, view=ButtonView())
     print('SUCCESS: Processed /help command')
 
@@ -81,7 +82,7 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
     await ctx.response.defer()
     try:
         thumbnail = discord.File(os.path.join(os.path.dirname(__file__), 'img/deep-dive.png'), filename='deep-dive.png')
-        deep_dive_details = get_deep_dive_details(REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, type)
+        deep_dive_details = redditService.get_weekly_deep_dives(REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, type)
         embed_message = create_deep_dive_embed(thumbnail, deep_dive_details, type)
         await ctx.followup.send(file=thumbnail, embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
@@ -105,33 +106,31 @@ async def loadout(ctx, dwarf: Dwarf):
               description="Rock and Stone!")
 async def rock_and_stone(ctx):
     print(f'INFO: Recieved /rock-and-stone command')
-    await ctx.response.send_message(get_random_salute())
-    print('SUCCESS: Processed /rock-and-stone command')
+    try:
+        salute = saluteService.get_random_salute()
+        await ctx.response.send_message(salute)
+        print('SUCCESS: Processed /rock-and-stone command')
+    except Exception as e:
+        await ctx.response.send_message('Oops, something went wrong! Please try again later.')
+        print(f'FAILURE: Failed to process /rock-and-stone command with exception={str(e)}')
 
 
 # Fun Fact command
 @tree.command(name="fun-fact",
               description="Get one or more fun facts")
-@app_commands.describe(count="Number of fun facts to return (1-10)")
-async def fun_facts(ctx, count: int = 1):
+@app_commands.describe(count="Number of fun facts to return (1-5)")
+async def fun_facts(ctx, count: app_commands.Range[int, 1, 5] = 1):
     print(f'INFO: Recieved /fun-fact command with count={count}')
-    if 1 <= count <= 10:
-        facts = get_fun_facts(API_NINJAS_TOKEN, count)
-        if len(facts) == count:
-            facts_message = ""
-            for i, fact in enumerate(facts):
-                if len(facts) == 1:
-                    facts_message += f'**Fun Fact:** {fact}'
-                else:
-                    facts_message += f'**Fun Fact #{i + 1}:** {fact}\n\n'
-            await ctx.response.send_message(facts_message)
-            print('SUCCESS: Processed /fun-fact command')
-        else:
-            await ctx.response.send_message('Oops, something went wrong! Please try again later.')
-            print('FAILURE: Failed to process /fun-fact command')
-    else:
-        print('FAILURE: Failed to process /fun-fact command')
-        await ctx.response.send_message('Oops, please try again with a `count` in range of 1-10.')
+    await ctx.response.defer()
+    try:
+        facts = apiNinjasService.get_facts(API_NINJAS_TOKEN, count)
+        embed_message = create_fun_fact_embed(facts)
+        await ctx.followup.send(embed=embed_message)
+        print('SUCCESS: Processed /fun-fact command')
+    except Exception as e:
+        await ctx.followup.send('Oops, something went wrong! Please try again later.')
+        print(f'FAILURE: Failed to process /fun-fact command with exception={str(e)}')
+
 
 # Run client
 client.run(DISCORD_TOKEN)

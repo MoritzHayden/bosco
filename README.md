@@ -112,7 +112,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 - Description: Get one or more fun facts.
 - Options:
-  - `count`: An optional integer indicating how many fun facts should be returned (valid range: `1-10`, default: `1`).
+  - `count`: An optional integer indicating how many fun facts should be returned (valid range: `1-5`, default: `1`).
 - Syntax:
   ```text
   /fun-fact count=1
