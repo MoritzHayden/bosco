@@ -86,15 +86,15 @@ async def ping_cmd(ctx):
 # Deep Dive command
 @tree.command(name="deep-dive",
               description="Get weekly Deep Dive details")
-@app_commands.describe(dive_type="Which Deep Dive(s) to get details for")
-async def deep_dive_cmd(ctx, dive_type: DeepDiveType = DeepDiveType.ALL):
+@app_commands.describe(variant="Which Deep Dive(s) to get details for")
+async def deep_dive_cmd(ctx, variant: DeepDiveType = DeepDiveType.ALL):
     try:
-        print(f'INFO: Recieved /deep-dive command with type={dive_type.name}')
+        print(f'INFO: Recieved /deep-dive command with type={variant.name}')
         await ctx.response.defer()
         thumbnail = discord.File(fp=os.path.join(os.path.dirname(__file__), 'img/deep-dive.png'),
                                  filename='deep-dive.png')
         deep_dives = redditService.get_weekly_deep_dives()
-        embed_message = embed_deep_dive(thumbnail, deep_dives, dive_type)
+        embed_message = embed_deep_dive(thumbnail, deep_dives, variant)
         await ctx.followup.send(file=thumbnail, embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
     except Exception as e:
