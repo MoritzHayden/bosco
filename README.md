@@ -65,10 +65,10 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 - Description: Get weekly Deep Dive details.
 - Options:
-  - `type`: An optional enum indicating which Deep Dive to fetch details for (enum values: `ALL`, `DEEP_DIVE`, `ELITE_DEEP_DIVE`, default: `ALL`).
+  - `variant`: An optional enum indicating which Deep Dive to fetch details for. Enum values: `ALL` (default), `DEEP_DIVE`, and `ELITE_DEEP_DIVE`.
 - Syntax:
   ```text
-  /deep-dive type=ELITE_DEEP_DIVE
+  /deep-dive variant=ELITE_DEEP_DIVE
   ```
 
 ### /rock-and-stone
