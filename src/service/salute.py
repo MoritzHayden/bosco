@@ -26,5 +26,8 @@ class SaluteService:
             "If you don't Rock and Stone, you ain't comin' home!"
         ]
 
-    def get_random_salute(self):
+    def get_random_salute(self) -> str:
         return random.choice(self.salutes)
+
+    def get_salute(self, index: int) -> str:
+        return self.salutes[index]
