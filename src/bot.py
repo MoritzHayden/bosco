@@ -38,14 +38,15 @@ triviaService = TriviaService()
 async def on_ready():
     print('INFO: Readying bot')
     await tree.sync()
-    await client.change_presence(status=discord.Status.online, activity=discord.Game(name='Deep Rock Galactic'))
+    await client.change_presence(status=discord.Status.online,
+                                 activity=discord.Game(name='Deep Rock Galactic'))
     print('SUCCESS: Bot ready')
 
 
 # Help command
 @tree.command(name="help",
               description="View the command list and helpful links")
-async def help(ctx):
+async def help_cmd(ctx):
     try:
         print('INFO: Recieved /help command')
         await ctx.response.send_message(embed=embed_help(), view=ButtonView())
@@ -58,7 +59,7 @@ async def help(ctx):
 # Invite command
 @tree.command(name="invite",
               description="Invite Bosco to your server")
-async def invite(ctx):
+async def invite_cmd(ctx):
     try:
         print('INFO: Recieved /invite command')
         await ctx.response.send_message(view=ButtonView())
@@ -71,9 +72,9 @@ async def invite(ctx):
 # Ping command
 @tree.command(name="ping",
               description="Ping Bosco and get latency")
-async def ping(ctx):
-    print('INFO: Recieved /ping command')
+async def ping_cmd(ctx):
     try:
+        print('INFO: Recieved /ping command')
         latency: int = round(client.latency*1000)
         await ctx.response.send_message(f'Pong! Latency: {latency}ms')
         print(f'SUCCESS: Processed /ping command with latency={latency}ms')
@@ -85,14 +86,15 @@ async def ping(ctx):
 # Deep Dive command
 @tree.command(name="deep-dive",
               description="Get weekly Deep Dive details")
-@app_commands.describe(type="Which Deep Dive(s) to get details for")
-async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
-    print(f'INFO: Recieved /deep-dive command with type={type.name}')
-    await ctx.response.defer()
+@app_commands.describe(dive_type="Which Deep Dive(s) to get details for")
+async def deep_dive_cmd(ctx, dive_type: DeepDiveType = DeepDiveType.ALL):
     try:
-        thumbnail = discord.File(os.path.join(os.path.dirname(__file__), 'img/deep-dive.png'), filename='deep-dive.png')
+        print(f'INFO: Recieved /deep-dive command with type={dive_type.name}')
+        await ctx.response.defer()
+        thumbnail = discord.File(fp=os.path.join(os.path.dirname(__file__), 'img/deep-dive.png'),
+                                 filename='deep-dive.png')
         deep_dives = redditService.get_weekly_deep_dives()
-        embed_message = embed_deep_dive(thumbnail, deep_dives, type)
+        embed_message = embed_deep_dive(thumbnail, deep_dives, dive_type)
         await ctx.followup.send(file=thumbnail, embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
     except Exception as e:
@@ -103,9 +105,9 @@ async def deep_dive(ctx, type: DeepDiveType = DeepDiveType.ALL):
 # Rock and Stone command
 @tree.command(name="rock-and-stone",
               description="Rock and Stone!")
-async def rock_and_stone(ctx):
-    print(f'INFO: Recieved /rock-and-stone command')
+async def rock_and_stone_cmd(ctx):
     try:
+        print('INFO: Recieved /rock-and-stone command')
         salute: str = saluteService.get_random_salute()
         await ctx.response.send_message(salute)
         print('SUCCESS: Processed /rock-and-stone command')
@@ -117,9 +119,9 @@ async def rock_and_stone(ctx):
 # Trivia command
 @tree.command(name="trivia",
               description="Get a random piece of DRG trivia.")
-async def trivia(ctx):
-    print(f'INFO: Recieved /trivia command')
+async def trivia_cmd(ctx):
     try:
+        print('INFO: Recieved /trivia command')
         trivia: str = triviaService.get_random_trivia()
         embed_message = embed_trivia(trivia)
         await ctx.response.send_message(embed=embed_message)
