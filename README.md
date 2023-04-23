@@ -12,6 +12,8 @@
   [![Language](https://img.shields.io/badge/language-python-yellow.svg)](https://www.python.org)
   [![License](https://img.shields.io/github/license/MoritzHayden/bosco?color=darkred)](https://github.com/MoritzHayden/bosco/blob/main/LICENSE)
 
+  [![Lint](https://github.com/MoritzHayden/bosco/actions/workflows/lint.yml/badge.svg)](https://github.com/MoritzHayden/bosco/actions/workflows/lint.yml)
+  [![CodeQL](https://github.com/MoritzHayden/bosco/actions/workflows/codeql.yml/badge.svg)](https://github.com/MoritzHayden/bosco/actions/workflows/codeql.yml)
   [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco?color=red)](https://github.com/MoritzHayden/bosco/issues)
   [![Pull Requests](https://img.shields.io/github/issues-pr/MoritzHayden/bosco?color=green)](https://github.com/MoritzHayden/bosco/pulls)
   [![Stars](https://img.shields.io/github/stars/MoritzHayden/bosco?color=blue)](https://github.com/MoritzHayden/bosco)
