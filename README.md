@@ -160,7 +160,7 @@ Contributions are welcome! If you found a bug or have a feature request, please 
 
 ## Special Thanks
 
-- The folks who maintain the [Deep Rock Galactic Wiki](https://deeprockgalactic.gamepedia.com/Deep_Rock_Galactic_Wiki) for supplying game images and data
+- The folks who maintain the [Deep Rock Galactic Wiki](https://deeprockgalactic.fandom.com/wiki/Deep_Rock_Galactic_Wiki) for supplying game resources and data
 - The [r/DeepRockGalactic](https://www.reddit.com/r/DeepRockGalactic/) subreddit for supplying deep dive information
 - The [Deep Rock Galactic developers](https://ghostship.dk/about/#team) for being awesome and incredibly engaged with the community
 
