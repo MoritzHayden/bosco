@@ -16,7 +16,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: src
 
     steps:
       - name: Checkout repository
@@ -30,7 +29,5 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      - name: Run linter
-        uses: wearerequired/lint-action@v2
-        with:
-          pylint: true
+      - name: Run linter (Pylint)
+        run: pylint --rcfile src/.pylintrc src
