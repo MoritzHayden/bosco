@@ -189,6 +189,8 @@ good-names=e,
            i,
            j,
            k,
+           dd,
+           edd,
            ex,
            Run,
            _
