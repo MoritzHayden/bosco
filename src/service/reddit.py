@@ -1,5 +1,5 @@
 import praw
-from model.drg import Anomaly, Biome, DeepDive, DeepDiveStage, DeepDiveType, Warning
+from model.drg import AnomalyMutator, Biome, DeepDive, DeepDiveStage, DeepDiveType, WarningMutator
 from util.string import to_screaming_snake_case, to_title_case
 
 
@@ -58,13 +58,15 @@ class RedditService:
         stages: list[DeepDiveStage] = []
 
         for raw_stage in raw_stages:
-            stages.append(DeepDiveStage(stage=int(raw_stage[1]),
-                                        primary=raw_stage[2],
-                                        secondary=raw_stage[3],
-                                        anomaly=Anomaly[to_screaming_snake_case(raw_stage[4])],
-                                        warning=Warning[to_screaming_snake_case(raw_stage[5])]))
+            stages.append(
+                DeepDiveStage(stage=int(raw_stage[1]),
+                              primary=raw_stage[2],
+                              secondary=raw_stage[3],
+                              anomaly=AnomalyMutator[to_screaming_snake_case(raw_stage[4])],
+                              warning=WarningMutator[to_screaming_snake_case(raw_stage[5])])
+            )
 
-        return DeepDive(type=dive_type,
+        return DeepDive(dive_type=dive_type,
                         name=to_title_case(about[1]),
                         biome=Biome[to_screaming_snake_case(about[2])],
                         date=date,
