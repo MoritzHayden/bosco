@@ -10,3 +10,6 @@ class TriviaService:
 
     def get_random_trivia(self):
         return random.choice(self.trivia)
+
+    def get_trivia(self, index: int) -> str:
+        return self.trivia[index]
