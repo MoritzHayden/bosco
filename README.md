@@ -18,7 +18,6 @@
   [![Lint](https://github.com/MoritzHayden/bosco/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/MoritzHayden/bosco/actions/workflows/lint.yml)
   [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco?color=red)](https://github.com/MoritzHayden/bosco/issues)
   [![Pull Requests](https://img.shields.io/github/issues-pr/MoritzHayden/bosco?color=green)](https://github.com/MoritzHayden/bosco/pulls)
-  [![Stars](https://img.shields.io/github/stars/MoritzHayden/bosco?color=blue)](https://github.com/MoritzHayden/bosco)
 
 </div>
 
