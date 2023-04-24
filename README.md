@@ -8,15 +8,16 @@
 
   &nbsp;
 
+  [![Invite](./src/img/invite-button.svg)](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot)
+
   [![Platform](https://img.shields.io/badge/platform-discord-purple.svg)](https://discord.com)
   [![Language](https://img.shields.io/badge/language-python-yellow.svg)](https://www.python.org)
   [![License](https://img.shields.io/github/license/MoritzHayden/bosco?color=darkred)](https://github.com/MoritzHayden/bosco/blob/main/LICENSE)
 
+  [![CodeQL](https://github.com/MoritzHayden/bosco/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/MoritzHayden/bosco/actions/workflows/codeql.yml)
+  [![Lint](https://github.com/MoritzHayden/bosco/actions/workflows/pylint.yml/badge.svg?branch=main)](https://github.com/MoritzHayden/bosco/actions/workflows/pylint.yml)
   [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco?color=red)](https://github.com/MoritzHayden/bosco/issues)
   [![Pull Requests](https://img.shields.io/github/issues-pr/MoritzHayden/bosco?color=green)](https://github.com/MoritzHayden/bosco/pulls)
-  [![Stars](https://img.shields.io/github/stars/MoritzHayden/bosco?color=blue)](https://github.com/MoritzHayden/bosco)
-
-  [![Invite](./src/img/invite-button.svg)](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot)
 
 </div>
 
@@ -65,10 +66,10 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 - Description: Get weekly Deep Dive details.
 - Options:
-  - `type`: An optional enum indicating which Deep Dive to fetch details for (enum values: `ALL`, `DEEP_DIVE`, `ELITE_DEEP_DIVE`, default: `ALL`).
+  - `variant`: An optional enum indicating which Deep Dive to fetch details for. Enum values: `ALL` (default), `DEEP_DIVE`, and `ELITE_DEEP_DIVE`.
 - Syntax:
   ```text
-  /deep-dive type=ELITE_DEEP_DIVE
+  /deep-dive variant=ELITE_DEEP_DIVE
   ```
 
 ### /rock-and-stone
@@ -156,7 +157,7 @@ The bot is automatically deployed to the [DigitalOcean App Platform](https://www
 
 ## Contributing
 
-Contributions are welcome! If you found a bug or have a feature request, please open an [issue](https://github.com/MoritzHayden/bosco/issues). If you would like to contribute changes, please [fork](https://github.com/MoritzHayden/bosco/fork) this repository, open a [pull request](https://github.com/MoritzHayden/bosco/pulls) with your changes, and link the PR with an [issue](https://github.com/MoritzHayden/bosco/issues). All contributions must adhere to the [Code of Conduct](./docs/CODE-OF-CONDUCT.md).
+Contributions are welcome! If you found a bug or have a feature request, please open an [issue](https://github.com/MoritzHayden/bosco/issues). If you would like to contribute changes, please [fork](https://github.com/MoritzHayden/bosco/fork) this repository, open a [pull request](https://github.com/MoritzHayden/bosco/pulls) with your changes, and link the PR with an [issue](https://github.com/MoritzHayden/bosco/issues). All contributions must adhere to the [Code of Conduct](./docs/CODE-OF-CONDUCT.md). PRs must pass all status checks (linting, code quality, etc.) and recieve codeowner approval before they will be merged.
 
 ## Special Thanks
 

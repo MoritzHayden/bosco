@@ -1,5 +1,5 @@
-import emoji
 from enum import Enum, auto
+import emoji
 from util.string import to_title_case
 
 
@@ -38,7 +38,7 @@ class Biome(Enum):
         return to_title_case(self.name)
 
 
-class Anomaly(Enum):
+class AnomalyMutator(Enum):
     CRITICAL_WEAKNESS = auto()
     DOUBLE_XP = auto()
     GOLDEN_BUGS = auto()
@@ -53,7 +53,7 @@ class Anomaly(Enum):
         return to_title_case(self.name)
 
 
-class Warning(Enum):
+class WarningMutator(Enum):
     CAVE_LEECH_CLUSTER = auto()
     ELITE_THREAT = auto()
     EXPLODER_INFESTATION = auto()
@@ -78,13 +78,13 @@ class DeepDiveStage:
                  stage: int,
                  primary: str,
                  secondary: str,
-                 anomaly: Anomaly,
-                 warning: Warning):
+                 anomaly: AnomalyMutator,
+                 warning: WarningMutator):
         self.stage: int = stage
         self.primary: str = primary
         self.secondary: str = secondary
-        self.anomaly: Anomaly = anomaly
-        self.warning: Warning = warning
+        self.anomaly: AnomalyMutator = anomaly
+        self.warning: WarningMutator = warning
 
     def __str__(self):
         content = emoji.emojize(f':bullseye: {self.primary}\n')
@@ -96,13 +96,13 @@ class DeepDiveStage:
 
 class DeepDive:
     def __init__(self,
-                 type: DeepDiveType,
+                 dive_type: DeepDiveType,
                  name: str,
                  biome: Biome,
                  date: str,
                  url: str,
                  stages: list[DeepDiveStage]):
-        self.type: DeepDiveType = type
+        self.dive_type: DeepDiveType = dive_type
         self.name: str = name
         self.biome: Biome = biome
         self.date: str = date
@@ -110,4 +110,4 @@ class DeepDive:
         self.stages: list[DeepDiveStage] = stages
 
     def __str__(self):
-        return f'{str(self.type)} | {self.name} | {str(self.biome)}'
+        return f'{str(self.dive_type)} | {self.name} | {str(self.biome)}'
