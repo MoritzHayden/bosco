@@ -15,7 +15,7 @@
   [![License](https://img.shields.io/github/license/MoritzHayden/bosco?color=darkred)](https://github.com/MoritzHayden/bosco/blob/main/LICENSE)
 
   [![CodeQL](https://github.com/MoritzHayden/bosco/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/MoritzHayden/bosco/actions/workflows/codeql.yml)
-  [![Lint](https://github.com/MoritzHayden/bosco/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/MoritzHayden/bosco/actions/workflows/lint.yml)
+  [![Lint](https://github.com/MoritzHayden/bosco/actions/workflows/pylint.yml/badge.svg?branch=main)](https://github.com/MoritzHayden/bosco/actions/workflows/pylint.yml)
   [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco?color=red)](https://github.com/MoritzHayden/bosco/issues)
   [![Pull Requests](https://img.shields.io/github/issues-pr/MoritzHayden/bosco?color=green)](https://github.com/MoritzHayden/bosco/pulls)
 
