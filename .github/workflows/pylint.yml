@@ -1,4 +1,4 @@
-name: Lint
+name: Pylint
 
 on:
   push:
@@ -29,5 +29,5 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r src/requirements.txt
 
-      - name: Run linter (Pylint)
+      - name: Run Pylint
         run: pylint --rcfile src/.pylintrc src
