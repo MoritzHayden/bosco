@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <a href="https://github.com/MoritzHayden/bosco" target="_self">
+  <a href="https://boscobot.dev/" target="_self">
     <img src="./src/img/avatar.png" width="30%" alt="Bosco Bot Logo" />
   </a>
 
@@ -161,7 +161,7 @@ Contributions are welcome! If you found a bug or have a feature request, please 
 
 ## Special Thanks
 
-- The folks who maintain the [Deep Rock Galactic Wiki](https://deeprockgalactic.fandom.com/wiki/Deep_Rock_Galactic_Wiki) for supplying game resources and data
+- The folks who maintain the [Deep Rock Galactic Wiki](https://deeprockgalactic.wiki.gg/) for supplying game resources and data
 - The [r/DeepRockGalactic](https://www.reddit.com/r/DeepRockGalactic/) subreddit for supplying deep dive information
 - The [Deep Rock Galactic developers](https://ghostship.dk/about/#team) for being awesome and incredibly engaged with the community
 
