@@ -13,11 +13,12 @@
   [![Platform](https://img.shields.io/badge/platform-discord-purple.svg)](https://discord.com)
   [![Language](https://img.shields.io/badge/language-python-yellow.svg)](https://www.python.org)
   [![License](https://img.shields.io/github/license/MoritzHayden/bosco?color=darkred)](https://github.com/MoritzHayden/bosco/blob/main/LICENSE)
+  [![Code Size](https://img.shields.io/github/languages/code-size/MoritzHayden/Bosco?color=blue)](https://boscobot.dev/)
 
   [![CodeQL](https://github.com/MoritzHayden/bosco/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/MoritzHayden/bosco/actions/workflows/codeql.yml)
   [![Lint](https://github.com/MoritzHayden/bosco/actions/workflows/pylint.yml/badge.svg?branch=main)](https://github.com/MoritzHayden/bosco/actions/workflows/pylint.yml)
-  [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco?color=red)](https://github.com/MoritzHayden/bosco/issues)
-  [![Pull Requests](https://img.shields.io/github/issues-pr/MoritzHayden/bosco?color=green)](https://github.com/MoritzHayden/bosco/pulls)
+  [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco?color=informational)](https://github.com/MoritzHayden/bosco/issues)
+  [![Pull Requests](https://img.shields.io/github/issues-pr/MoritzHayden/bosco?color=informational)](https://github.com/MoritzHayden/bosco/pulls)
 
 </div>
 
