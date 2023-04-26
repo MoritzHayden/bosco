@@ -5,6 +5,6 @@ updates:
   - package-ecosystem: "pip"
     directory: "/src"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     assignees:
       - "MoritzHayden"
