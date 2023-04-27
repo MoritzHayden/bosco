@@ -135,18 +135,18 @@ REDDIT_CLIENT_SECRET=<VALUE>
 
 ### Linting
 
-Run the linter by executing the `lint.sh` script:
+Run the linter by executing the [lint.sh](./src/scripts/lint.sh) script:
 
 ```bash
-./scripts/lint.sh
+./src/scripts/lint.sh
 ```
 
 ### Executing
 
-Start Bosco by executing the `run.sh` script:
+Start Bosco by executing the [run.sh](./src/scripts/run.sh) script:
 
 ```bash
-./scripts/run.sh
+./src/scripts/run.sh
 ```
 
 ## Dependencies
