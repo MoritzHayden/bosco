@@ -27,4 +27,4 @@ jobs:
           python-version: "3.11"
 
       - name: Run Pylint
-        run: scripts/lint.sh
+        run: ./src/scripts/lint.sh
