@@ -2,7 +2,7 @@ import os
 import discord
 from discord import app_commands
 from dotenv import load_dotenv
-from config import BOSCO_USER_AGENT, ERROR_RESPONSE_TEXT
+from util.constants import BOSCO_USER_AGENT, ERROR_RESPONSE_TEXT
 from model.drg import DeepDiveType
 from model.ui import ButtonView
 from service.reddit import RedditService

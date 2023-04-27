@@ -32,6 +32,7 @@ class Biome(Enum):
     MAGMA_CORE = auto()
     RADIOACTIVE_EXCLUSION_ZONE = auto()
     SALT_PITS = auto()
+    SALTS_PIT = auto() # Needed for Reddit post typo
     SANDBLASTED_CORRIDORS = auto()
 
     def __str__(self):
