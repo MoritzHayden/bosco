@@ -1,5 +1,10 @@
 import discord
-from config import BOSCO_WEBSITE_TEXT, BOSCO_WEBSITE_URL, BOSCO_INVITE_TEXT, BOSCO_INVITE_URL
+from util.constants import (
+    BOSCO_WEBSITE_TEXT,
+    BOSCO_WEBSITE_URL,
+    BOSCO_INVITE_TEXT,
+    BOSCO_INVITE_URL
+)
 
 
 class ButtonView(discord.ui.View):
