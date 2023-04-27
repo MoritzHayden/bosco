@@ -12,11 +12,12 @@
 
   [![Platform](https://img.shields.io/badge/platform-discord-purple.svg)](https://discord.com)
   [![Language](https://img.shields.io/badge/language-python-yellow.svg)](https://www.python.org)
+  [![Python Version](https://img.shields.io/github/pipenv/locked/python-version/MoritzHayden/bosco/main/src?label=python&color=blue)](src/pipfile)
   [![License](https://img.shields.io/github/license/MoritzHayden/bosco?color=darkred)](https://github.com/MoritzHayden/bosco/blob/main/LICENSE)
-  [![Code Size](https://img.shields.io/github/languages/code-size/MoritzHayden/Bosco?color=blue)](https://boscobot.dev/)
 
   [![CodeQL](https://github.com/MoritzHayden/bosco/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/MoritzHayden/bosco/actions/workflows/codeql.yml)
   [![Lint](https://github.com/MoritzHayden/bosco/actions/workflows/pylint.yml/badge.svg?branch=main)](https://github.com/MoritzHayden/bosco/actions/workflows/pylint.yml)
+  [![Code Size](https://img.shields.io/github/languages/code-size/MoritzHayden/bosco?color=blue)](https://boscobot.dev/)
   [![Issues](https://img.shields.io/github/issues/MoritzHayden/bosco?color=informational)](https://github.com/MoritzHayden/bosco/issues)
   [![Pull Requests](https://img.shields.io/github/issues-pr/MoritzHayden/bosco?color=informational)](https://github.com/MoritzHayden/bosco/pulls)
 
@@ -35,10 +36,10 @@
   - [/invite](#invite)
   - [/help](#help)
 - [Local Development](#local-development)
-  - [Registration](#registration)
-  - [Configuration](#configuration)
-  - [Installation](#installation)
-  - [Execution](#execution)
+  - [Registering](#registering)
+  - [Configuring](#configuring)
+  - [Linting](#linting)
+  - [Executing](#executing)
 - [Dependencies](#dependencies)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
@@ -113,7 +114,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 In order to run Bosco locally, you will need to configure your environment variables.
 
-### Registration
+### Registering
 
 In order for Bosco to interact with the services it depends on (Discord and Reddit), you will need to register for each of these services and obtain your tokens/secrets:
 
@@ -122,7 +123,7 @@ In order for Bosco to interact with the services it depends on (Discord and Redd
 2. Reddit
    - Create a new [Reddit application](https://www.reddit.com/prefs/apps) and register it for access to the [Reddit API](https://www.reddit.com/wiki/api/). Copy your application client id and secret.
 
-### Configuration
+### Configuring
 
 Create a file called `.env` within the `src/` directory to hold your environment variables, and add the following keys (replacing `<VALUE>` with the real value):
 
@@ -132,20 +133,20 @@ REDDIT_CLIENT_ID=<VALUE>
 REDDIT_CLIENT_SECRET=<VALUE>
 ```
 
-### Installation
+### Linting
 
-First, make sure you have [Python 3](https://www.python.org/downloads/) installed on your system. Then, install the project dependencies by running the following command from the root of this repository:
+Run the linter by executing the `lint.sh` script:
 
 ```bash
-pip3 install -r src/requirements.txt
+./scripts/lint.sh
 ```
 
-### Execution
+### Executing
 
-Start Bosco by running the following command from the root of this repository:
+Start Bosco by executing the `run.sh` script:
 
 ```bash
-python3 src/bot.py
+./scripts/run.sh
 ```
 
 ## Dependencies
