@@ -3,20 +3,20 @@ import json
 import pytest
 from ..service.trivia import TriviaService
 
-@pytest.fixture(autouse=True)
-def trivia():
+@pytest.fixture(name="trivia",autouse=True)
+def fixture_trivia():
     # setUp TriviaService
-    yield TriviaService()
+    return TriviaService()
 
-@pytest.fixture(autouse=True)
-def file_trivia():
+@pytest.fixture(name="file_trivia",autouse=True)
+def fixture_file_trivia():
     # SetUp trivias from file
     filename = os.path.join(os.path.dirname(__file__),'../json/trivia.json')
     with open(file=filename, encoding="utf-8") as f:
         data = f.read()
-        yield json.loads(data)['trivia']
+        return json.loads(data)['trivia']
 
-class TestTriviaService():
+class TestTriviaService:
     # Test file exist
     def test_trivia_file_exists(self):
         path = "../json/trivia.json"
