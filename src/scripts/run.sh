@@ -5,7 +5,7 @@ install_flag=false
 
 # Print help message
 print_help() {
-    echo "Run Pylint on all python files."
+    echo "Run the bot."
     echo " "
     echo "Usage: ./run.sh [options]"
     echo " "
