@@ -38,6 +38,7 @@
 - [Local Development](#local-development)
   - [Registering](#registering)
   - [Configuring](#configuring)
+  - [Installing](#installing)
   - [Linting](#linting)
   - [Executing](#executing)
 - [Dependencies](#dependencies)
@@ -112,7 +113,7 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
 
 ## Local Development
 
-In order to run Bosco locally, you will need to configure your environment variables.
+In order to run Bosco locally, you will need to install [Python 3](https://www.python.org/) and perform some initial setup.
 
 ### Registering
 
@@ -133,12 +134,20 @@ REDDIT_CLIENT_ID=<VALUE>
 REDDIT_CLIENT_SECRET=<VALUE>
 ```
 
+### Installing
+
+Install dependencies by executing the [install.sh](./src/scripts/install.sh) script with the `-d` flag. Alternatively, you can use the `-i` option while executing the [lint.sh](./src/scripts/lint.sh) or [run.sh](./src/scripts/run.sh) scripts to install dependencies in a single step:
+
+```bash
+./src/scripts/install.sh -d
+```
+
 ### Linting
 
 Run the linter by executing the [lint.sh](./src/scripts/lint.sh) script:
 
 ```bash
-./src/scripts/lint.sh
+./src/scripts/lint.sh [-i, -h]
 ```
 
 ### Executing
@@ -146,7 +155,7 @@ Run the linter by executing the [lint.sh](./src/scripts/lint.sh) script:
 Start Bosco by executing the [run.sh](./src/scripts/run.sh) script:
 
 ```bash
-./src/scripts/run.sh
+./src/scripts/run.sh [-i, -h]
 ```
 
 ## Dependencies
