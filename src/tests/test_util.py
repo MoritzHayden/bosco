@@ -1,4 +1,3 @@
-import pytest
 from util.constants import (
     BOSCO_USER_AGENT,
     BOSCO_WEBSITE_TEXT,
@@ -38,8 +37,6 @@ class TestUtil:
     def test_error_response_text(self):
         assert isinstance(ERROR_RESPONSE_TEXT, str)
         assert ERROR_RESPONSE_TEXT == 'Oops, something went wrong! Please try again later.'
-
-    # TODO: Test util.embed
 
     # Test util.string
     def test_to_screaming_snake_case(self):
