@@ -30,7 +30,7 @@ cd "$(dirname "$(readlink -f "$0")")/.."
 # Run the install script with dev dependencies if the flag is set
 if [ "$install_flag" = true ]; then
     echo "Running install script..."
-    source ./scripts/install.sh -d
+    ./scripts/install.sh -d
 fi
 
 # Run Pytest
