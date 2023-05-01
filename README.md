@@ -40,6 +40,7 @@
   - [Configuring](#configuring)
   - [Installing](#installing)
   - [Linting](#linting)
+  - [Testing](#testing)
   - [Executing](#executing)
 - [Dependencies](#dependencies)
 - [Deployment](#deployment)
@@ -136,7 +137,7 @@ REDDIT_CLIENT_SECRET=<VALUE>
 
 ### Installing
 
-Install dependencies by executing the [install.sh](./src/scripts/install.sh) script with the `-d` flag. Alternatively, you can use the `-i` option while executing the [lint.sh](./src/scripts/lint.sh) or [run.sh](./src/scripts/run.sh) scripts to install dependencies in a single step:
+Install dependencies by executing the [install.sh](./src/scripts/install.sh) script with the `-d` flag. Alternatively, you can use the `-i` option while executing the [lint.sh](./src/scripts/lint.sh), [test.sh](./src/scripts/test.sh), or [run.sh](./src/scripts/run.sh) scripts to install dependencies in a single step:
 
 ```bash
 ./src/scripts/install.sh -d
@@ -148,6 +149,14 @@ Run the linter by executing the [lint.sh](./src/scripts/lint.sh) script:
 
 ```bash
 ./src/scripts/lint.sh [-i, -h]
+```
+
+### Testing
+
+Run the unit tests by executing the [test.sh](./src/scripts/test.sh) script:
+
+```bash
+./src/scripts/test.sh [-i, -h]
 ```
 
 ### Executing
