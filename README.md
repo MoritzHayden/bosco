@@ -149,7 +149,7 @@ Install dependencies by executing the [install.sh](./src/scripts/install.sh) scr
 Run the linter by executing the [lint.sh](./src/scripts/lint.sh) script:
 
 ```bash
-./src/scripts/lint.sh [-i, -h]
+./src/scripts/lint.sh [-i,-h]
 ```
 
 ### Testing
@@ -157,7 +157,7 @@ Run the linter by executing the [lint.sh](./src/scripts/lint.sh) script:
 Run the unit tests by executing the [test.sh](./src/scripts/test.sh) script:
 
 ```bash
-./src/scripts/test.sh [-i, -h]
+./src/scripts/test.sh [-i,-h]
 ```
 
 ### Executing
@@ -165,7 +165,7 @@ Run the unit tests by executing the [test.sh](./src/scripts/test.sh) script:
 Start Bosco by executing the [run.sh](./src/scripts/run.sh) script:
 
 ```bash
-./src/scripts/run.sh [-i, -h]
+./src/scripts/run.sh [-i,-h]
 ```
 
 ## Dependencies
