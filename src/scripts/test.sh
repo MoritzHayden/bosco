@@ -35,4 +35,4 @@ fi
 
 # Run Pytest
 echo "Running Pytest..."
-pipenv run pytest tests/
+pipenv run python -m pytest tests/
