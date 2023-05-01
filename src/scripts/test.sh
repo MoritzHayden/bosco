@@ -5,9 +5,9 @@ install_flag=false
 
 # Print help message
 print_help() {
-    echo "Run Pylint on all python files."
+    echo "Run Pytest on all test files."
     echo " "
-    echo "Usage: ./lint.sh [options]"
+    echo "Usage: ./test.sh [options]"
     echo " "
     echo "Options:"
     echo "-h        show brief help"
@@ -33,6 +33,6 @@ if [ "$install_flag" = true ]; then
     ./scripts/install.sh -d
 fi
 
-# Run Pylint
-echo "Running Pylint..."
-pipenv run pylint --rcfile .pylintrc **/*.py
+# Run Pytest
+echo "Running Pytest..."
+pipenv run python -m pytest tests/

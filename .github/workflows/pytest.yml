@@ -1,4 +1,4 @@
-name: Pylint
+name: Pytest
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
       - main
 
 jobs:
-  run-linter:
-    name: Run linter
+  run-tests:
+    name: Run tests
     runs-on: ubuntu-latest
 
     defaults:
@@ -26,5 +26,5 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Run Pylint
-        run: ./src/scripts/lint.sh -i
+      - name: Run Pytest
+        run: ./src/scripts/test.sh -i
