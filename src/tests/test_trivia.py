@@ -17,10 +17,6 @@ def fixture_file_trivia():
         return json.loads(data)['trivia']
 
 class TestTriviaService:
-    # Test file exist
-    def test_trivia_file_exists(self):
-        path = "../json/trivia.json"
-        assert os.path.isfile(path)
     # Test for TriviaService init
     def test_trivia_service_init(self, trivia, file_trivia):
         assert trivia.trivia == file_trivia
