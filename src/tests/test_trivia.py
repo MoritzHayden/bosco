@@ -28,7 +28,7 @@ class TestTriviaService:
         assert isinstance(trivia.trivia, list)
         assert isinstance(trivia.get_trivia(1), str)
         assert trivia.get_trivia(1) == file_trivia[1]
-        
+
     # Test get random trivia
     def test_get_random_trivia(self, trivia, file_trivia):
         assert isinstance(trivia.trivia, list)
