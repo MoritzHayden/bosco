@@ -119,21 +119,14 @@ In order to run Bosco locally, you will need to install [Python 3](https://www.p
 
 ### Registering
 
-In order for Bosco to interact with the services it depends on (Discord and Reddit), you will need to register for each of these services and obtain your tokens/secrets:
-
-1. Discord
-   - Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application. Copy your bot token.
-2. Reddit
-   - Create a new [Reddit application](https://www.reddit.com/prefs/apps) and register it for access to the [Reddit API](https://www.reddit.com/wiki/api/). Copy your application client id and secret.
+Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application. Then, click on the "Bot" tab and copy your bot token which will be used in the next step.
 
 ### Configuring
 
-Create a file called `.env` within the `src/` directory to hold your environment variables, and add the following keys (replacing `<VALUE>` with the real value):
+Create a file called `.env` within the `src/` directory to hold your environment variables, and add the following (replacing `<VALUE>` with the real value):
 
 ```text
 DISCORD_TOKEN=<VALUE>
-REDDIT_CLIENT_ID=<VALUE>
-REDDIT_CLIENT_SECRET=<VALUE>
 ```
 
 ### Installing
@@ -182,8 +175,8 @@ Contributions are welcome! If you found a bug or have a feature request, please 
 
 ## Special Thanks
 
+- The [DRG API](https://drgapi.com/) contributors for developing the API that powers Bosco
 - The folks who maintain the [Deep Rock Galactic Wiki](https://deeprockgalactic.wiki.gg/) for supplying game resources and data
-- The [r/DeepRockGalactic](https://www.reddit.com/r/DeepRockGalactic/) subreddit for supplying deep dive information
 - The [Deep Rock Galactic developers](https://ghostship.dk/about/#team) for being awesome and incredibly engaged with the community
 
 ## Disclaimer

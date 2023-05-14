@@ -2,20 +2,16 @@ import os
 import discord
 from discord import app_commands
 from dotenv import load_dotenv
-from util.constants import BOSCO_USER_AGENT, ERROR_RESPONSE_TEXT
-from model.drg import DeepDiveType
+from util.constants import ERROR_RESPONSE_TEXT
+from model.deepdives import Type
 from model.ui import ButtonView
-from service.reddit import RedditService
-from service.salute import SaluteService
-from service.trivia import TriviaService
+from service.drg import DRGService
 from util.embed import embed_deep_dive, embed_trivia, embed_help
 
 
 # Initialize environment variables
 load_dotenv()
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
-REDDIT_CLIENT_ID = os.getenv('REDDIT_CLIENT_ID')
-REDDIT_CLIENT_SECRET = os.getenv('REDDIT_CLIENT_SECRET')
 
 
 # Initialize discord
@@ -25,12 +21,7 @@ tree = app_commands.CommandTree(client)
 
 
 # Initialize services
-redditService = RedditService(client_id=REDDIT_CLIENT_ID,
-                              client_secret=REDDIT_CLIENT_SECRET,
-                              user_agent=BOSCO_USER_AGENT,
-                              check_for_async=False)
-saluteService = SaluteService()
-triviaService = TriviaService()
+drgService = DRGService()
 
 
 # Ready event
@@ -87,13 +78,13 @@ async def ping_cmd(ctx):
 @tree.command(name="deep-dive",
               description="Get weekly Deep Dive details")
 @app_commands.describe(variant="Which Deep Dive(s) to get details for")
-async def deep_dive_cmd(ctx, variant: DeepDiveType = DeepDiveType.ALL):
+async def deep_dive_cmd(ctx, variant: Type = Type.ALL):
     try:
         print(f'INFO: Recieved /deep-dive command with type={variant.name}')
         await ctx.response.defer()
         thumbnail = discord.File(fp=os.path.join(os.path.dirname(__file__), 'img/deep-dive.png'),
                                  filename='deep-dive.png')
-        deep_dives = redditService.get_weekly_deep_dives()
+        deep_dives = drgService.get_deepdives()
         embed_message = embed_deep_dive(thumbnail, deep_dives, variant)
         await ctx.followup.send(file=thumbnail, embed=embed_message)
         print('SUCCESS: Processed /deep-dive command')
@@ -108,7 +99,7 @@ async def deep_dive_cmd(ctx, variant: DeepDiveType = DeepDiveType.ALL):
 async def rock_and_stone_cmd(ctx):
     try:
         print('INFO: Recieved /rock-and-stone command')
-        salute: str = saluteService.get_random_salute()
+        salute: str = drgService.get_salutes().get_random_salute()
         await ctx.response.send_message(salute)
         print('SUCCESS: Processed /rock-and-stone command')
     except Exception as e:
@@ -122,7 +113,7 @@ async def rock_and_stone_cmd(ctx):
 async def trivia_cmd(ctx):
     try:
         print('INFO: Recieved /trivia command')
-        trivia: str = triviaService.get_random_trivia()
+        trivia: str = drgService.get_trivia().get_random_trivia()
         embed_message = embed_trivia(trivia)
         await ctx.response.send_message(embed=embed_message)
         print('SUCCESS: Processed /trivia command')
