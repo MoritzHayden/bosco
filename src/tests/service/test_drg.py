@@ -11,8 +11,12 @@ def requests_mock(mocker):
     return mocker.patch("requests.get")
 
 @pytest.fixture
-def drg_service():
-    return DRGService()
+def logger_mock(mocker):
+    return mocker.Mock()
+
+@pytest.fixture
+def drg_service(logger_mock):
+    return DRGService(logger=logger_mock)
 
 def test_get_deepdives_success(requests_mock, drg_service):
     # Arrange

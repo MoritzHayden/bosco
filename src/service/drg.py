@@ -1,4 +1,5 @@
 import json
+from logging import Logger
 import requests
 from model.deepdives import DeepDives
 from model.salutes import Salutes
@@ -14,7 +15,8 @@ from util.constants import (
 
 
 class DRGService():
-    def __init__(self):
+    def __init__(self, logger: Logger):
+        self.logger: Logger = logger.getChild('DRGService')
         self.base_url: str = DRG_API_BASE_URL
         self.version: str = DRG_API_VERSION
         self.deepdives_endpoint: str = DRG_API_DEEPDIVES_ENDPOINT
@@ -26,31 +28,33 @@ class DRGService():
         response = requests.get(url=f'{self.base_url}{self.version}{self.deepdives_endpoint}',
                                 timeout=self.timeout)
         if response.status_code == 200:
-            print('SUCCESS: Got weekly deep dives')
+            self.logger.info('Got weekly deep dives')
             data = json.loads(response.text)
             return DeepDives.parse_obj(data)
 
-        print(f'FAILURE: Failed to get weekly deep dives with status code: {response.status_code}')
+        self.logger.error(
+            f'Failed to get weekly deep dives with status code: {response.status_code}'
+        )
         return None
 
     def get_salutes(self) -> Salutes:
         response = requests.get(url=f'{self.base_url}{self.version}{self.salutes_endpoint}',
                                 timeout=self.timeout)
         if response.status_code == 200:
-            print('SUCCESS: Got salutes')
+            self.logger.info('Got salutes')
             data = json.loads(response.text)
             return Salutes.parse_obj(data)
 
-        print(f'FAILURE: Failed to get salutes with status code: {response.status_code}')
+        self.logger.error(f'Failed to get salutes with status code: {response.status_code}')
         return None
 
     def get_trivia(self) -> Trivia:
         response = requests.get(url=f'{self.base_url}{self.version}{self.trivia_endpoint}',
                                 timeout=self.timeout)
         if response.status_code == 200:
-            print('SUCCESS: Got trivia')
+            self.logger.info('Got trivia')
             data = json.loads(response.text)
             return Trivia.parse_obj(data)
 
-        print(f'FAILURE: Failed to get trivia with status code: {response.status_code}')
+        self.logger.error(f'Failed to get trivia with status code: {response.status_code}')
         return None
