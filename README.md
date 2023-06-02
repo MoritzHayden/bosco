@@ -8,7 +8,7 @@
 
   &nbsp;
 
-  [![Invite](./src/img/invite-button.svg)](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot)
+  [![Invite](./src/img/invite-button.svg)](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147485696&scope=bot)
 
   [![Platform](https://img.shields.io/badge/platform-discord-purple.svg)](https://discord.com)
   [![Language](https://img.shields.io/badge/language-python-yellow.svg)](https://www.python.org)
@@ -56,7 +56,7 @@ Bosco is a free, open-source Discord bot and companion for Deep Rock Galactic pl
 
 ## Usage
 
-Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147568704&scope=bot) to your server, it supports the following [slash commands](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ):
+Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id=1097476432579539026&permissions=2147485696&scope=bot) to your server, it supports the following [slash commands](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ):
 
 ### /ping
 
