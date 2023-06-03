@@ -66,6 +66,9 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   ```text
   /ping
   ```
+- Example:
+
+  ![Ping Example](src/img/example/ping.png)
 
 ### /deep-dive
 
@@ -76,6 +79,9 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   ```text
   /deep-dive variant=ELITE_DEEP_DIVE
   ```
+- Example:
+
+  ![Deep Dive Example](src/img/example/deep-dive.png)
 
 ### /rock-and-stone
 
@@ -85,6 +91,9 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   ```text
   /rock-and-stone
   ```
+- Example:
+
+  ![Rock and Stone Example](src/img/example/rock-and-stone.png)
 
 ### /trivia
 
@@ -94,6 +103,9 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   ```text
   /trivia
   ```
+- Example:
+
+  ![Trivia Example](src/img/example/trivia.png)
 
 ### /invite
 
@@ -103,6 +115,9 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   ```text
   /invite
   ```
+- Example:
+
+  ![Invite Example](src/img/example/invite.png)
 
 ### /help
 
@@ -112,6 +127,9 @@ Once Bosco has been [invited](https://discord.com/api/oauth2/authorize?client_id
   ```text
   /help
   ```
+- Example:
+
+  ![Help Example](src/img/example/help.png)
 
 ## Local Development
 
