@@ -232,10 +232,10 @@
         },
         "emoji": {
             "hashes": [
-                "sha256:0e048dd540a0644bd30790b540466492f1487a3788528422fe196a939a7a3ac0"
+                "sha256:8e5ec80f56dd1fe38f4c4847b9ea6f18d4ad94d0b8dd135b0b2355ddf56d6d62"
             ],
             "index": "pypi",
-            "version": "==2.5.0"
+            "version": "==2.5.1"
         },
         "frozenlist": {
             "hashes": [
@@ -504,11 +504,11 @@
         },
         "websocket-client": {
             "hashes": [
-                "sha256:3566f8467cd350874c4913816355642a4942f6c1ed1e9406e3d42fae6d6c072a",
-                "sha256:b96f3bce3e54e3486ebe6504bc22bd4c140392bd2eb71764db29be8f2639aa65"
+                "sha256:72d7802608745b0a212f79b478642473bd825777d8637b6c8c421bf167790d4f",
+                "sha256:e84c7eafc66aade6d1967a51dfd219aabdf81d15b9705196e11fd81f48666b78"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.5.3"
+            "version": "==1.6.0"
         },
         "yarl": {
             "hashes": [
@@ -684,11 +684,11 @@
         },
         "platformdirs": {
             "hashes": [
-                "sha256:0ade98a4895e87dc51d47151f7d2ec290365a585151d97b4d8d6312ed6132fed",
-                "sha256:e48fabd87db8f3a7df7150a4a5ea22c546ee8bc39bc2473244730d4b56d2cc4e"
+                "sha256:57e28820ca8094678b807ff529196506d7a21e17156cb1cddb3e74cebce54640",
+                "sha256:ffa199e3fbab8365778c4a10e1fbf1b9cd50707de826eb304b50e57ec0cc8d38"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==3.5.3"
+            "version": "==3.6.0"
         },
         "pluggy": {
             "hashes": [
