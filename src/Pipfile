@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-discord-py = "~=2.2"
+discord-py = "~=2.3"
 emoji = "~=2.5"
 praw = "~=7.7"
 pydantic = "~=1.10"
