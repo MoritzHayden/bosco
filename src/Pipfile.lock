@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3f5ddfc32e6b1330d2678959051cfdfc2069236370c4aab264e13d5bfddda393"
+            "sha256": "b7c311f401b3c81abdec1ec1ee52d10fa2f48a95c1e4cd429a4e3d86652f8730"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -240,10 +240,10 @@
         },
         "emoji": {
             "hashes": [
-                "sha256:39ad95c9ba270cdfbd141d20c2ebcfc4e295d010b605de66908a098a3ba63a3c"
+                "sha256:375cc08589704266099846c553b6572ec5be591374b4d2cd1623b8343d5c9abb"
             ],
             "index": "pypi",
-            "version": "==2.6.0"
+            "version": "==2.7.0"
         },
         "frozenlist": {
             "hashes": [
@@ -309,7 +309,7 @@
                 "sha256:f61e2dc5ad442c52b4887f1fdc112f97caeff4d9e6ebe78879364ac59f1663e1",
                 "sha256:fec520865f42e5c7f050c2a79038897b1c7d1595e907a9e08e3353293ffc948e"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_full_version >= '3.8.0'",
             "version": "==1.4.0"
         },
         "idna": {
