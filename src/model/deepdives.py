@@ -1,8 +1,7 @@
 from enum import Enum
-from typing import Optional, Union
-import emoji
-from pydantic import BaseModel, ConfigDict, field_validator
-from util.emoji import get_emoji
+from typing import Optional
+from pydantic import BaseModel, ConfigDict
+from util.get_emoji import get_emoji
 
 
 class DiveType(str, Enum):
@@ -60,9 +59,9 @@ class Warning(str, Enum):
     SHIELD_DISRUPTION = "Shield Disruption"
     SWARMAGEDDON = "Swarmageddon"
 
-""" Represents one mission objective like collect 7 Aquarq or mine 200 Morkite"""
 class Mission():
-    name: str;
+    """ Represents one mission objective like collect 7 Aquarq or mine 200 Morkite"""
+    name: str
 
     def __init__(self, name: str):
         self.name = name
@@ -75,27 +74,25 @@ class Mission():
     def type(self) -> MissionType:
         """Mission types provided by API don't have much overlap with regular
         mission types thus, there needs to be such conversion"""
-        if(self.name.startswith('Morkite')):
-            return MissionType.MINING_EXPEDITION;
-        elif(self.name.startswith('Egg')):
-            return MissionType.EGG_HUNT;
-        elif(self.name.startswith('On-Site Refining')):
-            return MissionType.ON_SITE_REFINING;
-        elif(self.name.startswith('Mule')):
-            return MissionType.SALVAGE_OPERATION;
-        elif(self.name.startswith('Aquarq')):
-            return MissionType.POINT_EXTRACTION;
-        elif(self.name.startswith('Escort Duty')):
-            return MissionType.ESCORT_DUTY;
-        elif(self.name.startswith('Dreadnought')):
-            return MissionType.ELIMINATION;
-        elif(self.name.startswith('Black Box')):
-            return MissionType.BLACK_BOX;
-        elif(self.name.startswith('Industrial Sabotage')):
-            return MissionType.INDUSTRIAL_SABOTAGE;
-        else:
-            raise ValueError(f'Invalid mission name: {self.name}')
-    
+
+        type_name_matrix: dict[MissionType] = {
+            'Morkite': MissionType.MINING_EXPEDITION,
+            'Egg':  MissionType.EGG_HUNT,
+            'On-Site Refining': MissionType.ON_SITE_REFINING,
+            'Mule': MissionType.SALVAGE_OPERATION,
+            'Aquarq': MissionType.POINT_EXTRACTION,
+            'Escort Duty':  MissionType.ESCORT_DUTY,
+            'Dreadnought': MissionType.ELIMINATION,
+            'Black Box':  MissionType.BLACK_BOX,
+            'Industrial Sabotage':  MissionType.INDUSTRIAL_SABOTAGE
+        }
+
+        for (name, type) in type_name_matrix.items():
+            if self.name.startswith(name):
+                return type
+
+        raise ValueError(f'Invalid mission name: {self.name}')
+
     def __str__(self):
         return f'{self.emoji} {self.name}'
 
@@ -118,9 +115,9 @@ class Stage(BaseModel):
     def __str__(self):
         content = f'{self.primary}\n'
         content += f'{self.secondary}\n'
-        if(self.anomaly):
+        if self.anomaly:
             content += f'{get_emoji(self.anomaly)} {self.anomaly.value}\n'
-        if(self.warning):
+        if self.warning:
             content += f'{get_emoji(self.warning)} {self.warning.value}\n'
         return content
 

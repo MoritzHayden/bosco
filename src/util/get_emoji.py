@@ -1,6 +1,6 @@
 from typing import Union, TYPE_CHECKING
-from util.constants import CUSTOM_EMOJIS
 import emoji
+from util.constants import CUSTOM_EMOJIS
 
 if TYPE_CHECKING:
     from model.deepdives import Anomaly, MissionType, Warning
