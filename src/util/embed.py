@@ -1,16 +1,16 @@
 import discord
-from model.deepdives import DeepDives, Type, Variant
+from model.deepdives import DeepDives, DiveType, Variant
 from util.date import prettify_datetime
 
 
-def embed_deep_dive(thumbnail: discord.File, deep_dives: DeepDives, type: Type):
+def embed_deep_dive(thumbnail: discord.File, deep_dives: DeepDives, type: DiveType):
     start_date = prettify_datetime(deep_dives.startTime)
     embed = discord.Embed(title=f'Weekly Deep Dives ({start_date})', color=0xFDA50F)
     embed.set_thumbnail(url=f'attachment://{thumbnail.filename}')
 
     # Deep Dive
     if type in (type.ALL, type.DEEP_DIVE):
-        dd: Variant = deep_dives.get_variant(Type.DEEP_DIVE)
+        dd: Variant = deep_dives.get_variant(DiveType.DEEP_DIVE)
         embed.add_field(name=str(dd), value='', inline=False)
         for stage in dd.stages:
             embed.add_field(name=f'Stage {str(stage.id)}', value=str(stage), inline=True)
@@ -21,7 +21,7 @@ def embed_deep_dive(thumbnail: discord.File, deep_dives: DeepDives, type: Type):
 
     # Elite Deep Dive
     if type in (type.ALL, type.ELITE_DEEP_DIVE):
-        edd: Variant = deep_dives.get_variant(Type.ELITE_DEEP_DIVE)
+        edd: Variant = deep_dives.get_variant(DiveType.ELITE_DEEP_DIVE)
         embed.add_field(name=str(edd), value='', inline=False)
         for stage in edd.stages:
             embed.add_field(name=f'Stage {str(stage.id)}', value=str(stage), inline=True)

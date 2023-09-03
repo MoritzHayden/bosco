@@ -4,7 +4,7 @@ import emoji
 from pydantic import BaseModel
 
 
-class Type(str, Enum):
+class DiveType(str, Enum):
     ALL = "All"
     DEEP_DIVE = "Deep Dive"
     ELITE_DEEP_DIVE = "Elite Deep Dive"
@@ -69,7 +69,7 @@ class Stage(BaseModel):
 
 
 class Variant(BaseModel):
-    type: Type
+    type: DiveType
     name: str
     biome: Biome
     seed: int
@@ -90,7 +90,7 @@ class DeepDives(BaseModel):
     endTime: str
     variants: list[Variant]
 
-    def get_variant(self, type: Type) -> Variant:
+    def get_variant(self, type: DiveType) -> Variant:
         for variant in self.variants:
             if variant.type == type:
                 return variant
