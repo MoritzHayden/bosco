@@ -34,5 +34,15 @@ CUSTOM_EMOJIS: dict[str] = {
     'Regenerative Bugs': '<:regenerative:1147874372451848202>',
     'Rival Presence': '<:rival:1147874374993580184>',
     'Shield Disruption': '<:shield:1147874376537100391>',
-    'Swarmageddon': '<:swarmageddon:1147874410934571018>'
+    'Swarmageddon': '<:swarmageddon:1147874410934571018>',
+
+    # Anomalies
+    'Critical Weakness': '<:crticial:1147881857879396423>',
+    'Double XP': '<:double:1147881859993325579>',
+    'Gold Rush': '<:gold:1147881862182739980>',
+    'Golden Bugs': '<:bugs:1147881856142938162>',
+    'Low Gravity': '<:gravity:1147881863793344542> ',
+    'Mineral Mania': '<:mineral:1147881864992923749>',
+    'Rich Atmosphere': '<:rich:1147881867744395314>',
+    'Volatile Guts': '<:volatile:1147881869438890114>'
 }
