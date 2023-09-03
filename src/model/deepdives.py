@@ -76,19 +76,19 @@ class Mission():
         mission types thus, there needs to be such conversion"""
 
         type_name_matrix: dict[MissionType] = {
-            'Morkite': MissionType.MINING_EXPEDITION,
-            'Egg':  MissionType.EGG_HUNT,
-            'On-Site Refining': MissionType.ON_SITE_REFINING,
-            'Mule': MissionType.SALVAGE_OPERATION,
-            'Aquarq': MissionType.POINT_EXTRACTION,
-            'Escort Duty':  MissionType.ESCORT_DUTY,
-            'Dreadnought': MissionType.ELIMINATION,
-            'Black Box':  MissionType.BLACK_BOX,
-            'Industrial Sabotage':  MissionType.INDUSTRIAL_SABOTAGE
+            'morkite': MissionType.MINING_EXPEDITION,
+            'egg':  MissionType.EGG_HUNT,
+            'refining': MissionType.ON_SITE_REFINING,
+            'mule': MissionType.SALVAGE_OPERATION,
+            'aquarq': MissionType.POINT_EXTRACTION,
+            'escort':  MissionType.ESCORT_DUTY,
+            'dreadnought': MissionType.ELIMINATION,
+            'black box':  MissionType.BLACK_BOX,
+            'sabotage':  MissionType.INDUSTRIAL_SABOTAGE
         }
 
         for (name, type) in type_name_matrix.items():
-            if self.name.startswith(name):
+            if name in self.name.lower():
                 return type
 
         raise ValueError(f'Invalid mission name: {self.name}')

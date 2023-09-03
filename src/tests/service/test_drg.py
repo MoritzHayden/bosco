@@ -1,6 +1,6 @@
 import pytest
 import json
-from model.deepdives import Anomaly, Biome, DeepDives, Stage, DiveType, Variant, Warning
+from model.deepdives import Anomaly, Biome, DeepDives, MissionType, Stage, DiveType, Variant, Warning
 from model.salutes import Salutes
 from model.trivia import Trivia
 from service.drg import DRGService
@@ -106,20 +106,26 @@ def test_get_deepdives_success(requests_mock, drg_service):
     assert len(dd.stages) == 3
     dd_stage1: Stage = dd.get_stage(1)
     assert dd_stage1.id == 1
-    assert dd_stage1.primary == "Escort Duty"
-    assert dd_stage1.secondary == "2 Eggs"
+    assert dd_stage1.primary.name == "Escort Duty"
+    assert dd_stage1.secondary.name == "2 Eggs"
+    assert dd_stage1.primary.type == MissionType.ESCORT_DUTY
+    assert dd_stage1.secondary.type == MissionType.EGG_HUNT
     assert dd_stage1.anomaly == Anomaly.LOW_GRAVITY
     assert dd_stage1.warning == None
     dd_stage2: Stage = dd.get_stage(2)
     assert dd_stage2.id == 2
-    assert dd_stage2.primary == "2 Mini-Mules"
-    assert dd_stage2.secondary == "Dreadnought"
+    assert dd_stage2.primary.name == "2 Mini-Mules"
+    assert dd_stage2.secondary.name == "Dreadnought"
+    assert dd_stage2.primary.type == MissionType.SALVAGE_OPERATION
+    assert dd_stage2.secondary.type == MissionType.ELIMINATION
     assert dd_stage2.anomaly == None
     assert dd_stage2.warning == Warning.SHIELD_DISRUPTION
     dd_stage3: Stage = dd.get_stage(3)
     assert dd_stage3.id == 3
-    assert dd_stage3.primary == "Twins + Dreadnought"
-    assert dd_stage3.secondary == "150 Morkite"
+    assert dd_stage3.primary.name == "Twins + Dreadnought"
+    assert dd_stage3.secondary.name == "150 Morkite"
+    assert dd_stage3.primary.type == MissionType.ELIMINATION
+    assert dd_stage3.secondary.type == MissionType.MINING_EXPEDITION
     assert dd_stage3.anomaly == None
     assert dd_stage3.warning == Warning.LOW_OXYGEN
 
@@ -132,20 +138,26 @@ def test_get_deepdives_success(requests_mock, drg_service):
     assert str(edd) == "Elite Deep Dive | Naked Burrow | Salt Pits"
     edd_stage1: Stage = edd.get_stage(1)
     assert edd_stage1.id == 1
-    assert edd_stage1.primary == "200 Morkite"
-    assert edd_stage1.secondary == "Black Box"
+    assert edd_stage1.primary.name == "200 Morkite"
+    assert edd_stage1.secondary.name == "Black Box"
+    assert edd_stage1.primary.type == MissionType.MINING_EXPEDITION
+    assert edd_stage1.secondary.type == MissionType.BLACK_BOX
     assert edd_stage1.anomaly == Anomaly.VOLATILE_GUTS
     assert edd_stage1.warning == Warning.EXPLODER_INFESTATION
     edd_stage2: Stage = edd.get_stage(2)
     assert edd_stage2.id == 2
-    assert edd_stage2.primary == " 3 Mini-Mules"
-    assert edd_stage2.secondary == "150 Morkite"
+    assert edd_stage2.primary.name == " 3 Mini-Mules"
+    assert edd_stage2.secondary.name == "150 Morkite"
+    assert edd_stage2.primary.type == MissionType.SALVAGE_OPERATION
+    assert edd_stage2.secondary.type == MissionType.MINING_EXPEDITION
     assert edd_stage2.anomaly == None
     assert edd_stage2.warning == Warning.ELITE_THREAT
     edd_stage3: Stage = edd.get_stage(3)
     assert edd_stage3.id == 3
-    assert edd_stage3.primary == " 225 Morkite"
-    assert edd_stage3.secondary == "Dreadnought"
+    assert edd_stage3.primary.name == " 225 Morkite"
+    assert edd_stage3.secondary.name == "Dreadnought"
+    assert edd_stage3.primary.type == MissionType.MINING_EXPEDITION
+    assert edd_stage3.secondary.type == MissionType.ELIMINATION
     assert edd_stage3.anomaly == None
     assert edd_stage3.warning == Warning.SWARMAGEDDON
 
