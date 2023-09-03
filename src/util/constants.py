@@ -21,4 +21,18 @@ CUSTOM_EMOJIS: dict[str] = {
     'Elimination': '<:elimination:1147866166061174914>',
     'Black Box': '<:blackbox:1147866161208373399>',
     'Industrial Sabotage': '<:sabotage:1147866177964609557>',
+
+    # Warnings
+    'Cave Leech Cluster': '<:leech:1147874362960138362> ',
+    'Elite Threat': '<:elite:1147874358375747725>',
+    'Exploder Infestation': '<:exploder:1147874360808460448>',
+    'Haunted Cave': '<:haunted:1147874362028986389>',
+    'Lethal Enemies': '<:lethal:1147874365669658624>',
+    'Low Oxygen': '<:oxygen:1147874369561952327>',
+    'Mactera Plague': '<:mactera:1147874367116685373>',
+    'Parasites': '<:parasites:1147874370862198814>',
+    'Regenerative Bugs': '<:regenerative:1147874372451848202>',
+    'Rival Presence': '<:rival:1147874374993580184>',
+    'Shield Disruption': '<:shield:1147874376537100391>',
+    'Swarmageddon': '<:swarmageddon:1147874410934571018>'
 }
