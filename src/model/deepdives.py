@@ -2,6 +2,7 @@ from enum import Enum
 from typing import Optional, Union
 import emoji
 from pydantic import BaseModel, ConfigDict, field_validator
+from util.emoji import get_emoji
 
 
 class DiveType(str, Enum):
@@ -11,7 +12,7 @@ class DiveType(str, Enum):
 
 class MissionType(str, Enum):
     MINING_EXPEDITION = "Mining Expedition"
-    EGG_HUNT ="Egg Hunt"
+    EGG_HUNT = "Egg Hunt"
     ON_SITE_REFINING = "On-Site Refining"
     SALVAGE_OPERATION = "Salvage Operation"
     POINT_EXTRACTION = "Point Extraction"
@@ -151,11 +152,3 @@ class DeepDives(BaseModel):
             if variant.type == type:
                 return variant
         return None
-
-def get_emoji(model: Union[MissionType, Warning, Anomaly]) -> str:
-    if isinstance(model, MissionType):
-        return "🎯"
-    elif isinstance(model, Warning):
-        return "⚠️"
-    else:
-        return "🚨"

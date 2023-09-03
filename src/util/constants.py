@@ -10,3 +10,15 @@ DRG_API_DEEPDIVES_ENDPOINT: str = '/deepdives'
 DRG_API_SALUTES_ENDPOINT: str = '/salutes'
 DRG_API_TRIVIA_ENDPOINT: str = '/trivia'
 DRG_API_TIMEOUT_SECONDS: int = 3
+CUSTOM_EMOJIS: dict[str] = {
+    # Mission types
+    'Mining Expedition': '<:mining:1147866170767196270> ',
+    'Egg Hunt': '<:egg:1147866162890285118>',
+    'On-Site Refining': '<:refining:1147866175485780060>',
+    'Salvage Operation': '<:salvage:1147866180426682418>',
+    'Point Extraction': '<:point:1147866173422194769>',
+    'Escort Duty': ' <:escort:1147866168586141717>',
+    'Elimination': '<:elimination:1147866166061174914>',
+    'Black Box': '<:blackbox:1147866161208373399>',
+    'Industrial Sabotage': '<:sabotage:1147866177964609557>',
+}
