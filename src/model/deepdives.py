@@ -71,7 +71,7 @@ class Mission():
         return get_emoji(self.type)
 
     @property
-    def type(self) -> MissionType:
+    def type(self) -> Optional[MissionType]:
         """Mission types provided by API don't have much overlap with regular
         mission types thus, there needs to be such conversion"""
 
@@ -91,7 +91,7 @@ class Mission():
             if name in self.name.lower():
                 return type
 
-        raise ValueError(f'Invalid mission name: {self.name}')
+        return None
 
     def __str__(self):
         return f'{self.emoji} {self.name}'
