@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Optional
 from pydantic import BaseModel, ConfigDict
-from util.get_emoji import get_emoji
+from util.emoji import get_emoji
 
 
 class DiveType(str, Enum):
