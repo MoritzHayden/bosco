@@ -15,10 +15,6 @@ def embed_deep_dive(thumbnail: discord.File, deep_dives: DeepDives, type: DiveTy
         for stage in dd.stages:
             embed.add_field(name=f'Stage {str(stage.id)}', value=str(stage), inline=True)
 
-    # Spacer
-    if type == type.ALL:
-        embed.add_field(name='\u200b', value='\u200b', inline=False)
-
     # Elite Deep Dive
     if type in (type.ALL, type.ELITE_DEEP_DIVE):
         edd: Variant = deep_dives.get_variant(DiveType.ELITE_DEEP_DIVE)
