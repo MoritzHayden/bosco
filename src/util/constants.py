@@ -10,6 +10,7 @@ DRG_API_DEEPDIVES_ENDPOINT: str = '/deepdives'
 DRG_API_SALUTES_ENDPOINT: str = '/salutes'
 DRG_API_TRIVIA_ENDPOINT: str = '/trivia'
 DRG_API_TIMEOUT_SECONDS: int = 3
+DEFAULT_EMOJI = ':black_medium_square:'
 CUSTOM_EMOJIS: dict[str] = {
     # Mission types
     'Mining Expedition': '<:mining:1147866170767196270>',
