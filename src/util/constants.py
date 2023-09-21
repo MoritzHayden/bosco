@@ -12,7 +12,7 @@ DRG_API_TRIVIA_ENDPOINT: str = '/trivia'
 DRG_API_TIMEOUT_SECONDS: int = 3
 CUSTOM_EMOJIS: dict[str] = {
     # Mission types
-    'Mining Expedition': '<:mining:1147866170767196270> ',
+    'Mining Expedition': '<:mining:1147866170767196270>',
     'Egg Hunt': '<:egg:1147866162890285118>',
     'On-Site Refining': '<:refining:1147866175485780060>',
     'Salvage Operation': '<:salvage:1147866180426682418>',
