@@ -23,7 +23,7 @@ CUSTOM_EMOJIS: dict[str] = {
     'Industrial Sabotage': '<:sabotage:1147866177964609557>',
 
     # Warnings
-    'Cave Leech Cluster': '<:leech:1147874362960138362> ',
+    'Cave Leech Cluster': '<:leech:1147874362960138362>',
     'Elite Threat': '<:elite:1147874358375747725>',
     'Exploder Infestation': '<:exploder:1147874360808460448>',
     'Haunted Cave': '<:haunted:1147874362028986389>',
