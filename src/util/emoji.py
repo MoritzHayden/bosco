@@ -1,5 +1,4 @@
 from typing import Union, TYPE_CHECKING
-import emoji
 from util.constants import CUSTOM_EMOJIS, DEFAULT_EMOJI
 
 if TYPE_CHECKING:
