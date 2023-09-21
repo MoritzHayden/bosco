@@ -7,6 +7,4 @@ if TYPE_CHECKING:
 
 def get_emoji(model: Union["MissionType", "Warning", "Anomaly", None]) -> Union[str, None]:
     DEFAULT_EMOJI = emoji.emojize(':black_medium_square:');
-    if(model == None):
-        return DEFAULT_EMOJI
-    return CUSTOM_EMOJIS.get(model.value, DEFAULT_EMOJI)
+    DEFAULT_EMOJI if model is None else CUSTOM_EMOJIS.get(model.value, DEFAULT_EMOJI)
