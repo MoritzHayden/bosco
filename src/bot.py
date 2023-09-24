@@ -5,7 +5,7 @@ from logging import Formatter, FileHandler, Logger
 from discord import app_commands, File, Embed, Intents, Client
 from dotenv import load_dotenv
 from util.constants import ERROR_RESPONSE_TEXT
-from model.deepdives import DeepDives, Type
+from model.deepdives import DeepDives, DiveType
 from model.ui import ButtonView
 from service.drg import DRGService
 from util.embed import embed_deep_dive, embed_trivia, embed_help
@@ -89,7 +89,7 @@ async def ping_cmd(ctx):
 @tree.command(name="deep-dive",
               description="Get weekly Deep Dive details")
 @app_commands.describe(variant="Which Deep Dive(s) to get details for")
-async def deep_dive_cmd(ctx, variant: Type = Type.ALL):
+async def deep_dive_cmd(ctx, variant: DiveType = DiveType.ALL):
     try:
         logger.info(f'Recieved /deep-dive command with type={variant.name}')
         await ctx.response.defer()
