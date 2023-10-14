@@ -2,7 +2,7 @@ BOSCO_WEBSITE_TEXT: str = 'Website'
 BOSCO_WEBSITE_URL: str = 'https://boscobot.dev/'
 BOSCO_INVITE_TEXT: str = 'Invite to Server'
 BOSCO_INVITE_URL: str = 'https://discord.com/api/oauth2/authorize' \
-                        '?client_id=1097476432579539026&permissions=2147485696&scope=bot'
+                        '?client_id=1097476432579539026&permissions=2147747840&scope=bot'
 ERROR_RESPONSE_TEXT: str = 'Oops, something went wrong! Please try again later.'
 DRG_API_BASE_URL: str = 'https://drgapi.com'
 DRG_API_VERSION: str = '/v1'
@@ -11,7 +11,6 @@ DRG_API_SALUTES_ENDPOINT: str = '/salutes'
 DRG_API_TRIVIA_ENDPOINT: str = '/trivia'
 DRG_API_TIMEOUT_SECONDS: int = 3
 DEFAULT_EMOJI = ':black_medium_square:'
-CUSTOM_EMOJIS: dict[str] = {
     # Mission types
     'Mining Expedition': '<:mining:1155632856845000805>',
     'Egg Hunt': '<:egghunt:1155632746237001791>',
