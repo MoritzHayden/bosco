@@ -96,7 +96,9 @@ async def deep_dive_cmd(ctx, variant: DiveVariant = DiveVariant.ALL):
         logger.info(f'Recieved /deep-dive command with variant={variant.name}')
         await ctx.response.defer()
         
-        embed = deep_dive_manager.get_embed(variant)
+        skip_custom_emojis = not ctx.app_permissions.use_external_emojis
+
+        embed = deep_dive_manager.get_embed(variant, skip_custom_emojis=skip_custom_emojis)
         await ctx.followup.send(embed=embed)
 
         logger.info('Processed /deep-dive command')
