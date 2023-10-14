@@ -3,7 +3,6 @@ from typing import Optional
 from pydantic import BaseModel, ConfigDict
 from util.emoji import get_emoji
 
-
 class DiveVariant(str, Enum):
     ALL = "All"
     DEEP_DIVE = "Deep Dive"
