@@ -5,6 +5,7 @@ from service.drg import DRGService
 from model.deepdives import DiveVariant, Mission, Stage, Variant
 from util.date import prettify_datetime
 from util.emoji import get_emoji
+from util.constants import DEEP_DIVE_IMAGE_URL
 
 
 class DeepDiveManager():
@@ -16,7 +17,11 @@ class DeepDiveManager():
         deep_dives = self.drg_service.get_deepdives()
 
         start_date = prettify_datetime(deep_dives.startTime)
-        embed = discord.Embed(title=f'Weekly Deep Dives ({start_date})', color=0xFDA50F)
+        embed = discord.Embed(
+            title=f'Weekly Deep Dives ({start_date})',
+            color=0xFDA50F
+        )
+        embed.set_thumbnail(url=DEEP_DIVE_IMAGE_URL)
 
         if skip_custom_emojis:
             embed.description = self.get_custom_emojis_notice()

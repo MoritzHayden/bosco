@@ -11,6 +11,8 @@ DRG_API_SALUTES_ENDPOINT: str = '/salutes'
 DRG_API_TRIVIA_ENDPOINT: str = '/trivia'
 DRG_API_TIMEOUT_SECONDS: int = 3
 DEFAULT_EMOJI = ':black_medium_square:'
+DEEP_DIVE_IMAGE_URL = 'https://i.imgur.com/S8duBIv.png'
+CUSTOM_EMOJIS: dict[str, str] = {
     # Mission types
     'Mining Expedition': '<:mining:1155632856845000805>',
     'Egg Hunt': '<:egghunt:1155632746237001791>',
