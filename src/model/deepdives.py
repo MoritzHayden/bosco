@@ -114,11 +114,11 @@ class Variant(BaseModel):
     seed: int
     stages: list[Stage]
 
-    def get_stage(self, id: int) -> Optional[Stage]:
+    def get_stage(self, id: int) -> Stage:
         for stage in self.stages:
             if stage.id == id:
                 return stage
-        return None
+        return self.stages[0]
 
 
 class DeepDives(BaseModel):
