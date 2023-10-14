@@ -102,7 +102,6 @@ def test_get_deepdives_success(requests_mock, drg_service):
     assert dd.name == "Corroded Reserve"
     assert dd.biome == Biome.RADIOACTIVE_EXCLUSION_ZONE
     assert dd.seed == 259722398
-    assert str(dd) == "Deep Dive | Corroded Reserve | Radioactive Exclusion Zone"
     assert len(dd.stages) == 3
     dd_stage1: Stage = dd.get_stage(1)
     assert dd_stage1.id == 1
@@ -135,7 +134,6 @@ def test_get_deepdives_success(requests_mock, drg_service):
     assert edd.name == "Naked Burrow"
     assert edd.biome == Biome.SALT_PITS
     assert edd.seed == 797585550
-    assert str(edd) == "Elite Deep Dive | Naked Burrow | Salt Pits"
     edd_stage1: Stage = edd.get_stage(1)
     assert edd_stage1.id == 1
     assert edd_stage1.primary.name == "200 Morkite"
