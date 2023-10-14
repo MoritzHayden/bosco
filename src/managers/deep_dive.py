@@ -33,9 +33,6 @@ class DeepDiveManager():
                     value=self.generate_stage_details(stage),
                     inline=True
                 )
-            
-            if len(included_types) > 1 and i < len(included_types):
-                self.add_embed_spacer(embed)
 
         return embed
 
@@ -59,5 +56,3 @@ class DeepDiveManager():
             result += f'{get_emoji(stage.warning)} {stage.warning.value}\n'
         return result
 
-    def add_embed_spacer(self, embed: discord.Embed):
-        return embed.add_field(name='\u200b', value='\u200b', inline=False)
