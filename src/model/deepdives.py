@@ -4,7 +4,7 @@ from pydantic import BaseModel, ConfigDict
 from util.emoji import get_emoji
 
 
-class DiveType(str, Enum):
+class DiveVariant(str, Enum):
     ALL = "All"
     DEEP_DIVE = "Deep Dive"
     ELITE_DEEP_DIVE = "Elite Deep Dive"
@@ -75,7 +75,7 @@ class Mission():
         """Mission types provided by API don't have much overlap with regular
         mission types thus, there needs to be such conversion"""
 
-        type_name_matrix: dict[MissionType] = {
+        type_name_matrix: dict[str, MissionType] = {
             'morkite': MissionType.MINING_EXPEDITION,
             'egg':  MissionType.EGG_HUNT,
             'refining': MissionType.ON_SITE_REFINING,
@@ -93,11 +93,6 @@ class Mission():
 
         return None
 
-    def __str__(self):
-        return f'{self.emoji} {self.name}'
-
-
-
 class Stage(BaseModel):
     id: int
     primary: Mission
@@ -112,31 +107,19 @@ class Stage(BaseModel):
         kwargs['secondary'] = Mission(kwargs['secondary'])
         super().__init__(**kwargs)
 
-    def __str__(self):
-        content = f'{self.primary}\n'
-        content += f'{self.secondary}\n'
-        if self.anomaly:
-            content += f'{get_emoji(self.anomaly)} {self.anomaly.value}\n'
-        if self.warning:
-            content += f'{get_emoji(self.warning)} {self.warning.value}\n'
-        return content
-
 
 class Variant(BaseModel):
-    type: DiveType
+    type: DiveVariant
     name: str
     biome: Biome
     seed: int
     stages: list[Stage]
 
-    def get_stage(self, id: int) -> Stage:
+    def get_stage(self, id: int) -> Optional[Stage]:
         for stage in self.stages:
             if stage.id == id:
                 return stage
         return None
-
-    def __str__(self):
-        return f'{str(self.type.value)} | {self.name} | {str(self.biome.value)}'
 
 
 class DeepDives(BaseModel):
@@ -144,8 +127,8 @@ class DeepDives(BaseModel):
     endTime: str
     variants: list[Variant]
 
-    def get_variant(self, type: DiveType) -> Variant:
+    def get_variant(self, type: DiveVariant) -> Variant:
         for variant in self.variants:
             if variant.type == type:
                 return variant
-        return None
+        return self.variants[0]

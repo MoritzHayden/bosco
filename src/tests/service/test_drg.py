@@ -1,6 +1,6 @@
 import pytest
 import json
-from model.deepdives import Anomaly, Biome, DeepDives, MissionType, Stage, DiveType, Variant, Warning
+from model.deepdives import Anomaly, Biome, DeepDives, MissionType, Stage, DiveVariant, Variant, Warning
 from model.salutes import Salutes
 from model.trivia import Trivia
 from service.drg import DRGService
@@ -96,9 +96,9 @@ def test_get_deepdives_success(requests_mock, drg_service):
     assert deepdives.endTime == "2023-05-18T11:00:00Z"
     assert len(deepdives.variants) == 2
     
-    dd: Variant = deepdives.get_variant(DiveType.DEEP_DIVE)
+    dd: Variant = deepdives.get_variant(DiveVariant.DEEP_DIVE)
     assert isinstance(dd, Variant)
-    assert dd.type == DiveType.DEEP_DIVE
+    assert dd.type == DiveVariant.DEEP_DIVE
     assert dd.name == "Corroded Reserve"
     assert dd.biome == Biome.RADIOACTIVE_EXCLUSION_ZONE
     assert dd.seed == 259722398
@@ -129,9 +129,9 @@ def test_get_deepdives_success(requests_mock, drg_service):
     assert dd_stage3.anomaly == None
     assert dd_stage3.warning == Warning.LOW_OXYGEN
 
-    edd: Variant = deepdives.get_variant(DiveType.ELITE_DEEP_DIVE)
+    edd: Variant = deepdives.get_variant(DiveVariant.ELITE_DEEP_DIVE)
     assert isinstance(edd, Variant)
-    assert edd.type == DiveType.ELITE_DEEP_DIVE
+    assert edd.type == DiveVariant.ELITE_DEEP_DIVE
     assert edd.name == "Naked Burrow"
     assert edd.biome == Biome.SALT_PITS
     assert edd.seed == 797585550
