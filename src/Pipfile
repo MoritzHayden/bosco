@@ -5,15 +5,15 @@ name = "pypi"
 
 [packages]
 discord-py = "~=2.3"
-emoji = "~=2.8"
-pydantic = "~=2.4"
+emoji = "~=2.9"
+pydantic = "~=2.5"
 python-dotenv = "~=1.0"
 requests = "~=2.31"
 
 [dev-packages]
 pylint = "~=3.0"
 pytest = "~=7.4"
-pytest-mock = "~=3.11"
+pytest-mock = "~=3.12"
 
 [requires]
 python_version = "3.11"
