@@ -12,7 +12,7 @@ requests = "~=2.32"
 
 [dev-packages]
 pylint = "~=3.3"
-pytest = "~=8.3"
+pytest = "~=8.4"
 pytest-mock = "~=3.14"
 
 [requires]
