@@ -21,6 +21,7 @@ class Biome(str, Enum):
     AZURE_WEALD = "Azure Weald"
     MAGMA_CORE = "Magma Core"
     SANDBLASTED_CORRIDORS = "Sandblasted Corridors"
+    OSSUARY_DEPTHS = "Ossuary Depths"
 
 
 class Anomaly(str, Enum):
@@ -34,6 +35,8 @@ class Anomaly(str, Enum):
     RICH_ATMOSPHERE = "Rich Atmosphere"
     SECRET_SECONDARY = "Secret Secondary"
     VOLATILE_GUTS = "Volatile Guts"
+    PIT_JAW_COLONY = "Pit Jaw Colony"
+    SCRAB_NESTING_GROUNDS = "Scrab Nesting Grounds"
 
 
 class Warning(str, Enum):
