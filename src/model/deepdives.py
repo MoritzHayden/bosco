@@ -35,8 +35,6 @@ class Anomaly(str, Enum):
     RICH_ATMOSPHERE = "Rich Atmosphere"
     SECRET_SECONDARY = "Secret Secondary"
     VOLATILE_GUTS = "Volatile Guts"
-    PIT_JAW_COLONY = "Pit Jaw Colony"
-    SCRAB_NESTING_GROUNDS = "Scrab Nesting Grounds"
 
 
 class Warning(str, Enum):
@@ -54,6 +52,8 @@ class Warning(str, Enum):
     RIVAL_PRESENCE = "Rival Presence"
     SHIELD_DISRUPTION = "Shield Disruption"
     SWARMAGEDDON = "Swarmageddon"
+    PIT_JAW_COLONY = "Pit Jaw Colony"
+    SCRAB_NESTING_GROUNDS = "Scrab Nesting Grounds"
 
 
 class Stage(BaseModel):
