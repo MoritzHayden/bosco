@@ -1,13 +1,23 @@
 from enum import Enum
 from typing import Optional
-import emoji
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
+from util.emoji import get_emoji
 
-
-class Type(str, Enum):
+class DiveVariant(str, Enum):
     ALL = "All"
     DEEP_DIVE = "Deep Dive"
     ELITE_DEEP_DIVE = "Elite Deep Dive"
+
+class MissionType(str, Enum):
+    MINING_EXPEDITION = "Mining Expedition"
+    EGG_HUNT = "Egg Hunt"
+    ON_SITE_REFINING = "On-Site Refining"
+    SALVAGE_OPERATION = "Salvage Operation"
+    POINT_EXTRACTION = "Point Extraction"
+    ESCORT_DUTY = "Escort Duty"
+    ELIMINATION = "Elimination"
+    BLACK_BOX = "Black Box"
+    INDUSTRIAL_SABOTAGE = "Industrial Sabotage"
 
 
 class Biome(str, Enum):
@@ -55,28 +65,57 @@ class Warning(str, Enum):
     PIT_JAW_COLONY = "Pit Jaw Colony"
     SCRAB_NESTING_GROUNDS = "Scrab Nesting Grounds"
 
+class Mission():
+    """ Represents one mission objective like collect 7 Aquarq or mine 200 Morkite"""
+    name: str
+
+    def __init__(self, name: str):
+        self.name = name
+
+    @property
+    def emoji(self) -> str:
+        return get_emoji(self.type)
+
+    @property
+    def type(self) -> Optional[MissionType]:
+        """Mission types provided by API don't have much overlap with regular
+        mission types thus, there needs to be such conversion"""
+
+        type_name_matrix: dict[str, MissionType] = {
+            'morkite': MissionType.MINING_EXPEDITION,
+            'egg':  MissionType.EGG_HUNT,
+            'refining': MissionType.ON_SITE_REFINING,
+            'mule': MissionType.SALVAGE_OPERATION,
+            'aquarq': MissionType.POINT_EXTRACTION,
+            'escort':  MissionType.ESCORT_DUTY,
+            'dreadnought': MissionType.ELIMINATION,
+            'black box':  MissionType.BLACK_BOX,
+            'sabotage':  MissionType.INDUSTRIAL_SABOTAGE
+        }
+
+        for (name, type) in type_name_matrix.items():
+            if name in self.name.lower():
+                return type
+
+        return None
 
 class Stage(BaseModel):
     id: int
-    primary: str
-    secondary: str
+    primary: Mission
+    secondary: Mission
     anomaly: Optional[Anomaly]
     warning: Optional[Warning]
 
-    def __str__(self):
-        content = emoji.emojize(f':bullseye: {self.primary}\n')
-        content += emoji.emojize(f':bullseye: {self.secondary}\n')
-        content += emoji.emojize(
-            f':warning: {self.anomaly.value if self.anomaly else "None"}\n'
-        )
-        content += emoji.emojize(
-            f':police_car_light: {self.warning.value if self.warning else "None"}'
-        )
-        return content
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+    def __init__(self, **kwargs):
+        kwargs['primary'] = Mission(kwargs['primary'])
+        kwargs['secondary'] = Mission(kwargs['secondary'])
+        super().__init__(**kwargs)
 
 
 class Variant(BaseModel):
-    type: Type
+    type: DiveVariant
     name: str
     biome: Biome
     seed: int
@@ -86,10 +125,7 @@ class Variant(BaseModel):
         for stage in self.stages:
             if stage.id == id:
                 return stage
-        return None
-
-    def __str__(self):
-        return f'{str(self.type.value)} | {self.name} | {str(self.biome.value)}'
+        return self.stages[0]
 
 
 class DeepDives(BaseModel):
@@ -97,8 +133,8 @@ class DeepDives(BaseModel):
     endTime: str
     variants: list[Variant]
 
-    def get_variant(self, type: Type) -> Variant:
+    def get_variant(self, type: DiveVariant) -> Variant:
         for variant in self.variants:
             if variant.type == type:
                 return variant
-        return None
+        return self.variants[0]

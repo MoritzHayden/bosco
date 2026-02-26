@@ -4,11 +4,12 @@ import discord
 from logging import Formatter, FileHandler, Logger
 from discord import app_commands, File, Embed, Intents, Client
 from dotenv import load_dotenv
+from managers.deep_dive import DeepDiveManager
 from util.constants import ERROR_RESPONSE_TEXT
-from model.deepdives import DeepDives, Type
+from model.deepdives import DeepDives, DiveVariant
 from model.ui import ButtonView
 from service.drg import DRGService
-from util.embed import embed_deep_dive, embed_trivia, embed_help
+from util.embed import embed_trivia, embed_help
 
 
 # Initialize environment variables
@@ -30,10 +31,11 @@ intents: Intents = discord.Intents.default()
 client: Client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 
-
 # Initialize services
-drgService = DRGService(logger=logger)
+drg_service = DRGService(logger=logger)
 
+# Initialize Managers
+deep_dive_manager = DeepDiveManager(drg_service=drg_service, logger=logger)
 
 # Ready event
 @client.event
@@ -89,15 +91,16 @@ async def ping_cmd(ctx):
 @tree.command(name="deep-dive",
               description="Get weekly Deep Dive details")
 @app_commands.describe(variant="Which Deep Dive(s) to get details for")
-async def deep_dive_cmd(ctx, variant: Type = Type.ALL):
+async def deep_dive_cmd(ctx, variant: DiveVariant = DiveVariant.ALL):
     try:
-        logger.info(f'Recieved /deep-dive command with type={variant.name}')
+        logger.info(f'Recieved /deep-dive command with variant={variant.name}')
         await ctx.response.defer()
-        thumbnail: File = discord.File(fp=os.path.join(os.path.dirname(__file__), 'img/deep-dive.png'),
-                                 filename='deep-dive.png')
-        deep_dives: DeepDives = drgService.get_deepdives()
-        embed_message = embed_deep_dive(thumbnail, deep_dives, variant)
-        await ctx.followup.send(file=thumbnail, embed=embed_message)
+        
+        skip_custom_emojis = not ctx.app_permissions.use_external_emojis
+
+        embed = deep_dive_manager.get_embed(variant, skip_custom_emojis=skip_custom_emojis)
+        await ctx.followup.send(embed=embed)
+
         logger.info('Processed /deep-dive command')
     except Exception as e:
         await ctx.followup.send(ERROR_RESPONSE_TEXT)
@@ -110,7 +113,7 @@ async def deep_dive_cmd(ctx, variant: Type = Type.ALL):
 async def rock_and_stone_cmd(ctx):
     try:
         logger.info('Recieved /rock-and-stone command')
-        salute: str = drgService.get_salutes().get_random_salute()
+        salute: str = drg_service.get_salutes().get_random_salute()
         await ctx.response.send_message(salute)
         logger.info('Processed /rock-and-stone command')
     except Exception as e:
@@ -124,7 +127,7 @@ async def rock_and_stone_cmd(ctx):
 async def trivia_cmd(ctx):
     try:
         logger.info('Recieved /trivia command')
-        trivia: str = drgService.get_trivia().get_random_trivia()
+        trivia: str = drg_service.get_trivia().get_random_trivia()
         embed_message: Embed = embed_trivia(trivia)
         await ctx.response.send_message(embed=embed_message)
         logger.info('Processed /trivia command')
