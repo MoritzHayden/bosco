@@ -8,7 +8,7 @@ discord-py = "~=2.7"
 emoji = "~=2.15"
 pydantic = "~=2.12"
 python-dotenv = "~=1.2"
-requests = "~=2.32"
+requests = "~=2.33"
 
 [dev-packages]
 pylint = "~=4.0"
