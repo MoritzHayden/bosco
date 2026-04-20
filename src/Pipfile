@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 discord-py = "~=2.7"
 emoji = "~=2.15"
-pydantic = "~=2.12"
+pydantic = "~=2.13"
 python-dotenv = "~=1.2"
 requests = "~=2.33"
 
