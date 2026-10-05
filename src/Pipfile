@@ -11,7 +11,7 @@ python-dotenv = "~=1.2"
 requests = "~=2.34"
 
 [dev-packages]
-pylint = "~=4.0"
+pylint = "~=4.1"
 pytest = "~=9.1"
 pytest-mock = "~=3.15"
 
