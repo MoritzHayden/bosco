@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b9a946fcef2a99823fbbe0ec03eec4f015a3ed9c244bba2e4feb72ef042020d7"
+            "sha256": "f467a338aa0f2659724235492556aa4de311b4e5ffa258195ea56c783a0fd804"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1217,11 +1217,11 @@
         },
         "iniconfig": {
             "hashes": [
-                "sha256:c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730",
-                "sha256:f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12"
+                "sha256:67f4b9c50da0dedf52af349e7749a80a9057a5031199791b906c3bb3ae878960",
+                "sha256:9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==2.3.0"
+            "version": "==2.3.1"
         },
         "isort": {
             "hashes": [
@@ -1300,11 +1300,11 @@
         },
         "pluggy": {
             "hashes": [
-                "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3",
-                "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"
+                "sha256:7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec",
+                "sha256:d1eaa46ebb595891b860ab086b4d09c8588af65ebd4361b8e8f4bb8920b90ba8"
             ],
-            "markers": "python_version >= '3.9'",
-            "version": "==1.6.0"
+            "markers": "python_version >= '3.10'",
+            "version": "==1.7.0"
         },
         "pygments": {
             "hashes": [
@@ -1334,12 +1334,12 @@
         },
         "pytest-mock": {
             "hashes": [
-                "sha256:007cfeb257801d88d9c0b2a7b5a15a15e73b71968dfd72e7bf8c4a2f8393aec8",
-                "sha256:5a8395528b8f498205f3718f575228d0edaed7425fff638f87d1a6c3e0383636"
+                "sha256:1b82aa4b37137248bd687055e109723debeb07b489de1565297dc9589c5f2d6b",
+                "sha256:e36576e0985e01027e999891e7a966c67822d40c89ef1b4c8b6e22737e3590b4"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==3.16.0"
+            "version": "==3.17.0"
         },
         "tomlkit": {
             "hashes": [
