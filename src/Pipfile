@@ -13,7 +13,7 @@ requests = "~=2.34"
 [dev-packages]
 pylint = "~=4.1"
 pytest = "~=9.1"
-pytest-mock = "~=3.16"
+pytest-mock = "~=3.17"
 
 [requires]
 python_version = "3.11"
